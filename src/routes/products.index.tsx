@@ -1,0 +1,41 @@
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState } from "react";
+import { ArrowRight } from "lucide-react";
+import { CtaBanner, PageHero } from "@/components/site/Layout";
+import { categories, images, products } from "@/lib/site";
+import { seo } from "@/lib/seo";
+
+export const Route = createFileRoute("/products/")({
+  head: () => seo("Products", "Browse agricultural biotechnology product categories from Unimax Agri Bio-Technologies."),
+  component: Products,
+});
+
+function Products() {
+  const [cat, setCat] = useState("All");
+  const list = cat === "All" ? products : products.filter((p) => p.category === cat);
+  return (
+    <>
+      <PageHero eyebrow="Products" title="Solutions for modern agriculture." text="Sample listings shown — the confirmed product range will be published after approval." img={images.soil} />
+      <section className="container-x section-y">
+        <div className="mb-10 flex flex-wrap gap-2">
+          {["All", ...categories.map((c) => c.title)].map((c) => (
+            <button key={c} onClick={() => setCat(c)} className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${cat === c ? "border-primary bg-primary text-primary-foreground" : "bg-card hover:border-accent"}`}>{c}</button>
+          ))}
+        </div>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {list.map((p) => (
+            <Link key={p.slug} to="/products/$slug" params={{ slug: p.slug }} className="group overflow-hidden rounded-2xl border bg-card transition-all hover:border-accent hover:shadow-lift">
+              <div className="overflow-hidden"><img src={p.img} alt="" loading="lazy" className="aspect-[4/3] w-full object-cover transition-transform duration-700 group-hover:scale-105" /></div>
+              <div className="p-6">
+                <p className="text-xs font-semibold uppercase tracking-widest text-accent">{p.category}</p>
+                <h3 className="mt-2 text-xl font-bold text-primary">{p.name}</h3>
+                <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary">View details <ArrowRight className="size-4" /></span>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+      <CtaBanner />
+    </>
+  );
+}
