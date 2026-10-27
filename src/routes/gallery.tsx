@@ -2,7 +2,7 @@ import { useState } from "react";
 import { X } from "lucide-react";
 import { PageHero } from "@/components/site/Layout";
 import { useManagedContent } from "@/lib/content-store";
-import { breadcrumbImages } from "@/lib/site";
+import { breadcrumbImages, images } from "@/lib/site";
 export default function Gallery() {
   const [open, setOpen] = useState<string | null>(null);
   const { content } = useManagedContent();

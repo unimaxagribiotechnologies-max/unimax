@@ -7,6 +7,12 @@ export const images = { hero, lab, farmer, soil };
 
 export const heroBackground = "/assets/54c2bb1f-37f0-4b01-af30-3a0ee8e95d13.png";
 
+export const companyImages = {
+  values: "/assets/company-values.jpeg",
+  profile: "/assets/company-profile.jpeg",
+  brand: "/assets/unimax-brand.jpeg",
+};
+
 export const breadcrumbImages = {
   about: "/assets/breadcrubs/about.png",
   blog: "/assets/breadcrubs/blog.png",
@@ -37,6 +43,15 @@ export const nav = [
   { to: "/blog", label: "Blog" },
   { to: "/testimonials", label: "Testimonials" },
   { to: "/contact", label: "Contact" },
+] as const;
+
+export const resourceNav = [
+  { to: "/awards", label: "Awards" },
+  { to: "/certification", label: "Certification" },
+  { to: "/csr", label: "CSR" },
+  { to: "/laboratory", label: "Laboratory" },
+  { to: "/video", label: "Video" },
+  { to: "/news-events", label: "News / Events" },
 ] as const;
 
 // Illustrative categories only — not confirmed Unimax offerings. Replace with approved content.

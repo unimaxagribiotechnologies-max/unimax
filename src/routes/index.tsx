@@ -1,9 +1,9 @@
 import { Link } from "@/lib/router";
-import { ArrowRight, FlaskConical, Handshake, Leaf, Microscope, Settings2, ShieldCheck, Sprout, Users } from "lucide-react";
+import { ArrowRight, BadgeCheck, FlaskConical, Handshake, HeartHandshake, Leaf, Microscope, Newspaper, PlayCircle, Settings2, ShieldCheck, Sprout, Trophy, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CtaBanner, Placeholder, SectionHead } from "@/components/site/Layout";
 import { useManagedContent } from "@/lib/content-store";
-import { categories, company, heroBackground, images, services } from "@/lib/site";
+import { categories, company, heroBackground, images, resourceNav, services } from "@/lib/site";
 const strengths = [
   { icon: Microscope, title: "Science-Led Approach", text: "Biotechnology-inspired thinking applied to everyday farming." },
   { icon: Sprout, title: "Farmer Focused", text: "Solutions shaped around real field conditions." },
@@ -17,6 +17,8 @@ const heroFeatures = [
   { icon: Users, title: "Sustainable", subtitle: "Agriculture" },
   { icon: FlaskConical, title: "Research", subtitle: "Driven" },
 ];
+
+const resourceIcons = [Trophy, BadgeCheck, HeartHandshake, Microscope, PlayCircle, Newspaper];
 
 export default function Home() {
   const { content } = useManagedContent();
@@ -109,6 +111,21 @@ export default function Home() {
               );
             })}
           </div>
+        </div>
+      </section>
+
+      <section className="container-x section-y">
+        <SectionHead eyebrow="More from Unimax" title="Explore our company, work and updates." text="Discover the people, standards and stories behind our agricultural focus." />
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {resourceNav.map((item, index) => {
+            const Icon = resourceIcons[index] ?? Leaf;
+            return (
+              <Link key={item.to} to={item.to} className="card-animate card-animate-hover group flex items-center gap-4 rounded-2xl border bg-card p-6 shadow-soft">
+                <span className="grid size-12 shrink-0 place-items-center rounded-xl bg-secondary text-accent transition-colors group-hover:bg-primary group-hover:text-primary-foreground"><Icon className="size-6" /></span>
+                <span className="min-w-0"><span className="block text-lg font-bold text-primary">{item.label}</span><span className="mt-1 inline-flex items-center gap-1 text-sm font-semibold text-accent">Discover <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" /></span></span>
+              </Link>
+            );
+          })}
         </div>
       </section>
 

@@ -2,7 +2,7 @@ import { useEffect, useState, type ReactNode } from "react";
 import { Leaf, Mail, MapPin, Menu, Phone, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "@/lib/router";
-import { company, nav } from "@/lib/site";
+import { company, nav, resourceNav } from "@/lib/site";
 
 function Brand({ light = false }: { light?: boolean }) {
   return (
@@ -20,6 +20,7 @@ function Brand({ light = false }: { light?: boolean }) {
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [moreOpen, setMoreOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = useLocation();
   useEffect(() => {
@@ -47,6 +48,23 @@ export function Header() {
                 {n.label}
               </Link>
             ))}
+            <div className="relative">
+              <button
+                type="button"
+                onClick={() => setMoreOpen((value) => !value)}
+                className={`rounded-full px-3.5 py-2 text-sm font-medium text-foreground/80 transition-colors hover:text-primary ${resourceNav.some((n) => pathname === n.to) ? "bg-secondary text-primary" : ""}`}
+                onMouseEnter={() => setMoreOpen(true)}
+                aria-haspopup="true"
+                aria-expanded={moreOpen}
+              >
+                More <span aria-hidden>⌄</span>
+              </button>
+              <div className={`absolute right-0 top-full z-50 mt-2 grid w-52 gap-1 rounded-2xl border bg-card p-2 shadow-lift transition-all ${moreOpen ? "translate-y-0 opacity-100" : "pointer-events-none invisible translate-y-1 opacity-0"}`} onMouseLeave={() => setMoreOpen(false)}>
+                {resourceNav.map((n) => (
+                  <Link key={n.to} to={n.to} onClick={() => setMoreOpen(false)} className="rounded-xl px-3 py-2.5 text-sm font-medium text-foreground/80 hover:bg-secondary hover:text-primary">{n.label}</Link>
+                ))}
+              </div>
+            </div>
           </nav>
           <div className="flex items-center gap-2">
             <Button asChild variant="brand" className="hidden rounded-full px-5 sm:inline-flex"><Link to="/contact">Get in Touch</Link></Button>
@@ -60,6 +78,11 @@ export function Header() {
             {nav.map((n) => (
               <Link key={n.to} to={n.to} onClick={() => setOpen(false)}
                 className={`rounded-lg px-4 py-3 font-medium ${pathname === n.to || (n.to !== "/" && pathname.startsWith(n.to)) ? "bg-secondary text-primary" : ""}`}>{n.label}</Link>
+            ))}
+            <p className="px-4 pt-4 text-xs font-bold uppercase tracking-[0.2em] text-accent">More from Unimax</p>
+            {resourceNav.map((n) => (
+              <Link key={n.to} to={n.to} onClick={() => setOpen(false)}
+                className={`rounded-lg px-4 py-3 font-medium ${pathname === n.to ? "bg-secondary text-primary" : ""}`}>{n.label}</Link>
             ))}
           </nav>
         )}
@@ -89,7 +112,7 @@ export function Footer() {
         <div>
           <h3 className="mb-4 text-sm font-bold uppercase tracking-widest text-gold">Resources</h3>
           <ul className="grid gap-2 text-sm text-primary-foreground/75">
-            {nav.slice(5).map((n) => <li key={n.to}><Link to={n.to} className="hover:text-gold">{n.label}</Link></li>)}
+            {[...nav.slice(5), ...resourceNav].map((n) => <li key={n.to}><Link to={n.to} className="hover:text-gold">{n.label}</Link></li>)}
           </ul>
         </div>
         <div>

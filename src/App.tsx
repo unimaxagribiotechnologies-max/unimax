@@ -13,6 +13,7 @@ import Product from "@/routes/products.$slug";
 import Products from "@/routes/products.index";
 import Solutions from "@/routes/solutions";
 import Testimonials from "@/routes/testimonials";
+import ResourcePage, { resourceSlugs, type ResourceSlug } from "@/routes/company-resources";
 
 const titles: Record<string, string> = {
   "/": "Agricultural Biotechnology Solutions",
@@ -23,6 +24,12 @@ const titles: Record<string, string> = {
   "/blog": "Blog",
   "/testimonials": "Testimonials",
   "/contact": "Contact Us",
+  "/awards": "Awards",
+  "/certification": "Certification",
+  "/csr": "CSR",
+  "/laboratory": "Laboratory",
+  "/video": "Video",
+  "/news-events": "News / Events",
   "/admin": "Admin Dashboard",
 };
 
@@ -71,6 +78,8 @@ function Page() {
     return <BlogPost slug={decodeURIComponent(cleanPath.slice("/blog/".length))} />;
   if (cleanPath === "/testimonials") return <Testimonials />;
   if (cleanPath === "/contact") return <Contact />;
+  const resourceSlug = cleanPath.slice(1) as ResourceSlug;
+  if (resourceSlugs.includes(resourceSlug)) return <ResourcePage slug={resourceSlug} />;
   if (cleanPath === "/admin") return <Admin />;
   return <NotFound />;
 }
