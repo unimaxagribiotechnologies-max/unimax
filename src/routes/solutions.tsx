@@ -19,7 +19,7 @@ function Solutions() {
         <SectionHead eyebrow="What we offer" title="How we help" text="Proposed service areas — to be confirmed by Unimax." />
         <div className="grid gap-6 md:grid-cols-2">
           {services.map((s, i) => {
-            const I = icons[i];
+            const I = icons[i] ?? Sprout;
             return (
               <div key={s.title} className="flex gap-6 rounded-2xl border bg-card p-8 transition-all hover:shadow-lift">
                 <span className="grid size-14 shrink-0 place-items-center rounded-2xl bg-secondary"><I className="size-7 text-accent" /></span>
