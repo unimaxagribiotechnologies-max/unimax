@@ -1,6 +1,6 @@
-import { Award, BadgeCheck, Eye, Target, Heart } from "lucide-react";
+import { Award, BadgeCheck, Eye, Target, Heart, ShieldCheck } from "lucide-react";
 import { CtaBanner, PageHero, Placeholder, SectionHead } from "@/components/site/Layout";
-import { breadcrumbImages, company, images } from "@/lib/site";
+import { breadcrumbImages, company, companyImages, images } from "@/lib/site";
 export default function About() {
   return (
     <>
@@ -28,22 +28,45 @@ export default function About() {
         <SectionHead
           eyebrow="Certifications"
           title="Built on trust and standards."
-          text="Certification details and documents will be added once supplied by Unimax."
+          text="Quality standards and agricultural registrations shared in the Unimax company profile."
         />
         <div className="grid gap-6 md:grid-cols-2">
           {[
-            { icon: Award, title: "Certification 01" },
-            { icon: BadgeCheck, title: "Certification 02" },
-          ].map(({ icon: Icon, title }) => (
-            <div key={title} className="card-animate card-animate-hover flex items-start gap-5 rounded-2xl border bg-card p-7 shadow-soft">
-              <span className="grid size-14 shrink-0 place-items-center rounded-2xl bg-secondary">
-                <Icon className="size-7 text-accent" />
-              </span>
-              <div>
-                <h3 className="text-xl font-bold text-primary">{title}</h3>
-                <p className="mt-3"><Placeholder>Certificate name, issuer and validity to be supplied</Placeholder></p>
+            {
+              icon: Award,
+              tag: "Quality management",
+              title: "ISO 9001:2015",
+              detail: "Certified company",
+              image: companyImages.brand,
+              imageAlt: "Unimax agricultural brand certificate reference",
+              text: "Unimax Agri Bio-Technologies (I) Pvt. Ltd. is identified as an ISO 9001:2015 certified company in the supplied company profile.",
+            },
+            {
+              icon: ShieldCheck,
+              tag: "Agricultural registration",
+              title: "Bio-Stimulant Licence",
+              detail: "LCBWD0620250025",
+              image: companyImages.profile,
+              imageAlt: "Unimax company profile and registration reference",
+              text: "The Bio-Stimulant Licence number is listed in the supplied company profile for company reference.",
+            },
+          ].map(({ icon: Icon, tag, title, detail, image, imageAlt, text }) => (
+            <article key={title} className="card-animate card-animate-hover relative overflow-hidden rounded-3xl border bg-card p-7 shadow-soft md:p-8">
+              <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-accent via-gold to-primary" aria-hidden />
+              <div className="grid gap-6 sm:grid-cols-[150px_1fr] sm:items-start">
+                <a href={image} target="_blank" rel="noreferrer" className="group overflow-hidden rounded-2xl border bg-secondary/50 p-2" aria-label={`Open ${title} image`}>
+                  <img src={image} alt={imageAlt} loading="lazy" className="h-52 w-full rounded-xl object-contain transition-transform duration-500 group-hover:scale-105" />
+                </a>
+                <div className="min-w-0">
+                  <span className="mb-4 grid size-12 place-items-center rounded-2xl bg-secondary"><Icon className="size-6 text-accent" /></span>
+                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-accent">{tag}</p>
+                  <h3 className="mt-2 text-xl font-bold text-primary">{title}</h3>
+                  <p className="mt-1 text-sm font-semibold text-foreground/70">{detail}</p>
+                </div>
               </div>
-            </div>
+              <p className="mt-6 border-t pt-5 text-sm leading-relaxed text-muted-foreground">{text}</p>
+              <div className="mt-5 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.15em] text-primary"><BadgeCheck className="size-4 text-accent" /> Company profile reference</div>
+            </article>
           ))}
         </div>
       </section>
