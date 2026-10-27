@@ -1,20 +1,16 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "@/lib/router";
 import { PageHero } from "@/components/site/Layout";
-import { images, posts } from "@/lib/site";
-import { seo } from "@/lib/seo";
+import { useManagedContent } from "@/lib/content-store";
+import { breadcrumbImages } from "@/lib/site";
+export default function Blog() {
+  const { content } = useManagedContent();
 
-export const Route = createFileRoute("/blog/")({
-  head: () => seo("Blog", "Agricultural news, updates and educational articles from Unimax Agri Bio-Technologies."),
-  component: Blog,
-});
-
-function Blog() {
   return (
     <>
-      <PageHero eyebrow="Blog" title="Insights for modern farming." img={images.soil} />
+      <PageHero eyebrow="Blog" title="Insights for modern farming." img={breadcrumbImages.blog} />
       <section className="container-x section-y grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {posts.map((p) => (
-          <Link key={p.slug} to="/blog/$slug" params={{ slug: p.slug }} className="group overflow-hidden rounded-2xl border bg-card transition-all hover:shadow-lift">
+        {content.posts.map((p) => (
+          <Link key={p.slug} to={`/blog/${p.slug}`} className="card-animate card-animate-hover group overflow-hidden rounded-2xl border bg-card hover:shadow-lift">
             <img src={p.img} alt="" loading="lazy" className="aspect-[16/10] w-full object-cover" />
             <div className="p-6">
               <p className="text-xs font-semibold uppercase tracking-widest text-accent">{p.date}</p>

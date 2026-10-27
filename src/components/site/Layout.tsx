@@ -1,7 +1,7 @@
-import { Link } from "@tanstack/react-router";
 import { useEffect, useState, type ReactNode } from "react";
-import { Leaf, Mail, MapPin, Menu, MessageCircle, Phone, X } from "lucide-react";
+import { Leaf, Mail, MapPin, Menu, Phone, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link, useLocation } from "@/lib/router";
 import { company, nav } from "@/lib/site";
 
 function Brand({ light = false }: { light?: boolean }) {
@@ -21,6 +21,7 @@ function Brand({ light = false }: { light?: boolean }) {
 export function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = useLocation();
   useEffect(() => {
     const f = () => setScrolled(window.scrollY > 20);
     f(); window.addEventListener("scroll", f); return () => window.removeEventListener("scroll", f);
@@ -41,8 +42,8 @@ export function Header() {
           <Brand />
           <nav className="hidden items-center gap-1 xl:flex" aria-label="Main">
             {nav.map((n) => (
-              <Link key={n.to} to={n.to} activeOptions={{ exact: n.to === "/" }}
-                className="relative rounded-full px-3.5 py-2 text-sm font-medium text-foreground/80 transition-colors hover:text-primary data-[status=active]:bg-secondary data-[status=active]:text-primary">
+              <Link key={n.to} to={n.to}
+                className={`relative rounded-full px-3.5 py-2 text-sm font-medium text-foreground/80 transition-colors hover:text-primary ${pathname === n.to || (n.to !== "/" && pathname.startsWith(n.to)) ? "bg-secondary text-primary" : ""}`}>
                 {n.label}
               </Link>
             ))}
@@ -57,8 +58,8 @@ export function Header() {
         {open && (
           <nav className="container-x grid gap-1 pb-6 xl:hidden" aria-label="Mobile">
             {nav.map((n) => (
-              <Link key={n.to} to={n.to} onClick={() => setOpen(false)} activeOptions={{ exact: n.to === "/" }}
-                className="rounded-lg px-4 py-3 font-medium data-[status=active]:bg-secondary data-[status=active]:text-primary">{n.label}</Link>
+              <Link key={n.to} to={n.to} onClick={() => setOpen(false)}
+                className={`rounded-lg px-4 py-3 font-medium ${pathname === n.to || (n.to !== "/" && pathname.startsWith(n.to)) ? "bg-secondary text-primary" : ""}`}>{n.label}</Link>
             ))}
           </nav>
         )}
@@ -71,7 +72,10 @@ export function Footer() {
   return (
     <footer className="relative overflow-hidden bg-primary-deep text-primary-foreground">
       <div className="bg-dots absolute inset-0" aria-hidden />
-      <div className="container-x relative grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-4">
+      <div className="pointer-events-none absolute inset-x-0 bottom-4 z-0 overflow-hidden text-center" aria-hidden>
+        <span className="block whitespace-nowrap font-display text-[clamp(5rem,17vw,15rem)] font-extrabold leading-none tracking-[-0.08em] text-primary-foreground/[0.045]">UNIMAX AGRI</span>
+      </div>
+      <div className="container-x relative z-10 grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-4">
         <div className="space-y-4">
           <Brand light />
           <p className="text-sm text-primary-foreground/70">Agricultural biotechnology solutions for modern Indian farming, from Ahmednagar, Maharashtra.</p>
@@ -98,7 +102,7 @@ export function Footer() {
           </ul>
         </div>
       </div>
-      <div className="relative border-t border-primary-foreground/10">
+      <div className="relative z-10 border-t border-primary-foreground/10">
         <div className="container-x py-6 text-xs text-primary-foreground/60">© {new Date().getFullYear()} {company.name}. All rights reserved.</div>
       </div>
     </footer>
@@ -108,24 +112,21 @@ export function Footer() {
 export function FloatingContact() {
   return (
     <div className="fixed bottom-5 right-5 z-50 flex flex-col gap-3">
-      <a href={company.whatsapp} target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp" className="grid size-13 place-items-center rounded-full bg-accent text-accent-foreground shadow-lift transition-transform hover:scale-105"><MessageCircle className="size-6" /></a>
-      <a href={company.phoneHref} aria-label="Call us" className="grid size-13 place-items-center rounded-full bg-primary text-primary-foreground shadow-lift transition-transform hover:scale-105"><Phone className="size-6" /></a>
+      <a href={company.whatsapp} target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp" className="grid size-14 place-items-center rounded-full bg-[#25D366] text-white shadow-lift ring-4 ring-white/20 transition-transform hover:scale-110"><WhatsappIcon /></a>
     </div>
   );
 }
 
-export function PageHero({ eyebrow, title, text, img }: { eyebrow: string; title: string; text?: string; img: string }) {
+function WhatsappIcon() {
   return (
-    <section className="relative isolate overflow-hidden">
-      <img src={img} alt="" className="absolute inset-0 -z-10 size-full object-cover" />
-      <div className="bg-hero-overlay absolute inset-0 -z-10" />
-      <div className="container-x animate-rise py-24 text-primary-foreground md:py-32">
-        <p className="eyebrow !text-gold">{eyebrow}</p>
-        <h1 className="text-display mt-4 max-w-3xl">{title}</h1>
-        {text && <p className="mt-5 max-w-2xl text-lg text-primary-foreground/80">{text}</p>}
-      </div>
-    </section>
+    <svg viewBox="0 0 24 24" aria-hidden="true" className="size-8 fill-current">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.52-.075-.149-.669-1.611-.916-2.206-.242-.579-.487-.5-.669-.51-.173-.007-.372-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982 1-3.648-.235-.374a9.86 9.86 0 0 1-1.511-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.886 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.893c0 2.096.547 4.142 1.588 5.945L.057 24l6.304-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.82 11.82 0 0 0-3.478-8.413" />
+    </svg>
   );
+}
+
+export function PageHero({ eyebrow, title, text, img }: { eyebrow: string; title: string; text?: string; img: string }) {
+  return <section className="h-[250px] overflow-hidden sm:h-[300px] lg:h-[360px]"><img src={img} alt={`${title} banner`} className="block size-full object-cover object-left" /></section>;
 }
 
 export function SectionHead({ eyebrow, title, text, center = false }: { eyebrow: string; title: string; text?: string; center?: boolean }) {

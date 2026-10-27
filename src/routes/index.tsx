@@ -1,15 +1,9 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, FlaskConical, Handshake, Leaf, Microscope, ShieldCheck, Sprout, Users } from "lucide-react";
+import { Link } from "@/lib/router";
+import { ArrowRight, FlaskConical, Handshake, Leaf, Microscope, Settings2, ShieldCheck, Sprout, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CtaBanner, Placeholder, SectionHead } from "@/components/site/Layout";
-import { categories, company, gallery, images, posts, services, testimonials } from "@/lib/site";
-import { seo } from "@/lib/seo";
-
-export const Route = createFileRoute("/")({
-  head: () => seo("Agricultural Biotechnology Solutions", "Unimax Agri Bio-Technologies — science-driven agricultural solutions for farmers, dealers and distributors across Maharashtra."),
-  component: Home,
-});
-
+import { useManagedContent } from "@/lib/content-store";
+import { categories, company, heroBackground, images, services } from "@/lib/site";
 const strengths = [
   { icon: Microscope, title: "Science-Led Approach", text: "Biotechnology-inspired thinking applied to everyday farming." },
   { icon: Sprout, title: "Farmer Focused", text: "Solutions shaped around real field conditions." },
@@ -17,19 +11,39 @@ const strengths = [
   { icon: Leaf, title: "Sustainable Growth", text: "Healthier soil today for better harvests tomorrow." },
 ];
 
-function Home() {
+const heroFeatures = [
+  { icon: Sprout, title: "Innovative", subtitle: "Solutions" },
+  { icon: Settings2, title: "Farmer", subtitle: "Focused" },
+  { icon: Users, title: "Sustainable", subtitle: "Agriculture" },
+  { icon: FlaskConical, title: "Research", subtitle: "Driven" },
+];
+
+export default function Home() {
+  const { content } = useManagedContent();
+  const homeGallery = content.gallery.length < 5 ? [...content.gallery, images.farmer] : content.gallery;
+
   return (
     <>
       <section className="relative isolate flex min-h-[88vh] items-center overflow-hidden">
-        <img src={images.hero} alt="Green farmland at sunrise in Maharashtra" width={1920} height={1088} className="absolute inset-0 -z-10 size-full object-cover" />
-        <div className="bg-hero-overlay absolute inset-0 -z-10" />
-        <div className="container-x animate-rise py-24 text-primary-foreground">
-          <p className="eyebrow !text-gold">Agricultural Biotechnology · Ahmednagar</p>
-          <h1 className="text-display mt-5 max-w-4xl">Science that grows <span className="text-gold">stronger harvests.</span></h1>
-          <p className="mt-6 max-w-xl text-lg text-primary-foreground/80">Unimax Agri Bio-Technologies brings modern agri-biotech solutions to farmers, dealers and agricultural businesses.</p>
-          <div className="mt-10 flex flex-wrap gap-3">
-            <Button asChild variant="gold" size="xl"><Link to="/products">Explore Products <ArrowRight /></Link></Button>
-            <Button asChild variant="glass" size="xl"><Link to="/contact">Contact Us</Link></Button>
+        <img src={heroBackground} alt="Farmer standing in a green agricultural field at sunrise" width={1672} height={941} className="absolute inset-0 -z-10 size-full object-cover" />
+        <div className="absolute inset-y-0 left-0 -z-10 w-full bg-gradient-to-r from-background/95 via-background/75 to-transparent lg:w-[68%]" />
+        <div className="container-x relative z-10 animate-rise py-20 text-primary md:py-24">
+          <div className="max-w-3xl">
+            <p className="eyebrow flex items-center gap-3 text-primary"><span className="h-px w-8 bg-gold" />Agricultural Biotechnology · Ahmednagar</p>
+            <h1 className="text-display mt-5 max-w-3xl">Science that grows <span className="text-gold">stronger harvests.</span></h1>
+            <p className="mt-6 max-w-xl text-lg text-primary/80">Unimax Agri Bio-Technologies brings modern agri-biotech solutions to farmers, dealers and agricultural businesses.</p>
+            <div className="mt-9 flex flex-wrap gap-3">
+              <Button asChild variant="brand" size="xl"><Link to="/products">Explore Products <ArrowRight /></Link></Button>
+              <Button asChild variant="outline" size="xl" className="border-primary/40 bg-background/30 text-primary hover:bg-background/60"><Link to="/contact">Contact Us <ArrowRight /></Link></Button>
+            </div>
+            <div className="mt-10 grid max-w-2xl grid-cols-2 border-t border-primary/20 pt-6 sm:grid-cols-4 sm:border-t-0 sm:pt-0">
+              {heroFeatures.map(({ icon: Icon, title, subtitle }) => (
+                <div key={title} className="flex items-center gap-3 border-primary/20 py-3 sm:border-r sm:px-5 sm:first:pl-0 sm:last:border-0">
+                  <Icon className="size-7 shrink-0 text-primary" />
+                  <span className="text-sm font-semibold leading-tight text-primary"><span className="block">{title}</span><span className="block">{subtitle}</span></span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -53,7 +67,7 @@ function Home() {
       <section className="bg-secondary section-y">
         <div className="container-x grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {strengths.map((s) => (
-            <div key={s.title} className="rounded-2xl border bg-card p-7 transition-all hover:-translate-y-1 hover:shadow-lift">
+            <div key={s.title} className="card-animate card-animate-hover rounded-2xl border bg-card p-7">
               <s.icon className="size-9 text-accent" />
               <h3 className="mt-5 text-lg font-bold text-primary">{s.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{s.text}</p>
@@ -66,7 +80,7 @@ function Home() {
         <SectionHead eyebrow="Products for Modern Agriculture" title="Explore Our Agricultural Solutions" text="Illustrative categories — final product range to be confirmed by Unimax." />
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {categories.map((c) => (
-            <Link key={c.slug} to="/products" className="group overflow-hidden rounded-2xl border bg-card transition-all hover:border-accent hover:shadow-lift">
+            <Link key={c.slug} to="/products" className="card-animate card-animate-hover group overflow-hidden rounded-2xl border bg-card hover:border-accent">
               <div className="overflow-hidden"><img src={c.img} alt="" loading="lazy" className="aspect-[16/10] w-full object-cover transition-transform duration-700 group-hover:scale-105" /></div>
               <div className="p-6">
                 <h3 className="text-xl font-bold text-primary">{c.title}</h3>
@@ -87,7 +101,7 @@ function Home() {
             {services.map((s, i) => {
               const Icon = [Sprout, FlaskConical, Users, Handshake][i] ?? Sprout;
               return (
-                <div key={s.title} className="rounded-2xl border border-primary-foreground/15 bg-primary-foreground/5 p-7 backdrop-blur transition-colors hover:bg-primary-foreground/10">
+                <div key={s.title} className="card-animate rounded-2xl border border-primary-foreground/15 bg-primary-foreground/5 p-7 backdrop-blur transition-colors hover:bg-primary-foreground/10">
                   <Icon className="size-8 text-gold" />
                   <h3 className="mt-5 text-lg font-bold">{s.title}</h3>
                   <p className="mt-2 text-sm text-primary-foreground/70">{s.desc}</p>
@@ -101,7 +115,7 @@ function Home() {
       <section className="container-x section-y">
         <SectionHead eyebrow="Gallery" title="From the field" />
         <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-          {gallery.slice(0, 4).map((g, i) => <img key={i} src={g} alt="" loading="lazy" className={`w-full rounded-2xl object-cover ${i === 0 ? "md:col-span-2 md:row-span-2 aspect-square" : "aspect-square"}`} />)}
+          {homeGallery.slice(0, 5).map((g, i) => <img key={i} src={g} alt="" loading="lazy" className={`w-full rounded-2xl object-cover ${i === 0 ? "md:col-span-2 md:row-span-2 aspect-square" : "aspect-square"}`} />)}
         </div>
       </section>
 
@@ -109,8 +123,8 @@ function Home() {
         <div className="container-x">
           <SectionHead eyebrow="Testimonials" title="Voices from the field" center />
           <div className="grid gap-6 md:grid-cols-3">
-            {testimonials.map((t, i) => (
-              <figure key={i} className="rounded-2xl bg-card p-8 shadow-soft">
+            {content.testimonials.map((t, i) => (
+              <figure key={i} className="card-animate card-animate-hover rounded-2xl bg-card p-8 shadow-soft">
                 <blockquote className="text-foreground/80">“{t.quote}”</blockquote>
                 <figcaption className="mt-6 text-sm"><b className="text-primary">{t.name}</b><span className="block text-muted-foreground">{t.role}</span></figcaption>
               </figure>
@@ -122,8 +136,8 @@ function Home() {
       <section className="container-x section-y">
         <SectionHead eyebrow="Insights" title="Latest from the blog" />
         <div className="grid gap-6 md:grid-cols-3">
-          {posts.map((p) => (
-            <Link key={p.slug} to="/blog/$slug" params={{ slug: p.slug }} className="group">
+          {content.posts.map((p) => (
+            <Link key={p.slug} to={`/blog/${p.slug}`} className="card-animate card-animate-hover group rounded-2xl p-2">
               <img src={p.img} alt="" loading="lazy" className="aspect-[16/10] w-full rounded-2xl object-cover transition-opacity group-hover:opacity-90" />
               <p className="mt-4 text-xs font-semibold uppercase tracking-widest text-accent">{p.date}</p>
               <h3 className="mt-2 text-xl font-bold text-primary group-hover:underline">{p.title}</h3>

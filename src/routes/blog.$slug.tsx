@@ -1,20 +1,14 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { Link } from "@/lib/router";
 import { ArrowLeft } from "lucide-react";
-import { posts } from "@/lib/site";
-import { seo } from "@/lib/seo";
+import { useManagedContent } from "@/lib/content-store";
+export default function BlogPost({ slug }: { slug: string }) {
+  const { content } = useManagedContent();
+  const post = content.posts.find((item) => item.slug === slug);
 
-export const Route = createFileRoute("/blog/$slug")({
-  loader: ({ params }) => {
-    const post = posts.find((p) => p.slug === params.slug);
-    if (!post) throw notFound();
-    return { post };
-  },
-  head: ({ loaderData }) => loaderData ? seo(loaderData.post.title, loaderData.post.excerpt) : { meta: [{ title: "Article not found" }, { name: "robots", content: "noindex" }] },
-  component: Post,
-});
+  if (!post) {
+    return <section className="container-x section-y"><h1 className="text-h2 text-primary">Article not found</h1><Link to="/blog" className="mt-6 inline-flex text-accent">Back to blog</Link></section>;
+  }
 
-function Post() {
-  const { post } = Route.useLoaderData();
   return (
     <article className="container-x section-y max-w-3xl">
       <Link to="/blog" className="inline-flex items-center gap-2 text-sm font-semibold text-accent"><ArrowLeft className="size-4" /> All articles</Link>

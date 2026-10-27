@@ -1,22 +1,17 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { Link } from "@/lib/router";
 import { ArrowLeft, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Placeholder } from "@/components/site/Layout";
-import { company, products } from "@/lib/site";
-import { seo } from "@/lib/seo";
+import { useManagedContent } from "@/lib/content-store";
+import { company } from "@/lib/site";
+export default function Product({ slug }: { slug: string }) {
+  const { content } = useManagedContent();
+  const p = content.products.find((item) => item.slug === slug);
 
-export const Route = createFileRoute("/products/$slug")({
-  loader: ({ params }) => {
-    const product = products.find((p) => p.slug === params.slug);
-    if (!product) throw notFound();
-    return { product };
-  },
-  head: ({ loaderData }) => loaderData ? seo(loaderData.product.name, loaderData.product.summary) : { meta: [{ title: "Product not found" }, { name: "robots", content: "noindex" }] },
-  component: ProductDetail,
-});
+  if (!p) {
+    return <section className="container-x section-y"><h1 className="text-h2 text-primary">Product not found</h1><Link to="/products" className="mt-6 inline-flex text-accent">Back to products</Link></section>;
+  }
 
-function ProductDetail() {
-  const { product: p } = Route.useLoaderData();
   return (
     <section className="container-x section-y">
       <Link to="/products" className="mb-8 inline-flex items-center gap-2 text-sm font-semibold text-accent"><ArrowLeft className="size-4" /> All products</Link>

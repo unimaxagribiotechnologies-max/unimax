@@ -1,23 +1,18 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { X } from "lucide-react";
 import { PageHero } from "@/components/site/Layout";
-import { gallery, images } from "@/lib/site";
-import { seo } from "@/lib/seo";
-
-export const Route = createFileRoute("/gallery")({
-  head: () => seo("Gallery", "Photos from the fields, farms and work of Unimax Agri Bio-Technologies."),
-  component: Gallery,
-});
-
-function Gallery() {
+import { useManagedContent } from "@/lib/content-store";
+import { breadcrumbImages } from "@/lib/site";
+export default function Gallery() {
   const [open, setOpen] = useState<string | null>(null);
+  const { content } = useManagedContent();
+  const galleryItems = content.gallery.length < 5 ? [...content.gallery, images.farmer] : content.gallery;
   return (
     <>
-      <PageHero eyebrow="Gallery" title="Moments from the field." text="Representative images — company photos will replace these." img={images.hero} />
+      <PageHero eyebrow="Gallery" title="Moments from the field." text="Representative images — company photos will replace these." img={breadcrumbImages.gallery} />
       <section className="container-x section-y columns-1 gap-4 sm:columns-2 lg:columns-3">
-        {gallery.map((g, i) => (
-          <button key={i} onClick={() => setOpen(g)} className="mb-4 block w-full overflow-hidden rounded-2xl">
+        {galleryItems.map((g, i) => (
+          <button key={i} onClick={() => setOpen(g)} className="card-animate card-animate-hover mb-4 block w-full overflow-hidden rounded-2xl">
             <img src={g} alt="Gallery image" loading="lazy" className={`w-full object-cover transition-transform duration-700 hover:scale-105 ${i % 3 === 0 ? "aspect-[3/4]" : "aspect-[4/3]"}`} />
           </button>
         ))}

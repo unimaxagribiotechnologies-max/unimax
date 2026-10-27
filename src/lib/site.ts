@@ -5,6 +5,18 @@ import soil from "@/assets/soil.jpg";
 
 export const images = { hero, lab, farmer, soil };
 
+export const heroBackground = "/assets/54c2bb1f-37f0-4b01-af30-3a0ee8e95d13.png";
+
+export const breadcrumbImages = {
+  about: "/assets/breadcrubs/about.png",
+  blog: "/assets/breadcrubs/blog.png",
+  contact: "/assets/breadcrubs/contact%20us.png",
+  gallery: "/assets/breadcrubs/gallery.png",
+  products: "/assets/breadcrubs/products.png",
+  solutions: "/assets/breadcrubs/solutions.png",
+  testimonials: "/assets/breadcrubs/testimonials.png",
+};
+
 export const company = {
   name: "Unimax Agri Bio-Technologies Pvt. Ltd.",
   short: "Unimax Agri Bio-Tech",
@@ -56,13 +68,21 @@ export const services = [
   { title: "Dealer & Distributor Enquiries", desc: "Proposed service — partnership enquiries for dealers and distributors." },
 ];
 
-export const posts = [
+export type Post = {
+  slug: string; title: string; date: string; img: string; excerpt: string;
+};
+
+export const posts: Post[] = [
   { slug: "understanding-soil-health", title: "Understanding Soil Health: A Farmer's Primer", date: "Sample article", img: soil, excerpt: "Placeholder article. Healthy soil is the foundation of every productive harvest — this sample shows how blog posts will appear." },
   { slug: "role-of-biotechnology-in-farming", title: "The Role of Biotechnology in Modern Farming", date: "Sample article", img: lab, excerpt: "Placeholder article showing how educational content about agri-biotech will be presented to readers." },
   { slug: "season-planning-tips", title: "Planning Your Crop Season", date: "Sample article", img: hero, excerpt: "Placeholder article. Seasonal planning tips and agricultural updates will be published here." },
 ];
 
-export const testimonials = [
+export type Testimonial = {
+  name: string; role: string; quote: string;
+};
+
+export const testimonials: Testimonial[] = [
   { name: "Testimonial placeholder", role: "Farmer, Maharashtra", quote: "Real customer feedback will appear here once supplied and approved by Unimax." },
   { name: "Testimonial placeholder", role: "Dealer", quote: "This space is reserved for verified dealer and distributor testimonials." },
   { name: "Testimonial placeholder", role: "Agri business", quote: "Verified reviews only — no invented testimonials are published." },

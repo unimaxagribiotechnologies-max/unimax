@@ -1,27 +1,20 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link } from "@/lib/router";
 import { FlaskConical, Handshake, Sprout, Users, ArrowRight } from "lucide-react";
 import { CtaBanner, PageHero, SectionHead } from "@/components/site/Layout";
-import { images, services } from "@/lib/site";
-import { seo } from "@/lib/seo";
-
-export const Route = createFileRoute("/solutions")({
-  head: () => seo("Solutions & Services", "Crop nutrition guidance, product information, farmer support and dealer enquiries from Unimax."),
-  component: Solutions,
-});
-
+import { breadcrumbImages, services } from "@/lib/site";
 const icons = [Sprout, FlaskConical, Users, Handshake];
 
-function Solutions() {
+export default function Solutions() {
   return (
     <>
-      <PageHero eyebrow="Solutions" title="Support beyond the product." img={images.lab} />
+      <PageHero eyebrow="Solutions" title="Support beyond the product." img={breadcrumbImages.solutions} />
       <section className="container-x section-y">
         <SectionHead eyebrow="What we offer" title="How we help" text="Proposed service areas — to be confirmed by Unimax." />
         <div className="grid gap-6 md:grid-cols-2">
           {services.map((s, i) => {
             const I = icons[i] ?? Sprout;
             return (
-              <div key={s.title} className="flex gap-6 rounded-2xl border bg-card p-8 transition-all hover:shadow-lift">
+              <div key={s.title} className="card-animate card-animate-hover flex gap-6 rounded-2xl border bg-card p-8">
                 <span className="grid size-14 shrink-0 place-items-center rounded-2xl bg-secondary"><I className="size-7 text-accent" /></span>
                 <div>
                   <h3 className="text-xl font-bold text-primary">{s.title}</h3>
