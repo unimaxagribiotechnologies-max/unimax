@@ -85,7 +85,7 @@ function Home() {
           <h2 className="text-h2 mt-3 max-w-2xl">Support for every link in the farming chain.</h2>
           <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             {services.map((s, i) => {
-              const Icon = [Sprout, FlaskConical, Users, Handshake][i];
+              const Icon = [Sprout, FlaskConical, Users, Handshake][i] ?? Sprout;
               return (
                 <div key={s.title} className="rounded-2xl border border-primary-foreground/15 bg-primary-foreground/5 p-7 backdrop-blur transition-colors hover:bg-primary-foreground/10">
                   <Icon className="size-8 text-gold" />
