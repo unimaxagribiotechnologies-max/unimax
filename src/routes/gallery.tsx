@@ -10,10 +10,16 @@ export default function Gallery() {
   return (
     <>
       <PageHero eyebrow="Gallery" title="Moments from the field." text="A visual glimpse into Unimax Agri Bio-Technologies and our work in agriculture." img={breadcrumbImages.gallery} />
-      <section className="container-x section-y columns-1 gap-4 sm:columns-2 lg:columns-3">
+      <section className="container-x section-y grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {galleryItems.map((g, i) => (
-          <button key={i} onClick={() => setOpen(g)} className="card-animate card-animate-hover mb-4 block w-full overflow-hidden rounded-2xl">
-            <img src={g} alt={`Unimax Agri gallery image ${i + 1}`} loading="lazy" className={`w-full object-cover transition-transform duration-700 hover:scale-105 ${i % 3 === 0 ? "aspect-[3/4]" : "aspect-[4/3]"}`} />
+          <button
+            key={i}
+            type="button"
+            onClick={() => setOpen(g)}
+            aria-label={`Open Unimax Agri gallery image ${i + 1}`}
+            className="card-animate card-animate-hover group block aspect-[4/3] w-full overflow-hidden rounded-2xl"
+          >
+            <img src={g} alt={`Unimax Agri gallery image ${i + 1}`} loading="lazy" className="size-full object-cover transition-transform duration-700 group-hover:scale-105" />
           </button>
         ))}
       </section>
