@@ -9,11 +9,11 @@ export default function Gallery() {
   const galleryItems = content.gallery.length < 5 ? [...content.gallery, images.farmer] : content.gallery;
   return (
     <>
-      <PageHero eyebrow="Gallery" title="Moments from the field." text="Representative images — company photos will replace these." img={breadcrumbImages.gallery} />
+      <PageHero eyebrow="Gallery" title="Moments from the field." text="A visual glimpse into Unimax Agri Bio-Technologies and our work in agriculture." img={breadcrumbImages.gallery} />
       <section className="container-x section-y columns-1 gap-4 sm:columns-2 lg:columns-3">
         {galleryItems.map((g, i) => (
           <button key={i} onClick={() => setOpen(g)} className="card-animate card-animate-hover mb-4 block w-full overflow-hidden rounded-2xl">
-            <img src={g} alt="Gallery image" loading="lazy" className={`w-full object-cover transition-transform duration-700 hover:scale-105 ${i % 3 === 0 ? "aspect-[3/4]" : "aspect-[4/3]"}`} />
+            <img src={g} alt={`Unimax Agri gallery image ${i + 1}`} loading="lazy" className={`w-full object-cover transition-transform duration-700 hover:scale-105 ${i % 3 === 0 ? "aspect-[3/4]" : "aspect-[4/3]"}`} />
           </button>
         ))}
       </section>

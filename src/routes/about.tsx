@@ -36,6 +36,16 @@ const pillars = [
   { icon: Factory, title: "Operations Team", text: "Service-oriented and skillful execution." },
 ];
 
+const departments = [
+  { icon: Building2, title: "Projects", text: "Coordinating initiatives that support the company's growth." },
+  { icon: Factory, title: "Production", text: "Turning carefully developed formulations into reliable products." },
+  { icon: ShieldCheck, title: "Quality Assurance", text: "Maintaining systems and processes that build confidence." },
+  { icon: BadgeCheck, title: "Quality Control", text: "Checking product consistency at every important stage." },
+  { icon: Microscope, title: "Research & Development", text: "Connecting technical knowledge with field requirements." },
+  { icon: Handshake, title: "Marketing", text: "Bringing practical agricultural solutions closer to farmers and partners." },
+  { icon: Building2, title: "Finance", text: "Supporting disciplined, responsible business operations." },
+];
+
 const certifications = [
   {
     icon: Award,
@@ -98,6 +108,35 @@ export default function About() {
                 <p className="mt-3 text-xs font-semibold uppercase tracking-[0.15em] text-muted-foreground">Portfolio focus {String(index + 1).padStart(2, "0")}</p>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="container-x section-y">
+        <div className="grid items-stretch gap-8 lg:grid-cols-[0.8fr_1.2fr]">
+          <article className="relative overflow-hidden rounded-3xl bg-deep p-8 text-primary-foreground shadow-lift md:p-10">
+            <div className="bg-dots absolute inset-0 opacity-60" aria-hidden />
+            <div className="relative">
+              <p className="eyebrow !text-gold">Leadership</p>
+              <h2 className="text-h2 mt-3">Experience that gives the team direction.</h2>
+              <p className="mt-6 text-lg leading-relaxed text-primary-foreground/80">Mr. Bhausaheb Ladhane, Managing Director of the Company, holds a BBM (Agri) and a postgraduate MBA in Marketing from Pune. He brings vast industrial experience and a clear understanding of the agricultural sector.</p>
+              <div className="mt-8 flex items-center gap-3 border-t border-primary-foreground/15 pt-6">
+                <UsersRound className="size-7 text-gold" />
+                <p className="text-sm font-semibold text-primary-foreground/80">A well-groomed, technically sound and dedicated team is the backbone of Unimax.</p>
+              </div>
+            </div>
+          </article>
+          <div>
+            <SectionHead eyebrow="Our people" title="Specialists working together for better agriculture." text="The people at Unimax Agri Bio-Technologies (I) Pvt. Ltd. come from diverse streams of the industry, bringing wide experience in their respective fields." />
+            <div className="grid gap-4 sm:grid-cols-2">
+              {departments.map(({ icon: Icon, title, text }) => (
+                <article key={title} className="card-animate card-animate-hover rounded-2xl border bg-card p-5 shadow-soft">
+                  <Icon className="size-6 text-accent" />
+                  <h3 className="mt-4 text-base font-bold text-primary">{title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{text}</p>
+                </article>
+              ))}
+            </div>
           </div>
         </div>
       </section>

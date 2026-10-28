@@ -1,7 +1,7 @@
 import { Link } from "@/lib/router";
 import { ArrowRight, BadgeCheck, FlaskConical, Handshake, HeartHandshake, Leaf, Microscope, Newspaper, PlayCircle, Settings2, ShieldCheck, Sprout, Trophy, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { CtaBanner, Placeholder, SectionHead } from "@/components/site/Layout";
+import { CtaBanner, SectionHead } from "@/components/site/Layout";
 import { useManagedContent } from "@/lib/content-store";
 import { categories, company, heroBackground, images, resourceNav, services } from "@/lib/site";
 const strengths = [
@@ -61,7 +61,7 @@ export default function Home() {
         <div>
           <SectionHead eyebrow="Welcome to Unimax" title="Rooted in agriculture. Driven by science." />
           <p className="text-lg text-muted-foreground">{company.name} is an agricultural biotechnology company based in {company.location}. We are focused on supporting productive, sustainable farming.</p>
-          <p className="mt-4"><Placeholder>Company story, history and mission to be supplied</Placeholder></p>
+          <p className="mt-4 text-muted-foreground">Led by Managing Director Mr. Bhausaheb Ladhane, our technically sound and dedicated team brings experience from projects, production, quality, research and development, marketing and finance to support the future of sustainable agriculture.</p>
           <Button asChild variant="brand" size="xl" className="mt-8"><Link to="/about">About Us <ArrowRight /></Link></Button>
         </div>
       </section>

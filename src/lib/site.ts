@@ -103,4 +103,9 @@ export const testimonials: Testimonial[] = [
   { name: "Testimonial placeholder", role: "Agri business", quote: "Verified reviews only — no invented testimonials are published." },
 ];
 
-export const gallery = [hero, farmer, lab, soil, hero, farmer, soil, lab];
+export const galleryImages = Array.from(
+  { length: 23 },
+  (_, index) => `/assets/gallery/gallery-${String(index + 1).padStart(2, "0")}.jpeg`,
+);
+
+export const gallery = galleryImages;
