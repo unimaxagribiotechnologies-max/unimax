@@ -138,6 +138,7 @@ const resources: Record<ResourceSlug, {
       { src: "/assets/events/event-10.jpeg", alt: "Unimax team presenting products and welcoming an agricultural guest", label: "Guest interaction" },
       { src: "/assets/events/event-11.jpeg", alt: "Unimax team speaking with visitors at the exhibition stall", label: "Visitor conversations" },
       { src: "/assets/events/event-12.jpeg", alt: "Unimax team with an honoured guest at the agricultural exhibition", label: "Exhibition highlights" },
+      { src: "/assets/events/event-13.jpeg", alt: "Unimax team meeting with dealers and agricultural partners", label: "Dealer Meeting" },
     ],
     sectionTitle: "AGRI EXHIBITION",
     cards: [
