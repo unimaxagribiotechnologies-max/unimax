@@ -1,7 +1,6 @@
 import { Link } from "@/lib/router";
-import { ArrowLeft, MessageCircle } from "lucide-react";
+import { ArrowLeft, Download, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Placeholder } from "@/components/site/Layout";
 import { useManagedContent } from "@/lib/content-store";
 import { company } from "@/lib/site";
 export default function Product({ slug }: { slug: string }) {
@@ -15,16 +14,23 @@ export default function Product({ slug }: { slug: string }) {
   return (
     <section className="container-x section-y">
       <Link to="/products" className="mb-8 inline-flex items-center gap-2 text-sm font-semibold text-accent"><ArrowLeft className="size-4" /> All products</Link>
-      <div className="grid gap-12 lg:grid-cols-2">
-        <img src={p.img} alt={p.name} className="aspect-square w-full rounded-3xl object-cover shadow-lift" />
+      <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
+        <div>
+          <img src={p.img} alt={p.name} className="aspect-[4/3] w-full rounded-3xl object-cover shadow-lift" />
+          {p.catalog && (
+            <a href={p.catalog} download className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-2xl border bg-card px-5 py-3 text-sm font-bold text-primary transition-colors hover:border-accent hover:text-accent">
+              <Download className="size-4" /> Download full product catalog
+            </a>
+          )}
+        </div>
         <div>
           <p className="eyebrow">{p.category}</p>
           <h1 className="text-h2 mt-3 text-primary">{p.name}</h1>
-          <p className="mt-5 text-lg text-muted-foreground">{p.summary}</p>
+          <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{p.summary}</p>
           <dl className="mt-8 divide-y rounded-2xl border bg-card">
-            {["Composition", "Recommended crops", "Dosage", "Pack sizes"].map((k) => (
-              <div key={k} className="flex justify-between gap-4 p-4 text-sm"><dt className="font-semibold text-primary">{k}</dt><dd><Placeholder>To be supplied</Placeholder></dd></div>
-            ))}
+            <div className="flex justify-between gap-4 p-4 text-sm"><dt className="font-semibold text-primary">Products in catalog</dt><dd className="text-right text-muted-foreground">{p.range?.length ?? "See catalog"}</dd></div>
+            <div className="flex justify-between gap-4 p-4 text-sm"><dt className="font-semibold text-primary">Product details</dt><dd className="text-right text-muted-foreground">Benefits and usage in catalog</dd></div>
+            <div className="flex justify-between gap-4 p-4 text-sm"><dt className="font-semibold text-primary">Application</dt><dd className="text-right text-muted-foreground">Refer to product label and catalog</dd></div>
           </dl>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button asChild variant="brand" size="xl"><Link to="/contact">Enquire Now</Link></Button>
@@ -32,6 +38,24 @@ export default function Product({ slug }: { slug: string }) {
           </div>
         </div>
       </div>
+      {p.highlights && (
+        <section className="mt-16">
+          <p className="eyebrow">Why this range</p>
+          <h2 className="text-h2 mt-3 text-primary">Designed for practical crop support.</h2>
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
+            {p.highlights.map((highlight) => <article key={highlight} className="rounded-2xl border bg-card p-6 shadow-soft"><p className="text-sm leading-relaxed text-muted-foreground">{highlight}</p></article>)}
+          </div>
+        </section>
+      )}
+      {p.range && (
+        <section className="mt-16">
+          <p className="eyebrow">Product range</p>
+          <h2 className="text-h2 mt-3 text-primary">Products included in this catalog.</h2>
+          <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {p.range.map((item, index) => <div key={item} className="rounded-2xl border bg-card p-5 shadow-soft"><span className="text-xs font-bold uppercase tracking-[0.18em] text-accent">{String(index + 1).padStart(2, "0")}</span><p className="mt-3 font-bold text-primary">{item}</p></div>)}
+          </div>
+        </section>
+      )}
     </section>
   );
 }

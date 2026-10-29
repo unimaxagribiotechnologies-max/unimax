@@ -31,7 +31,7 @@ export type ManagedContent = {
   gallery: string[];
 };
 
-const CONTENT_KEY = "unimax-managed-content-v1";
+const CONTENT_KEY = "unimax-managed-content-v2";
 const ENQUIRIES_KEY = "unimax-enquiries-v1";
 const CONTENT_EVENT = "unimax-content-updated";
 const ENQUIRIES_EVENT = "unimax-enquiries-updated";

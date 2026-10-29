@@ -11,7 +11,7 @@ export default function Products() {
   const list = cat === "All" ? content.products : content.products.filter((p) => p.category === cat);
   return (
     <>
-      <PageHero eyebrow="Products" title="Solutions for modern agriculture." text="Sample listings shown — the confirmed product range will be published after approval." img={breadcrumbImages.products} />
+      <PageHero eyebrow="Products" title="Solutions for modern agriculture." text="Explore the Unimax product range across bio-fertilizers, micronutrients, water-soluble fertilizers, plant growth regulators, organic fertilizers and bio-stimulants." img={breadcrumbImages.products} />
       <section className="container-x section-y">
         <div className="mb-10 flex flex-wrap gap-2">
           {["All", ...productCategories].map((c) => (
@@ -25,7 +25,7 @@ export default function Products() {
               <div className="p-6">
                 <p className="text-xs font-semibold uppercase tracking-widest text-accent">{p.category}</p>
                 <h3 className="mt-2 text-xl font-bold text-primary">{p.name}</h3>
-                <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary">View details <ArrowRight className="size-4" /></span>
+                <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary">View products and details <ArrowRight className="size-4" /></span>
               </div>
             </Link>
           ))}

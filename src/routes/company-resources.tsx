@@ -121,7 +121,7 @@ const resources: Record<ResourceSlug, {
   },
   "news-events": {
     eyebrow: "News / Events",
-    title: "Connecting with farmers, communities and agricultural partners.",
+    title: "AGRI EXHIBITION",
     intro: "Unimax participates in agricultural exhibitions and outreach programmes where farmers, dealers and partners can discover practical crop solutions and share field experiences.",
     detail: "UNIMAX AGRI BIO-TECHNOLOGIES (I) PVT LTD stall at Agriculture Exhibition - Displaying our complete range of Bio-fertilizers, Micronutrients & Fruit Quality Enhancers with live crop results.",
     image: "/assets/events/event-01.jpeg",
@@ -139,7 +139,7 @@ const resources: Record<ResourceSlug, {
       { src: "/assets/events/event-11.jpeg", alt: "Unimax team speaking with visitors at the exhibition stall", label: "Visitor conversations" },
       { src: "/assets/events/event-12.jpeg", alt: "Unimax team with an honoured guest at the agricultural exhibition", label: "Exhibition highlights" },
     ],
-    sectionTitle: "Events and outreach",
+    sectionTitle: "AGRI EXHIBITION",
     cards: [
       { icon: Newspaper, title: "Agricultural exhibitions", text: "Our event stalls bring Unimax products, crop knowledge and practical conversations closer to the farming community." },
       { icon: CalendarDays, title: "Farmer interactions", text: "Events create space to understand field needs and share useful guidance with farmers and agricultural partners." },
