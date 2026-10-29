@@ -1,15 +1,13 @@
 import { useEffect, useState, type ReactNode } from "react";
-import { Leaf, Mail, MapPin, Menu, Phone, X } from "lucide-react";
+import { Mail, MapPin, Menu, Phone, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "@/lib/router";
-import { company, nav, resourceNav } from "@/lib/site";
+import { company, companyImages, nav, resourceNav } from "@/lib/site";
 
 function Brand({ light = false }: { light?: boolean }) {
   return (
     <Link to="/" className="flex items-center gap-2.5" aria-label="Unimax home">
-      <span className="grid size-10 place-items-center rounded-xl bg-deep text-gold shadow-soft">
-        <Leaf className="size-5" />
-      </span>
+      <img src={companyImages.logo} alt="Unimax Agri Bio-Technologies logo" className={light ? "size-14 object-contain" : "size-16 object-contain"} />
       <span className="leading-tight">
         <span className={`block font-display text-lg font-extrabold ${light ? "text-primary-foreground" : "text-primary"}`}>UNIMAX</span>
         <span className={`block text-[10px] font-semibold uppercase tracking-[0.2em] ${light ? "text-primary-foreground/70" : "text-muted-foreground"}`}>Agri Bio-Technologies</span>
