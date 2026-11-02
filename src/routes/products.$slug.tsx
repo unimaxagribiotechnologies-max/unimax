@@ -42,7 +42,6 @@ export default function Product({ slug }: { slug: string }) {
           )}
           <dl className="mt-8 divide-y rounded-2xl border bg-card">
             <div className="flex justify-between gap-4 p-4 text-sm"><dt className="font-semibold text-primary">Products in catalog</dt><dd className="text-right text-muted-foreground">{p.range?.length ?? "See catalog"}</dd></div>
-            <div className="flex justify-between gap-4 p-4 text-sm"><dt className="font-semibold text-primary">Application</dt><dd className="text-right text-muted-foreground">Use as directed on the product label</dd></div>
           </dl>
           {p.catalog && (
             <a href={p.catalog} download className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-2xl border bg-card px-5 py-3 text-sm font-bold text-primary transition-colors hover:border-accent hover:text-accent">
