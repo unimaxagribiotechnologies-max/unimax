@@ -83,7 +83,7 @@ export default function Home() {
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {categories.map((c) => (
             <Link key={c.slug} to="/products" className="card-animate card-animate-hover group overflow-hidden rounded-2xl border bg-card hover:border-accent">
-              <div className="overflow-hidden"><img src={c.img} alt="" loading="lazy" className="aspect-[16/10] w-full object-cover transition-transform duration-700 group-hover:scale-105" /></div>
+              <div className="overflow-hidden bg-secondary/20"><img src={c.img} alt="" loading="lazy" className="aspect-[16/10] w-full object-contain p-3 transition-transform duration-700 group-hover:scale-105" /></div>
               <div className="p-6">
                 <h3 className="text-xl font-bold text-primary">{c.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{c.desc}</p>
@@ -155,7 +155,7 @@ export default function Home() {
         <div className="grid gap-6 md:grid-cols-3">
           {content.posts.map((p) => (
             <Link key={p.slug} to={`/blog/${p.slug}`} className="card-animate card-animate-hover group rounded-2xl p-2">
-              <img src={p.img} alt="" loading="lazy" className="aspect-[16/10] w-full rounded-2xl object-cover transition-opacity group-hover:opacity-90" />
+              <img src={p.img} alt="" loading="lazy" className="aspect-[16/10] w-full rounded-2xl bg-secondary/20 object-contain p-3 transition-opacity group-hover:opacity-90" />
               <p className="mt-4 text-xs font-semibold uppercase tracking-widest text-accent">{p.date}</p>
               <h3 className="mt-2 text-xl font-bold text-primary group-hover:underline">{p.title}</h3>
             </Link>

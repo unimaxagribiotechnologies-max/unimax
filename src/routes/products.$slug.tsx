@@ -20,7 +20,7 @@ export default function Product({ slug }: { slug: string }) {
       <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
         <div>
           <div className="overflow-hidden rounded-3xl bg-secondary/20 shadow-lift">
-            <img src={p.img} alt={p.name} className="min-h-[300px] w-full scale-110 object-contain p-0 sm:min-h-[380px] lg:min-h-[500px]" />
+            <img src={p.img} alt={p.name} className="min-h-[300px] w-full object-contain bg-secondary/20 p-3 sm:min-h-[380px] lg:min-h-[500px]" />
           </div>
         </div>
         <div>
