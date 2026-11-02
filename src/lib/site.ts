@@ -56,6 +56,35 @@ export const resourceNav = [
 ] as const;
 
 // Illustrative categories only — not confirmed Unimax offerings. Replace with approved content.
+const productImage = (slug: string, index: number, extension: "png" | "jpeg") =>
+  `/assets/products/${slug}-${String(index).padStart(2, "0")}.${extension}`;
+
+const productImageSeries = (slug: string, extensions: ("png" | "jpeg")[]) =>
+  extensions.map((extension, index) => productImage(slug, index + 1, extension));
+
+const productImages = {
+  bioFertilizers: productImageSeries("bio-fertilizers", [
+    "png", "png", "png", "png", "png", "png", "png", "png",
+    "png", "png", "png", "png", "png", "png", "jpeg", "jpeg",
+  ]),
+  microNutrients: productImageSeries("micro-nutrients", [
+    "jpeg", "png", "png", "png", "png", "png", "png", "png",
+    "png", "png", "png", "jpeg", "jpeg", "jpeg", "jpeg",
+  ]),
+  waterSoluble: productImageSeries("water-soluble-fertilizers", [
+    "png", "png", "png", "png", "png", "jpeg", "png", "png",
+    "png", "png", "png", "png",
+  ]),
+  plantGrowthRegulators: productImageSeries("plant-growth-regulators", ["png"]),
+  organicFertilizers: productImageSeries("organic-fertilizers", ["jpeg", "png"]),
+  bioStimulants: productImageSeries("bio-stimulants", [
+    "png", "jpeg", "png", "jpeg", "jpeg", "png", "png", "png",
+    "png", "png", "jpeg", "jpeg", "png", "jpeg", "png", "png",
+    "png", "png", "png", "png", "png", "png", "jpeg", "png",
+    "png", "png", "png", "jpeg",
+  ]),
+};
+
 export type Product = {
   slug: string;
   name: string;
@@ -64,6 +93,7 @@ export type Product = {
   summary: string;
   catalog?: string;
   range?: string[];
+  rangeImages?: string[];
   highlights?: string[];
 };
 
@@ -72,54 +102,60 @@ export const categories = [
     slug: "bio-fertilizers",
     title: "Bio-Fertilizers",
     desc: "Microbial and biological solutions for nutrient availability, root development, soil health and crop growth.",
-    img: soil,
+    img: productImages.bioFertilizers[0],
     catalog: "/assets/catalogs/bio-fertilizers.docx",
     range: ["MAX AZOS (Azospirillum)", "MAXRHIZO (Rhizobium)", "MAXAZO (Azotobacter)", "ULTRA POTASH (KMB)", "ULTRA PHOS (PSB)", "MAXMAZIC (NPK Consortia)", "MAXZINKA (ZSB)", "MAXSULFA (SSB)", "SHUGARSHINE (Acetobacter)", "MAXVAM (Mycorrhiza)", "TRICON (Trichoderma)", "MAX N-P-K (NPK Liquid Consortia)", "PSUMOTO", "MAXPACINO", "RUCO POTASH", "CORAL MYCORRHIZA"],
+    rangeImages: productImages.bioFertilizers,
     highlights: ["Nitrogen, phosphate, potash, zinc and sulphur mobilization", "Root-zone microbial support for stronger crop growth", "Biological alternatives for improved nutrient availability"],
   },
   {
     slug: "micro-nutrients",
     title: "Micro-Nutrients",
     desc: "Water-soluble and suspension micronutrient products for correcting deficiencies and supporting crop quality.",
-    img: hero,
+    img: productImages.microNutrients[0],
     catalog: "/assets/catalogs/micro-nutrients.docx",
     range: ["VERA GOLD COMBI (Powder)", "VERA GOLD DRIP (Powder)", "VERAZIN (Zinc 12%)", "VERABOR (Boron 20%)", "VERAFER (Ferrous 12%)", "VERA GOLD COMBI (Liquid)", "VERACAL", "TONICAL (Liquid Calcium 11%)", "TYSON-B10 (Boron Ethanol Amine 10%)", "TOKOZIN 70", "TYSIL (Orthosilicic Acid)", "VERA GOLD MAGNESIUM SULPHATE", "VERA GOLD SOIL", "VERA GOLD FEROUS SULPHATE", "VERA GOLD ZINC SULPHATE"],
+    rangeImages: productImages.microNutrients,
     highlights: ["Support for healthy roots, leaves and plant structure", "Micronutrient correction for stronger, more productive crops", "Products supplied in powder, liquid and suspension formats"],
   },
   {
     slug: "water-soluble-fertilizers",
     title: "Water Soluble Fertilizers",
     desc: "NPK, sulphur and fertigation products designed for efficient nutrient delivery through drip and foliar application.",
-    img: lab,
+    img: productImages.waterSoluble[0],
     catalog: "/assets/catalogs/water-soluble-fertilizers.docx",
     range: ["TYSON 00:42:47 + TE", "TYSON 00:48:47 + TE", "TYSULF (Sulphur 90% Powder)", "TYSON N-21", "TYSON 00:60:20 + TE", "TYSON 14:48:00 + TE", "TYSON 00:09:46 + TE", "TYSON 05:55:17 + TE", "TYSON 00:40:37 + TE", "TYSON 10:54:10 + TE", "N:P:K 10:09:16:3:13 + TE", "ANWAKEN (N:P:K 8:8:8 Liquid)"],
+    rangeImages: productImages.waterSoluble,
     highlights: ["Faster and stronger root growth", "Improved flowering, fruiting and crop quality", "Suitable for fertigation and selected foliar applications"],
   },
   {
     slug: "plant-growth-regulators",
     title: "Plant Growth Regulators",
     desc: "Growth-stage support for stronger plants and improved photosynthesis, crop health and harvest potential.",
-    img: farmer,
+    img: productImages.plantGrowthRegulators[0],
     catalog: "/assets/catalogs/plant-growth-regulators.docx",
     range: ["LIRA (Gibberellic Acid 0.001% L)"],
+    rangeImages: productImages.plantGrowthRegulators,
     highlights: ["Boosts plant growth and crop development", "Supports photosynthesis and overall plant health", "Helps maintain steady growth over time"],
   },
   {
     slug: "organic-fertilizers",
     title: "Organic Fertilizers",
     desc: "Granular soil-conditioning products that support organic carbon, nutrient availability, root growth and soil fertility.",
-    img: soil,
+    img: productImages.organicFertilizers[0],
     catalog: "/assets/catalogs/organic-fertilizers.docx",
     range: ["GRIPPER GR", "SOIL POWER"],
+    rangeImages: productImages.organicFertilizers,
     highlights: ["Supports organic carbon and nitrogen balance", "Improves physical, biological and chemical soil properties", "Encourages white-root growth and crop productivity"],
   },
   {
     slug: "bio-stimulants",
     title: "Bio-Stimulants",
     desc: "Herbal extracts, amino acids, seaweed, humic substances and specialty products for crop vigour, quality and stress support.",
-    img: lab,
+    img: productImages.bioStimulants[0],
     catalog: "/assets/catalogs/bio-stimulants.docx",
     range: ["UNI K UPTEK", "UNIMAX FISH OIL", "FASTER", "UNI ROOT KING", "UNI-SIL", "UNI-ZYME", "STAR GOLD", "GRIPPER", "B-VITA", "AMINO GOLD", "AM-SIL", "UNI DAMAN", "BIO-9", "SUPER SIZE DRIP", "ROOT CONNECTOR", "BACTRA", "DR.PH", "GRIPPER DF", "ONEPLUS", "MARKUS", "DELMA GOLD", "VERA", "FULVIGROW", "LITO", "POWER PLUS", "JEFHA MAX PRO", "ZULEMA KELP SL", "ONICATOR"],
+    rangeImages: productImages.bioStimulants,
     highlights: ["Supports nutrient absorption, flowering and fruit development", "Helps improve crop quality, colour, sweetness and shelf life", "Specialty solutions for stress, soil, water and pest-management support"],
   },
 ];
@@ -132,6 +168,7 @@ export const products: Product[] = categories.map((c) => ({
   summary: c.desc,
   catalog: c.catalog,
   range: c.range,
+  rangeImages: c.rangeImages,
   highlights: c.highlights,
 }));
 

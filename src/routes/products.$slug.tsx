@@ -16,7 +16,7 @@ export default function Product({ slug }: { slug: string }) {
       <Link to="/products" className="mb-8 inline-flex items-center gap-2 text-sm font-semibold text-accent"><ArrowLeft className="size-4" /> All products</Link>
       <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
         <div>
-          <img src={p.img} alt={p.name} className="aspect-[4/3] w-full rounded-3xl object-cover shadow-lift" />
+          <img src={p.img} alt={p.name} className="aspect-[4/3] w-full rounded-3xl bg-secondary/20 object-contain p-6 shadow-lift" />
           {p.catalog && (
             <a href={p.catalog} download className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-2xl border bg-card px-5 py-3 text-sm font-bold text-primary transition-colors hover:border-accent hover:text-accent">
               <Download className="size-4" /> Download full product catalog
@@ -51,8 +51,16 @@ export default function Product({ slug }: { slug: string }) {
         <section className="mt-16">
           <p className="eyebrow">Product range</p>
           <h2 className="text-h2 mt-3 text-primary">Products included in this catalog.</h2>
-          <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {p.range.map((item, index) => <div key={item} className="rounded-2xl border bg-card p-5 shadow-soft"><span className="text-xs font-bold uppercase tracking-[0.18em] text-accent">{String(index + 1).padStart(2, "0")}</span><p className="mt-3 font-bold text-primary">{item}</p></div>)}
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {p.range.map((item, index) => (
+              <div key={item} className="overflow-hidden rounded-2xl border bg-card shadow-soft">
+                {p.rangeImages?.[index] && <img src={p.rangeImages[index]} alt={`${item} product`} loading="lazy" className="h-52 w-full bg-secondary/20 object-contain p-4" />}
+                <div className="p-5">
+                  <span className="text-xs font-bold uppercase tracking-[0.18em] text-accent">{String(index + 1).padStart(2, "0")}</span>
+                  <p className="mt-3 font-bold text-primary">{item}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </section>
       )}
