@@ -147,7 +147,7 @@ export default function About() {
         </div>
         <div>
           <SectionHead eyebrow="Manufacturing & Infrastructure" title="Built for quality, coordination and timely availability." />
-          <p className="text-lg leading-relaxed text-muted-foreground">We operate a state-of-the-art manufacturing facility at Diksal, Karjat, Dist. Ahilyanagar (Ahmednagar), Maharashtra. Strategically located with excellent connectivity to Pune and Ahilyanagar, our facility is equipped with modern formulation technology, quality control systems and bulk storage capabilities.</p>
+          <p className="text-lg leading-relaxed text-muted-foreground">We operate a state-of-the-art manufacturing facility at Diksal, Karjat, Dist. Ahilyanagar, Maharashtra. Strategically located with excellent connectivity to Pune and Ahilyanagar, our facility is equipped with modern formulation technology, quality control systems and bulk storage capabilities.</p>
           <p className="mt-5 text-muted-foreground">Our Corporate Office and Central Sales Office are also based at Diksal, ensuring seamless coordination between manufacturing, R&amp;D and market operations. Branch Offices, Warehouses and a robust network of Dealers, Distributors and Retailers help ensure timely product availability across India.</p>
           <div className="mt-8 grid gap-3 sm:grid-cols-3">
             {[

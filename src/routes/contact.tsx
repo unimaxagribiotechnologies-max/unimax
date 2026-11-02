@@ -46,7 +46,7 @@ export default function Contact() {
                 {h ? <a href={h} className="break-all font-semibold text-primary hover:underline">{v}</a> : <p className="font-semibold text-primary">{v}</p>}</div>
             </div>
           ))}
-          <iframe title="Map of Ahmednagar" className="h-64 w-full rounded-2xl border" loading="lazy" src="https://www.google.com/maps?q=Ahmednagar,Maharashtra&output=embed" />
+          <iframe title="Map of Ahilyanagar" className="h-64 w-full rounded-2xl border" loading="lazy" src="https://www.google.com/maps?q=Ahilyanagar,Maharashtra&output=embed" />
         </div>
         <form onSubmit={handleSubmit(onSubmit)} className="card-animate rounded-3xl border bg-card p-8 shadow-soft md:p-10" noValidate>
           <h2 className="text-2xl font-bold text-primary">Send an enquiry</h2>

@@ -99,7 +99,7 @@ export function Footer() {
       <div className="container-x relative z-10 grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-4">
         <div className="space-y-4">
           <Brand light />
-          <p className="text-sm text-primary-foreground/70">Agricultural biotechnology solutions for modern Indian farming, from Ahmednagar, Maharashtra.</p>
+          <p className="text-sm text-primary-foreground/70">Agricultural biotechnology solutions for modern Indian farming, from Ahilyanagar, Maharashtra.</p>
         </div>
         <div>
           <h3 className="mb-4 text-sm font-bold uppercase tracking-widest text-gold">Explore</h3>

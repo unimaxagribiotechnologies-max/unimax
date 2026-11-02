@@ -31,7 +31,7 @@ export default function Home() {
         <div className="absolute inset-y-0 left-0 -z-10 w-full bg-gradient-to-r from-background/95 via-background/75 to-transparent lg:w-[68%]" />
         <div className="container-x relative z-10 animate-rise py-20 text-primary md:py-24">
           <div className="max-w-3xl">
-            <p className="eyebrow flex items-center gap-3 text-primary"><span className="h-px w-8 bg-gold" />Agricultural Biotechnology · Ahmednagar</p>
+            <p className="eyebrow flex items-center gap-3 text-primary"><span className="h-px w-8 bg-gold" />Agricultural Biotechnology · Ahilyanagar</p>
             <h1 className="text-display mt-5 max-w-3xl">Science that grows <span className="text-gold">stronger harvests.</span></h1>
             <p className="mt-6 max-w-xl text-lg text-primary/80">Unimax Agri Bio-Technologies brings modern agri-biotech solutions to farmers, dealers and agricultural businesses.</p>
             <div className="mt-9 flex flex-wrap gap-3">

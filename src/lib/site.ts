@@ -34,7 +34,7 @@ export const company = {
   phoneHref: "tel:+919561196030",
   whatsapp: "https://wa.me/919561196030",
   email: "unimaxagribiotechnologies@gmail.com",
-  location: "Ahmednagar, Maharashtra, India",
+  location: "Ahilyanagar, Maharashtra, India",
 };
 
 export const nav = [
