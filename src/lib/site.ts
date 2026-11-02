@@ -168,7 +168,7 @@ const catalogInfo = {
 
 const catalogDescriptions: Record<string, string[]> = {
   bioFertilizers: [
-    "MAX AZOS हे पर्यावरणपूरक जैव खतांचे फॉर्म्युलेशन आहे. हे सहजीवी नायट्रोजन फिक्सिंग बॅक्टेरिया असून वनस्पतींच्या मुळांभोवतीच्या मातीत आढळते.\nहे इंडोल ऍसिटिक ऍसिड (IAA), जिबरेलिन्स, थायमिन आणि नियासिन तयार करते. परिणामी मुळांच्या फांद्या वाढतात आणि खनिज पाण्याचे शोषण वाढते.\nहे झाडांना आवश्यक असलेल्या रासायनिक नायट्रोजनपैकी 25–30% ची जागा घेऊ शकते.",
+    "MAX AZOS is an eco-friendly biofertilizer formulation based on symbiotic nitrogen-fixing bacteria found around plant roots and root surfaces.\nIt produces indole acetic acid (IAA), gibberellins, thiamine and niacin, helping increase root branching and mineral-water absorption.\nIt can replace 25–30% of the chemical nitrogen required by plants.",
     "Rhizobium biofertilizer for legume crops that supports symbiotic nitrogen fixation.",
     "Azotobacter formulation that supplies atmospheric nitrogen and promotes seed germination and plant vigour.",
     "Potash-mobilizing bacteria that helps make fixed potash available and supports fruit sugar.",
@@ -186,7 +186,7 @@ const catalogDescriptions: Record<string, string[]> = {
     "Mycorrhizal biofertilizer for supporting nutrient uptake and root-zone health.",
   ],
   microNutrients: [
-    "झिंक, मॅंगनीज, लोह, तांबे, बोरॉन आणि मॉलिब्डेनम असलेले बहु-सूक्ष्म पोषक खत. हे संबंधित राज्य अधिसूचनांचे पालन करते.\nसुधारित वाढ आणि वाढलेली जोम यामुळे उत्पन्न वाढण्यास मदत होते. पौष्टिक असंतुलन टाळले जाते आणि पिकांमधील कमतरता नियंत्रित केली जाते.",
+    "Multi-micronutrient fertilizer containing zinc, manganese, iron, copper, boron and molybdenum, complying with relevant state notifications.\nIt improves plant growth and vigour, increases yield potential, and helps prevent nutritional imbalance by correcting deficiencies.",
     "Water-soluble multi-micronutrient fertilizer containing zinc, manganese, iron, copper and boron for drip use.",
     "Water-soluble chelated zinc formulation for correcting zinc deficiency in crops and soil.",
     "Boron 20% micronutrient supporting cell division, pollen germination, flowering, fruit growth and protein synthesis.",
@@ -204,7 +204,7 @@ const catalogDescriptions: Record<string, string[]> = {
     "Rhodophyta-derived potash biostimulant and soil conditioner.",
   ],
   waterSoluble: [
-    "TYSON (00:42:47) हे पाण्यात विरघळणारे NPK खत असून पिकांना फॉस्फरस आणि पोटॅशियमचा पुरवठा करते.\nहे सहज विरघळते, वापरण्यास सोपे आहे आणि पिकांच्या मुळांच्या वाढीस व पोषणास मदत करते.\nफळबागा, भाजीपाला आणि इतर पिकांमध्ये संतुलित पोषणासाठी उपयुक्त.",
+    "TYSON (00:42:47) is a water-soluble NPK fertilizer supplying phosphorus and potassium to crops.\nIt dissolves easily, is simple to apply, and supports root development and nutrient uptake.\nSuitable for orchards, vegetables and other crops requiring balanced nutrition.",
     "NPK 00:48:47 for orchards and vegetables, supporting root development through phosphorus and potassium.",
     "Sulphur 90% fertilizer for correcting soil sulphur deficiency.",
     "N-21 nitrogen fertilizer supporting leaf growth and stronger stems.",
@@ -218,14 +218,14 @@ const catalogDescriptions: Record<string, string[]> = {
     "Liquid NPK 8:8:8 supporting root growth, flowering, fruit quality and stress tolerance.",
   ],
   plantGrowthRegulators: [
-    "Gibberellic Acid 0.001% L हे प्रभावी वनस्पती वाढ नियामक आहे. ते वनस्पतींच्या चयापचयाशी समन्वयाने कार्य करून वाढीच्या प्रक्रियेला गती देते.\nLIRA वनस्पतींची वाढ, प्रकाशसंश्लेषण आणि एकूण आरोग्य सुधारण्यास मदत करते.\nयामुळे मोठी पाने, मजबूत मुळे, चांगल्या दर्जाचे उत्पादन आणि अधिक उत्पन्न मिळण्यास मदत होते.",
+    "LIRA contains Gibberellic Acid 0.001% and works as an effective plant growth regulator.\nIt works with plant metabolism to accelerate growth, support photosynthesis and improve overall plant health.\nIt helps develop larger leaves, stronger roots, better-quality produce and higher yield.",
   ],
   organicFertilizers: [
-    "ग्रीप्पर जी आर हे दाणेदार खत जमिनीतील सेंद्रिय कर्ब व नत्राचे प्रमाण स्थिर ठेवते.\nहे जमिनीतील अन्नद्रव्यांची उपलब्धता वाढवते आणि झाडांची निरोगी वाढ होण्यास मदत करते.\nयामुळे फॉस्फरस व कॅल्शियम उपलब्ध होतात, पांढऱ्या मुळांची वाढ होते आणि उत्पादनात लक्षणीय वाढ होते.",
+    "GRIPPER GR is a granular soil conditioner that stabilizes organic carbon and nitrogen in the soil.\nIt improves nutrient availability and supports healthy plant growth.\nIt helps make phosphorus and calcium available, encourages white-root growth and supports higher yield.",
     "Granular soil conditioner containing humic acid, amino acid and other nutrients to improve soil properties and crop productivity.",
   ],
   bioStimulants: [
-    "UNI K UPTEK च्या वापरामुळे मुळांची लवचिकता वाढते आणि पोटॅशचे शोषण मोठ्या प्रमाणात सुधारते.\nयामुळे फळांचा आकार, वजन, गोडी, रंग आणि चकाकी वाढण्यास मदत होते.\nफळांमध्ये साखरेचे प्रमाण व काडीची पक्कता वाढते, त्यामुळे लवकर फुलधारणा व फळधारणा होण्यास मदत होते.\nहे सूक्ष्म अन्नद्रव्यांचे शोषण आणि प्रकाशसंश्लेषण वाढवते.",
+    "UNI K UPTEK improves root flexibility and increases potash uptake.\nIt supports fruit size, weight, sweetness, colour and shine, while improving sugar content and cane firmness.\nIt helps promote early flowering and fruit setting, micronutrient absorption and photosynthesis.",
     "Biological extract mixed with water for managing sap-sucking insects, harmful fungi and bacteria.",
     "Organic silicon-based spreader that improves spray coverage and the efficiency of medicines and fertilizers.",
     "Potassium humate formulation that promotes white-root growth, soil texture and nutrient availability.",
