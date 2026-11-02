@@ -70,7 +70,7 @@ export default function Product({ slug }: { slug: string }) {
                 <div className="p-5">
                   <span className="text-xs font-bold uppercase tracking-[0.18em] text-accent">{String(index + 1).padStart(2, "0")}</span>
                   <p className="mt-3 font-bold text-primary">{item}</p>
-                  {p.catalogInfo?.[index]?.description && <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{p.catalogInfo[index].description}</p>}
+                  {p.catalogInfo?.[index]?.description && <p className="mt-3 whitespace-pre-line text-sm leading-relaxed text-muted-foreground">{p.catalogInfo[index].description}</p>}
                   {(p.catalogInfo?.[index]?.dosage || p.catalogInfo?.[index]?.packing) && (
                     <div className="mt-4 space-y-2 border-t border-border pt-4 text-xs leading-relaxed text-muted-foreground">
                       {p.catalogInfo[index].dosage && <p><span className="font-bold text-primary">Dosage:</span> {p.catalogInfo[index].dosage}</p>}

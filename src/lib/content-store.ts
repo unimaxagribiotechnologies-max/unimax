@@ -54,7 +54,23 @@ function readJson<T>(key: string, fallback: T): T {
 }
 
 export function loadContent(): ManagedContent {
-  return readJson(CONTENT_KEY, defaultContent);
+  const stored = readJson<ManagedContent | null>(CONTENT_KEY, null);
+  if (!stored) return defaultContent;
+
+  const storedBySlug = new Map((stored.products ?? []).map((product) => [product.slug, product]));
+  const defaultSlugs = new Set(defaultProducts.map((product) => product.slug));
+  const products = [
+    ...defaultProducts.map((product) => ({
+      ...product,
+      ...(storedBySlug.get(product.slug) ?? {}),
+      catalogInfo: product.catalogInfo,
+      range: product.range,
+      rangeImages: product.rangeImages,
+    })),
+    ...(stored.products ?? []).filter((product) => !defaultSlugs.has(product.slug)),
+  ];
+
+  return { ...defaultContent, ...stored, products };
 }
 
 export function saveContent(content: ManagedContent) {
