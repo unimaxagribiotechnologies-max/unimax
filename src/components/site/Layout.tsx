@@ -1,5 +1,5 @@
 import { useEffect, useState, type ReactNode } from "react";
-import { Mail, MapPin, Menu, Phone, X } from "lucide-react";
+import { ChevronDown, Mail, MapPin, Menu, Phone, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "@/lib/router";
 import { company, companyImages, nav, resourceNav } from "@/lib/site";
@@ -50,12 +50,12 @@ export function Header() {
               <button
                 type="button"
                 onClick={() => setMoreOpen((value) => !value)}
-                className={`rounded-full px-3.5 py-2 text-sm font-medium text-foreground/80 transition-colors hover:text-primary ${resourceNav.some((n) => pathname === n.to) ? "bg-secondary text-primary" : ""}`}
+                className={`inline-flex items-center gap-1 rounded-full px-3.5 py-2 text-sm font-medium text-foreground/80 transition-colors hover:text-primary ${resourceNav.some((n) => pathname === n.to) ? "bg-secondary text-primary" : ""}`}
                 onMouseEnter={() => setMoreOpen(true)}
                 aria-haspopup="true"
                 aria-expanded={moreOpen}
               >
-                More <span aria-hidden>⌄</span>
+                More <ChevronDown aria-hidden className="size-3" />
               </button>
               <div className={`absolute right-0 top-full z-50 mt-2 grid w-52 gap-1 rounded-2xl border bg-card p-2 shadow-lift transition-all ${moreOpen ? "translate-y-0 opacity-100" : "pointer-events-none invisible translate-y-1 opacity-0"}`} onMouseLeave={() => setMoreOpen(false)}>
                 {resourceNav.map((n) => (
