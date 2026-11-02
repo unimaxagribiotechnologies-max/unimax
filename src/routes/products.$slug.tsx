@@ -19,7 +19,7 @@ export default function Product({ slug }: { slug: string }) {
           <img src={p.img} alt={p.name} className="aspect-[4/3] w-full rounded-3xl bg-secondary/20 object-contain p-6 shadow-lift" />
           {p.catalog && (
             <a href={p.catalog} download className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-2xl border bg-card px-5 py-3 text-sm font-bold text-primary transition-colors hover:border-accent hover:text-accent">
-              <Download className="size-4" /> Download full product catalog
+              <Download className="size-4" /> Download official product catalogue
             </a>
           )}
         </div>
@@ -29,8 +29,8 @@ export default function Product({ slug }: { slug: string }) {
           <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{p.summary}</p>
           <dl className="mt-8 divide-y rounded-2xl border bg-card">
             <div className="flex justify-between gap-4 p-4 text-sm"><dt className="font-semibold text-primary">Products in catalog</dt><dd className="text-right text-muted-foreground">{p.range?.length ?? "See catalog"}</dd></div>
-            <div className="flex justify-between gap-4 p-4 text-sm"><dt className="font-semibold text-primary">Product details</dt><dd className="text-right text-muted-foreground">Benefits and usage in catalog</dd></div>
-            <div className="flex justify-between gap-4 p-4 text-sm"><dt className="font-semibold text-primary">Application</dt><dd className="text-right text-muted-foreground">Refer to product label and catalog</dd></div>
+            <div className="flex justify-between gap-4 p-4 text-sm"><dt className="font-semibold text-primary">Product details</dt><dd className="text-right text-muted-foreground">Dosage and packing from catalogue</dd></div>
+            <div className="flex justify-between gap-4 p-4 text-sm"><dt className="font-semibold text-primary">Application</dt><dd className="text-right text-muted-foreground">Use as directed on the product label</dd></div>
           </dl>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button asChild variant="brand" size="xl"><Link to="/contact">Enquire Now</Link></Button>
@@ -50,7 +50,7 @@ export default function Product({ slug }: { slug: string }) {
       {p.range && (
         <section className="mt-16">
           <p className="eyebrow">Product range</p>
-          <h2 className="text-h2 mt-3 text-primary">Products included in this catalog.</h2>
+          <h2 className="text-h2 mt-3 text-primary">Products and information from the official catalogue.</h2>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {p.range.map((item, index) => (
               <div key={item} className="overflow-hidden rounded-2xl border bg-card shadow-soft">
@@ -58,6 +58,12 @@ export default function Product({ slug }: { slug: string }) {
                 <div className="p-5">
                   <span className="text-xs font-bold uppercase tracking-[0.18em] text-accent">{String(index + 1).padStart(2, "0")}</span>
                   <p className="mt-3 font-bold text-primary">{item}</p>
+                  {(p.catalogInfo?.[index]?.dosage || p.catalogInfo?.[index]?.packing) && (
+                    <div className="mt-4 space-y-2 border-t border-border pt-4 text-xs leading-relaxed text-muted-foreground">
+                      {p.catalogInfo[index].dosage && <p><span className="font-bold text-primary">Dosage:</span> {p.catalogInfo[index].dosage}</p>}
+                      {p.catalogInfo[index].packing && <p><span className="font-bold text-primary">Available packing:</span> {p.catalogInfo[index].packing}</p>}
+                    </div>
+                  )}
                 </div>
               </div>
             ))}

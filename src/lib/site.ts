@@ -85,6 +85,83 @@ const productImages = {
   ]),
 };
 
+export type CatalogInfo = {
+  dosage?: string;
+  packing?: string;
+};
+
+const catalogInfo = {
+  bioFertilizers: [
+    {}, {}, {}, {}, {}, {}, {}, {}, {}, {},
+    { packing: "1 L, 5 L" },
+    { packing: "1 L, 5 L" },
+    { packing: "1 L, 5 L" },
+    { packing: "1 L, 5 L" },
+    { packing: "100 g" },
+    { packing: "4 kg" },
+  ],
+  microNutrients: [
+    { dosage: "Spray 2 g/L; drip 500 g/acre", packing: "100 g, 250 g, 500 g, 1 kg" },
+    { dosage: "Drip 2 kg/acre", packing: "2 kg" },
+    { dosage: "Spray 1–1.5 g/L; drip 500–750 g/L", packing: "100 g, 250 g, 500 g" },
+    { dosage: "Spray 1–1.5 g/L; drip 500–750 g/L", packing: "250 g, 500 g, 1 kg" },
+    { dosage: "Spray 0.5–1 g/L", packing: "100 g, 250 g, 500 g" },
+    { dosage: "Spray 2 ml/L; drip 2 L/acre", packing: "250 ml, 500 ml, 1 L, 5 L" },
+    { dosage: "Spray 1–1.5 g/L; drip 500–750 g/L", packing: "100 g, 250 g, 500 g" },
+    { dosage: "Foliar 1.5–2 ml/L", packing: "250 ml, 500 ml, 1 L" },
+    { dosage: "Foliar 1.5–2 ml/L", packing: "250 ml, 500 ml, 1 L" },
+    { dosage: "1 ml/L or 200 ml/acre" },
+    { dosage: "Dissolve 1–2 ml/L and spray both leaf surfaces", packing: "100 ml, 250 ml, 500 ml, 1 L" },
+    { dosage: "25 kg/acre with other fertilizers", packing: "25 kg, 1 kg" },
+    { dosage: "10 kg/acre with other fertilizers", packing: "10 kg" },
+    { dosage: "10 kg/acre with other fertilizers", packing: "10 kg" },
+    { dosage: "10 kg/acre with other fertilizers", packing: "10 kg" },
+  ],
+  waterSoluble: [
+    { packing: "2.5 kg" }, { packing: "2.5 kg" }, { packing: "2.5 kg" },
+    { packing: "2.5 kg" }, { packing: "2.5 kg" }, { packing: "2.5 kg" },
+    { packing: "2.5 kg" }, { packing: "2.5 kg bucket" }, { packing: "2.5 kg bucket" },
+    { packing: "2.5 kg bucket" }, {}, { packing: "1 L, 3 L, 5 L" },
+  ],
+  plantGrowthRegulators: [
+    { packing: "100 ml, 250 ml, 500 ml, 1 L, 5 L" },
+  ],
+  organicFertilizers: [
+    { dosage: "10 kg/acre with other fertilizers", packing: "25 kg" },
+    { dosage: "10 kg/acre with other fertilizers", packing: "10 kg" },
+  ],
+  bioStimulants: [
+    { dosage: "Spray 4–5 ml/L; drip 1 L/acre", packing: "500 ml, 1 L, 5 L" },
+    { dosage: "Spray 2 ml/L", packing: "250 ml, 500 ml, 1 L" },
+    { dosage: "Spray 0.25–0.5 ml/L; drip 500 ml/acre", packing: "50 ml, 100 ml, 250 ml, 500 ml, 1 L, 5 L" },
+    { dosage: "Spray 2 g/L; drip 500 g/acre", packing: "250 g, 500 g, 1 kg" },
+    { dosage: "Spray 2 g/L; drip 1–2 kg/acre", packing: "100 g, 250 g, 500 g, 1 kg" },
+    { dosage: "Spray 2 ml/L; drip 1–2 L/acre", packing: "100 ml, 250 ml, 500 ml, 1 L" },
+    { dosage: "Spray 1 ml/L", packing: "100 ml, 250 ml, 500 ml" },
+    { dosage: "Spray 2 ml/L; drip 1–2 L/acre", packing: "100 ml, 250 ml, 500 ml, 1 L, 5 L" },
+    { dosage: "Spray 2 ml/L; drip 1–2 L/acre", packing: "250 ml, 500 ml, 1 L" },
+    { dosage: "Spray 1 g/L; drip 500 g/acre", packing: "100 g, 250 g, 500 g" },
+    { dosage: "Spray 1–2 g/L; drip 500 g/acre", packing: "100 g, 250 g, 500 g" },
+    { dosage: "Spray 5 ml per 15–20 L water", packing: "5 ml, 25 ml" },
+    { dosage: "Spray 1–1.5 ml/L", packing: "100 ml, 250 ml, 500 ml, 1 L" },
+    { dosage: "Spray 2–3 L/acre through drip", packing: "1 L, 5 L" },
+    { dosage: "Spray 2 ml/L", packing: "250 ml, 500 ml, 1 L, 5 L" },
+    { dosage: "Spray 0.20 g/L", packing: "20 g, 80 g" },
+    { dosage: "Spray 0.5–1 ml/L", packing: "100 ml, 250 ml, 500 ml, 1 L" },
+    { dosage: "2–3 L/acre through drip" },
+    { dosage: "5 L/acre through drip", packing: "5 L" },
+    { dosage: "5 ml/L to wash the tree trunk", packing: "500 ml, 1 L" },
+    { dosage: "Spray 2–3 g/L; drip 500 g/acre", packing: "500 g, 1 kg" },
+    { dosage: "Spray 2 ml/L", packing: "250 ml, 500 ml, 1 L" },
+    { dosage: "Fulvic Acid 90%: 150–200 g/acre", packing: "250 g, 500 g, 1 kg" },
+    { packing: "100 ml, 250 ml, 500 ml, 1 L" },
+    { dosage: "Foliar 4–5 ml/L; drip 1 L/acre", packing: "1 L, 3 L, 5 L" },
+    { packing: "100 ml, 250 ml, 500 ml, 1 L, 5 L" },
+    { dosage: "Foliar 2 ml/L; drip 1 L/acre", packing: "250 ml, 500 ml, 1 L, 5 L" },
+    { dosage: "10 kg for 150 bags (5 kg per 5,000 kg onions)", packing: "5 kg" },
+  ],
+};
+
 export type Product = {
   slug: string;
   name: string;
@@ -94,6 +171,7 @@ export type Product = {
   catalog?: string;
   range?: string[];
   rangeImages?: string[];
+  catalogInfo?: CatalogInfo[];
   highlights?: string[];
 };
 
@@ -106,6 +184,7 @@ export const categories = [
     catalog: "/assets/catalogs/bio-fertilizers.docx",
     range: ["MAX AZOS (Azospirillum)", "MAXRHIZO (Rhizobium)", "MAXAZO (Azotobacter)", "ULTRA POTASH (KMB)", "ULTRA PHOS (PSB)", "MAXMAZIC (NPK Consortia)", "MAXZINKA (ZSB)", "MAXSULFA (SSB)", "SHUGARSHINE (Acetobacter)", "MAXVAM (Mycorrhiza)", "TRICON (Trichoderma)", "MAX N-P-K (NPK Liquid Consortia)", "PSUMOTO", "MAXPACINO", "RUCO POTASH", "CORAL MYCORRHIZA"],
     rangeImages: productImages.bioFertilizers,
+    catalogInfo: catalogInfo.bioFertilizers,
     highlights: ["Nitrogen, phosphate, potash, zinc and sulphur mobilization", "Root-zone microbial support for stronger crop growth", "Biological alternatives for improved nutrient availability"],
   },
   {
@@ -116,6 +195,7 @@ export const categories = [
     catalog: "/assets/catalogs/micro-nutrients.docx",
     range: ["VERA GOLD COMBI (Powder)", "VERA GOLD DRIP (Powder)", "VERAZIN (Zinc 12%)", "VERABOR (Boron 20%)", "VERAFER (Ferrous 12%)", "VERA GOLD COMBI (Liquid)", "VERACAL", "TONICAL (Liquid Calcium 11%)", "TYSON-B10 (Boron Ethanol Amine 10%)", "TOKOZIN 70", "TYSIL (Orthosilicic Acid)", "VERA GOLD MAGNESIUM SULPHATE", "VERA GOLD SOIL", "VERA GOLD FEROUS SULPHATE", "VERA GOLD ZINC SULPHATE"],
     rangeImages: productImages.microNutrients,
+    catalogInfo: catalogInfo.microNutrients,
     highlights: ["Support for healthy roots, leaves and plant structure", "Micronutrient correction for stronger, more productive crops", "Products supplied in powder, liquid and suspension formats"],
   },
   {
@@ -126,6 +206,7 @@ export const categories = [
     catalog: "/assets/catalogs/water-soluble-fertilizers.docx",
     range: ["TYSON 00:42:47 + TE", "TYSON 00:48:47 + TE", "TYSULF (Sulphur 90% Powder)", "TYSON N-21", "TYSON 00:60:20 + TE", "TYSON 14:48:00 + TE", "TYSON 00:09:46 + TE", "TYSON 05:55:17 + TE", "TYSON 00:40:37 + TE", "TYSON 10:54:10 + TE", "N:P:K 10:09:16:3:13 + TE", "ANWAKEN (N:P:K 8:8:8 Liquid)"],
     rangeImages: productImages.waterSoluble,
+    catalogInfo: catalogInfo.waterSoluble,
     highlights: ["Faster and stronger root growth", "Improved flowering, fruiting and crop quality", "Suitable for fertigation and selected foliar applications"],
   },
   {
@@ -136,6 +217,7 @@ export const categories = [
     catalog: "/assets/catalogs/plant-growth-regulators.docx",
     range: ["LIRA (Gibberellic Acid 0.001% L)"],
     rangeImages: productImages.plantGrowthRegulators,
+    catalogInfo: catalogInfo.plantGrowthRegulators,
     highlights: ["Boosts plant growth and crop development", "Supports photosynthesis and overall plant health", "Helps maintain steady growth over time"],
   },
   {
@@ -146,6 +228,7 @@ export const categories = [
     catalog: "/assets/catalogs/organic-fertilizers.docx",
     range: ["GRIPPER GR", "SOIL POWER"],
     rangeImages: productImages.organicFertilizers,
+    catalogInfo: catalogInfo.organicFertilizers,
     highlights: ["Supports organic carbon and nitrogen balance", "Improves physical, biological and chemical soil properties", "Encourages white-root growth and crop productivity"],
   },
   {
@@ -156,6 +239,7 @@ export const categories = [
     catalog: "/assets/catalogs/bio-stimulants.docx",
     range: ["UNI K UPTEK", "UNIMAX FISH OIL", "FASTER", "UNI ROOT KING", "UNI-SIL", "UNI-ZYME", "STAR GOLD", "GRIPPER", "B-VITA", "AMINO GOLD", "AM-SIL", "UNI DAMAN", "BIO-9", "SUPER SIZE DRIP", "ROOT CONNECTOR", "BACTRA", "DR.PH", "GRIPPER DF", "ONEPLUS", "MARKUS", "DELMA GOLD", "VERA", "FULVIGROW", "LITO", "POWER PLUS", "JEFHA MAX PRO", "ZULEMA KELP SL", "ONICATOR"],
     rangeImages: productImages.bioStimulants,
+    catalogInfo: catalogInfo.bioStimulants,
     highlights: ["Supports nutrient absorption, flowering and fruit development", "Helps improve crop quality, colour, sweetness and shelf life", "Specialty solutions for stress, soil, water and pest-management support"],
   },
 ];
@@ -169,6 +253,7 @@ export const products: Product[] = categories.map((c) => ({
   catalog: c.catalog,
   range: c.range,
   rangeImages: c.rangeImages,
+  catalogInfo: c.catalogInfo,
   highlights: c.highlights,
 }));
 
