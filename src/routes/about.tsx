@@ -93,7 +93,7 @@ export default function About() {
         </div>
         <div className="relative mx-auto w-full max-w-[500px]">
           <div className="absolute -inset-3 -z-10 rounded-[2rem] bg-secondary/70" aria-hidden />
-          <img src={companyImages.values} alt="The foundation of Unimax's success" loading="lazy" className="w-full rounded-[1.75rem] border bg-card p-3 object-contain shadow-lift" />
+          <img src={companyImages.about} alt="The foundation of Unimax's success" loading="lazy" className="w-full rounded-[1.75rem] border bg-card p-3 object-contain shadow-lift" />
         </div>
       </section>
 
