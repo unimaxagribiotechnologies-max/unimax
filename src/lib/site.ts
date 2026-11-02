@@ -70,7 +70,7 @@ const productImages = {
   microNutrients: productImageSeries("micro-nutrients", [
     "jpeg", "png", "png", "png", "png", "png", "png", "png",
     "png", "png", "png", "jpeg", "jpeg", "jpeg", "jpeg",
-  ]),
+  ]).concat("/assets/products/bio-fertilizers-15.jpeg"),
   waterSoluble: productImageSeries("water-soluble-fertilizers", [
     "png", "png", "png", "png", "png", "jpeg", "png", "png",
     "png", "png", "png", "png",
@@ -117,6 +117,7 @@ const catalogInfo = {
     { dosage: "10 kg/acre with other fertilizers", packing: "10 kg" },
     { dosage: "10 kg/acre with other fertilizers", packing: "10 kg" },
     { dosage: "10 kg/acre with other fertilizers", packing: "10 kg" },
+    { packing: "100 g" },
   ],
   waterSoluble: [
     { packing: "2.5 kg" }, { packing: "2.5 kg" }, { packing: "2.5 kg" },
@@ -198,6 +199,7 @@ const catalogDescriptions: Record<string, string[]> = {
     "Soil micronutrient fertilizer applied with other fertilizers to support nutrient availability.",
     "Ferrous sulphate fertilizer for soil application with other fertilizers.",
     "Zinc sulphate fertilizer for soil application with other fertilizers.",
+    "Rhodophyta-derived potash biostimulant and soil conditioner.",
   ],
   waterSoluble: [
     "Water-soluble NPK 00:42:47 supplying phosphorus and potassium.",
@@ -252,8 +254,8 @@ const catalogDescriptions: Record<string, string[]> = {
   ],
 };
 
-const withCatalogDescriptions = (slug: string, info: CatalogInfo[]) =>
-  info.map((item, index) => ({ ...item, description: catalogDescriptions[slug]?.[index] }));
+const withCatalogDescriptions = (slug: string, info: CatalogInfo[], descriptions = catalogDescriptions[slug]) =>
+  info.map((item, index) => ({ ...item, description: descriptions?.[index] }));
 
 export type Product = {
   slug: string;
@@ -275,9 +277,9 @@ export const categories = [
     desc: "Microbial and biological solutions for nutrient availability, root development, soil health and crop growth.",
     img: productImages.bioFertilizers[0],
     catalog: "/assets/catalogs/bio-fertilizers.docx",
-    range: ["MAX AZOS (Azospirillum)", "MAXRHIZO (Rhizobium)", "MAXAZO (Azotobacter)", "ULTRA POTASH (KMB)", "ULTRA PHOS (PSB)", "MAXMAZIC (NPK Consortia)", "MAXZINKA (ZSB)", "MAXSULFA (SSB)", "SHUGARSHINE (Acetobacter)", "MAXVAM (Mycorrhiza)", "TRICON (Trichoderma)", "MAX N-P-K (NPK Liquid Consortia)", "PSUMOTO", "MAXPACINO", "RUCO POTASH", "CORAL MYCORRHIZA"],
-    rangeImages: productImages.bioFertilizers,
-    catalogInfo: withCatalogDescriptions("bioFertilizers", catalogInfo.bioFertilizers),
+    range: ["MAX AZOS (Azospirillum)", "MAXRHIZO (Rhizobium)", "MAXAZO (Azotobacter)", "ULTRA POTASH (KMB)", "ULTRA PHOS (PSB)", "MAXMAZIC (NPK Consortia)", "MAXZINKA (ZSB)", "MAXSULFA (SSB)", "SHUGARSHINE (Acetobacter)", "MAXVAM (Mycorrhiza)", "TRICON (Trichoderma)", "MAX N-P-K (NPK Liquid Consortia)", "PSUMOTO", "MAXPACINO", "CORAL MYCORRHIZA"],
+    rangeImages: productImages.bioFertilizers.filter((_, index) => index !== 14),
+    catalogInfo: withCatalogDescriptions("bioFertilizers", catalogInfo.bioFertilizers.filter((_, index) => index !== 14), catalogDescriptions.bioFertilizers.filter((_, index) => index !== 14)),
     highlights: ["Nitrogen, phosphate, potash, zinc and sulphur mobilization", "Root-zone microbial support for stronger crop growth", "Biological alternatives for improved nutrient availability"],
   },
   {
@@ -286,7 +288,7 @@ export const categories = [
     desc: "Water-soluble and suspension micronutrient products for correcting deficiencies and supporting crop quality.",
     img: productImages.microNutrients[0],
     catalog: "/assets/catalogs/micro-nutrients.docx",
-    range: ["VERA GOLD COMBI (Powder)", "VERA GOLD DRIP (Powder)", "VERAZIN (Zinc 12%)", "VERABOR (Boron 20%)", "VERAFER (Ferrous 12%)", "VERA GOLD COMBI (Liquid)", "VERACAL", "TONICAL (Liquid Calcium 11%)", "TYSON-B10 (Boron Ethanol Amine 10%)", "TOKOZIN 70", "TYSIL (Orthosilicic Acid)", "VERA GOLD MAGNESIUM SULPHATE", "VERA GOLD SOIL", "VERA GOLD FEROUS SULPHATE", "VERA GOLD ZINC SULPHATE"],
+    range: ["VERA GOLD COMBI (Powder)", "VERA GOLD DRIP (Powder)", "VERAZIN (Zinc 12%)", "VERABOR (Boron 20%)", "VERAFER (Ferrous 12%)", "VERA GOLD COMBI (Liquid)", "VERACAL", "TONICAL (Liquid Calcium 11%)", "TYSON-B10 (Boron Ethanol Amine 10%)", "TOKOZIN 70", "TYSIL (Orthosilicic Acid)", "VERA GOLD MAGNESIUM SULPHATE", "VERA GOLD SOIL", "VERA GOLD FEROUS SULPHATE", "VERA GOLD ZINC SULPHATE", "RUCO POTASH (Potash Derived From Rhodophyta)"],
     rangeImages: productImages.microNutrients,
     catalogInfo: withCatalogDescriptions("microNutrients", catalogInfo.microNutrients),
     highlights: ["Support for healthy roots, leaves and plant structure", "Micronutrient correction for stronger, more productive crops", "Products supplied in powder, liquid and suspension formats"],
