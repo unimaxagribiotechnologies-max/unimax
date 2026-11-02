@@ -1,17 +1,14 @@
 import { useState } from "react";
 import { X } from "lucide-react";
 import { PageHero } from "@/components/site/Layout";
-import { useManagedContent } from "@/lib/content-store";
-import { breadcrumbImages, images } from "@/lib/site";
+import { breadcrumbImages, gallery as galleryImages } from "@/lib/site";
 export default function Gallery() {
   const [open, setOpen] = useState<string | null>(null);
-  const { content } = useManagedContent();
-  const galleryItems = content.gallery.length < 5 ? [...content.gallery, images.farmer] : content.gallery;
   return (
     <>
       <PageHero eyebrow="Gallery" title="Moments from the field." text="A visual glimpse into Unimax Agri Bio-Technologies and our work in agriculture." img={breadcrumbImages.gallery} />
       <section className="container-x section-y grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {galleryItems.map((g, i) => (
+        {galleryImages.map((g, i) => (
           <button
             key={i}
             type="button"

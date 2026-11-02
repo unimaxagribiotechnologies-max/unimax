@@ -200,8 +200,8 @@ export const testimonials: Testimonial[] = [
 ];
 
 export const galleryImages = Array.from(
-  { length: 27 },
-  (_, index) => `/assets/gallery/gallery-${String(index + 1).padStart(2, "0")}.jpeg`,
+  { length: 109 },
+  (_, index) => `/assets/gallery/gallery-${String(index + 1).padStart(3, "0")}.jpeg`,
 );
 
 export const gallery = galleryImages;
