@@ -16,7 +16,9 @@ export default function Product({ slug }: { slug: string }) {
       <Link to="/products" className="mb-8 inline-flex items-center gap-2 text-sm font-semibold text-accent"><ArrowLeft className="size-4" /> All products</Link>
       <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
         <div>
-          <img src={p.img} alt={p.name} className="min-h-[420px] w-full rounded-3xl bg-secondary/20 object-contain p-6 shadow-lift lg:min-h-[500px]" />
+          <div className="overflow-hidden rounded-3xl bg-secondary/20 shadow-lift">
+            <img src={p.img} alt={p.name} className="min-h-[420px] w-full scale-110 object-contain p-0 lg:min-h-[500px]" />
+          </div>
           {p.catalog && (
             <a href={p.catalog} download className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-2xl border bg-card px-5 py-3 text-sm font-bold text-primary transition-colors hover:border-accent hover:text-accent">
               <Download className="size-4" /> Download official product catalogue
