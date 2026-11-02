@@ -380,7 +380,7 @@ export const testimonials: Testimonial[] = [
 ];
 
 export const galleryImages = Array.from(
-  { length: 109 },
+  { length: 116 },
   (_, index) => `/assets/gallery/gallery-${String(index + 1).padStart(3, "0")}.jpeg`,
 );
 
