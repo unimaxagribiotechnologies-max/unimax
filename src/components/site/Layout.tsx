@@ -93,8 +93,8 @@ export function Footer() {
   return (
     <footer className="relative overflow-hidden bg-primary-deep text-primary-foreground">
       <div className="bg-dots absolute inset-0" aria-hidden />
-      <div className="pointer-events-none absolute inset-x-0 bottom-8 z-0 overflow-hidden px-4 text-center" aria-hidden>
-        <span className="block max-w-full whitespace-normal break-words font-display text-[clamp(1.25rem,4vw,3.5rem)] font-extrabold leading-tight tracking-[-0.04em] text-primary-foreground/[0.045]">UNIMAX AGRI BIO-TECHNOLOGIES (I) PVT. LTD</span>
+      <div className="pointer-events-none absolute inset-x-0 bottom-12 z-0 overflow-hidden px-4 text-center" aria-hidden>
+        <span className="block max-w-full whitespace-normal break-words font-display text-[clamp(1.35rem,4.5vw,4rem)] font-extrabold leading-tight tracking-[-0.04em] text-primary-foreground/[0.045]">UNIMAX AGRI BIO-TECHNOLOGIES (I) PVT. LTD</span>
       </div>
       <div className="container-x relative z-10 grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-4">
         <div className="space-y-4">
