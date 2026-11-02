@@ -93,8 +93,8 @@ export function Footer() {
   return (
     <footer className="relative overflow-hidden bg-primary-deep text-primary-foreground">
       <div className="bg-dots absolute inset-0" aria-hidden />
-      <div className="pointer-events-none absolute inset-x-0 bottom-4 z-0 overflow-hidden text-center" aria-hidden>
-        <span className="block whitespace-nowrap font-display text-[clamp(5rem,17vw,15rem)] font-extrabold leading-none tracking-[-0.08em] text-primary-foreground/[0.045]">UNIMAX AGRI</span>
+      <div className="pointer-events-none absolute inset-x-0 bottom-2 z-0 overflow-hidden px-4 text-center" aria-hidden>
+        <span className="block whitespace-nowrap font-display text-[clamp(3rem,12vw,11rem)] font-extrabold leading-none tracking-[-0.08em] text-primary-foreground/[0.045]">UNIMAX AGRI</span>
       </div>
       <div className="container-x relative z-10 grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-4">
         <div className="space-y-4">
