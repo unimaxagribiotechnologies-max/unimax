@@ -19,11 +19,6 @@ export default function Product({ slug }: { slug: string }) {
           <div className="overflow-hidden rounded-3xl bg-secondary/20 shadow-lift">
             <img src={p.img} alt={p.name} className="min-h-[300px] w-full scale-110 object-contain p-0 sm:min-h-[380px] lg:min-h-[500px]" />
           </div>
-          {p.catalog && (
-            <a href={p.catalog} download className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-2xl border bg-card px-5 py-3 text-sm font-bold text-primary transition-colors hover:border-accent hover:text-accent">
-              <Download className="size-4" /> Download official product catalogue
-            </a>
-          )}
         </div>
         <div>
           <p className="eyebrow">{p.category}</p>
@@ -34,7 +29,12 @@ export default function Product({ slug }: { slug: string }) {
             <div className="flex justify-between gap-4 p-4 text-sm"><dt className="font-semibold text-primary">Product details</dt><dd className="text-right text-muted-foreground">Dosage and packing from catalogue</dd></div>
             <div className="flex justify-between gap-4 p-4 text-sm"><dt className="font-semibold text-primary">Application</dt><dd className="text-right text-muted-foreground">Use as directed on the product label</dd></div>
           </dl>
-          <div className="mt-8 flex flex-wrap gap-3">
+          {p.catalog && (
+            <a href={p.catalog} download className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-2xl border bg-card px-5 py-3 text-sm font-bold text-primary transition-colors hover:border-accent hover:text-accent">
+              <Download className="size-4" /> Download official product catalogue
+            </a>
+          )}
+          <div className="mt-4 flex flex-wrap gap-3">
             <Button asChild variant="brand" size="xl"><Link to="/contact">Enquire Now</Link></Button>
             <Button asChild variant="outline" size="xl" className="rounded-full"><a href={`${company.whatsapp}?text=${encodeURIComponent(`Enquiry about ${p.name}`)}`} target="_blank" rel="noreferrer"><MessageCircle /> WhatsApp</a></Button>
           </div>
