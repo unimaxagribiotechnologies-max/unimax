@@ -21,7 +21,7 @@ export default function Products() {
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {list.map((p) => (
             <Link key={p.slug} to={`/products/${p.slug}`} className="card-animate card-animate-hover group overflow-hidden rounded-2xl border bg-card hover:border-accent">
-              <div className="overflow-hidden bg-secondary/20"><img src={p.img} alt={`${p.name} product`} loading="lazy" className="aspect-[3/4] w-full object-contain p-6 transition-transform duration-700 group-hover:scale-105" /></div>
+              <div className="overflow-hidden bg-secondary/20"><img src={p.img} alt={`${p.name} product`} loading="lazy" className="aspect-[4/3] w-full object-contain p-4 transition-transform duration-700 group-hover:scale-105" /></div>
               <div className="p-6">
                 <p className="text-xs font-semibold uppercase tracking-widest text-accent">{p.category}</p>
                 <h3 className="mt-2 text-xl font-bold text-primary">{p.name}</h3>
