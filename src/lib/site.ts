@@ -86,6 +86,7 @@ const productImages = {
 };
 
 export type CatalogInfo = {
+  description?: string;
   dosage?: string;
   packing?: string;
 };
@@ -162,6 +163,98 @@ const catalogInfo = {
   ],
 };
 
+const catalogDescriptions: Record<string, string[]> = {
+  bioFertilizers: [
+    "Eco-friendly Azospirillum biofertilizer that fixes nitrogen and supports root branching.",
+    "Rhizobium biofertilizer for legume crops that supports symbiotic nitrogen fixation.",
+    "Azotobacter formulation that supplies atmospheric nitrogen and promotes seed germination and plant vigour.",
+    "Potash-mobilizing bacteria that helps make fixed potash available and supports fruit sugar.",
+    "Phosphate-solubilizing bacteria that converts insoluble phosphate into a plant-available form.",
+    "NPK consortia seed-treatment biofertilizer using mixed inoculants to enrich soil microbes.",
+    "Zinc-solubilizing bacteria for improving zinc availability and correcting zinc deficiency.",
+    "Sulphur-solubilizing bacteria that mobilizes fixed sulphur for plant uptake.",
+    "Acetobacter biofertilizer supporting biological nitrogen fixation in sugarcane and mustard.",
+    "Mycorrhizal biofertilizer that improves macro- and micronutrient uptake, crop growth and resilience.",
+    "Trichoderma biological product for fungal disease management and crop growth support.",
+    "Liquid NPK consortia biofertilizer that improves availability of nitrogen, phosphorus and potash.",
+    "Pseudomonas biological control product for soil-borne pathogens and crop growth support.",
+    "Paecilomyces lilacinus biological product for nematode and root-zone pest management.",
+    "Rhodophyta-derived potash biostimulant and soil conditioner.",
+    "Mycorrhizal biofertilizer for supporting nutrient uptake and root-zone health.",
+  ],
+  microNutrients: [
+    "Multi-micronutrient fertilizer containing zinc, manganese, iron, copper, boron and molybdenum.",
+    "Water-soluble multi-micronutrient fertilizer containing zinc, manganese, iron, copper and boron for drip use.",
+    "Water-soluble chelated zinc formulation for correcting zinc deficiency in crops and soil.",
+    "Boron 20% micronutrient supporting cell division, pollen germination, flowering, fruit growth and protein synthesis.",
+    "Fine granular Fe-EDTA complex containing 12% iron and fully soluble in water.",
+    "Liquid chelated multi-micronutrient blend containing zinc, manganese, iron, copper, boron and molybdenum.",
+    "Chelated calcium EDTA 10% micronutrient formulation.",
+    "Concentrated liquid calcium 11% formulation for foliar application.",
+    "Boron ethanolamine 10% formulation for foliar micronutrient support.",
+    "Zinc 39.5% minimum suspension formulation for zinc correction.",
+    "Orthosilicic acid that supports stronger plants, root development, stress resistance and nutrient uptake.",
+    "Magnesium sulphate fertilizer supplying magnesium and sulphur with other fertilizers.",
+    "Soil micronutrient fertilizer applied with other fertilizers to support nutrient availability.",
+    "Ferrous sulphate fertilizer for soil application with other fertilizers.",
+    "Zinc sulphate fertilizer for soil application with other fertilizers.",
+  ],
+  waterSoluble: [
+    "Water-soluble NPK 00:42:47 supplying phosphorus and potassium.",
+    "NPK 00:48:47 for orchards and vegetables, supporting root development through phosphorus and potassium.",
+    "Sulphur 90% fertilizer for correcting soil sulphur deficiency.",
+    "N-21 nitrogen fertilizer supporting leaf growth and stronger stems.",
+    "NPK 00:60:20 for balanced nutrient supply and vegetative growth.",
+    "NPK 14:48:00 supporting root development, flowering, fruiting and yield.",
+    "NPK 00:09:46 for fruit and vegetable crop development.",
+    "Fully water-soluble NPK 05:55:17 supporting roots, flowering, fruit quality and stress tolerance.",
+    "NPK 00:40:37 supporting roots, flowering, fruit quality and fertigation or spraying.",
+    "NPK 10:54:10 with high phosphorus for early root and flowering support.",
+    "NPK with TE supporting roots, greenery, flowers, fruiting, quality and nutrient correction.",
+    "Liquid NPK 8:8:8 supporting root growth, flowering, fruit quality and stress tolerance.",
+  ],
+  plantGrowthRegulators: [
+    "Gibberellic Acid 0.001% plant growth regulator that accelerates growth, supports photosynthesis and improves crop quality.",
+  ],
+  organicFertilizers: [
+    "Granular soil conditioner that stabilizes organic carbon and nitrogen, improves nutrient availability and supports white-root growth.",
+    "Granular soil conditioner containing humic acid, amino acid and other nutrients to improve soil properties and crop productivity.",
+  ],
+  bioStimulants: [
+    "Supports root flexibility, potash uptake, fruit size, sweetness, colour, shine and early fruit setting.",
+    "Biological extract mixed with water for managing sap-sucking insects, harmful fungi and bacteria.",
+    "Organic silicon-based spreader that improves spray coverage and the efficiency of medicines and fertilizers.",
+    "Potassium humate formulation that promotes white-root growth, soil texture and nutrient availability.",
+    "Amorphous silica formulation supporting leaf strength, photosynthesis and crop stress resistance.",
+    "Amino acid and nutrient blend supporting branching, flower retention, photosynthesis and nutrient absorption.",
+    "Biostimulant with vitamins and nutrients supporting balanced crop nutrition, growth, fruit size and colour.",
+    "Natural growth enhancer containing amino, humic, fulvic and seaweed extracts for roots, flowers and fruiting.",
+    "Seaweed-based organic product supporting photosynthesis, soil fertility, white roots and fruit set.",
+    "L-amino acid 80% formulation supporting photosynthesis, metabolism, flowering, fruit size and quality.",
+    "Silica and amino acid blend supporting crop immunity, metabolism and disease-resistant growth.",
+    "Biostimulant supporting branching, flower-bud formation and reduced flower shedding.",
+    "Residue-free, eco-friendly product for managing sucking insects in vegetables, fruits, cotton, rice and soybean.",
+    "Fruit-sizing formulation supporting potash uptake, fruit weight, colour, sweetness and shine.",
+    "Humic acid formulation supporting white roots, soil fertility, microorganisms and nutrient absorption.",
+    "Preventive product supporting management of bacterial diseases including fruit drop, bacterial smut and Xanthomonas.",
+    "Water-quality conditioner that improves spray performance, drip fertilizer availability and reduces salinity.",
+    "Seaweed, amino acid, protein and vitamin nutrient mixture supporting crop immunity, flowers and production.",
+    "Herbal nutrient enhancer supporting nutrient absorption, fruit quality, uniform growth and beneficial microorganisms.",
+    "Natural-extract product for managing pinhole borer in tree trunks.",
+    "Soil and root enhancer supporting microorganisms, white roots, nutrient uptake and soil fertility.",
+    "Formulation supporting plant metabolism, photosynthesis, IAA and GA production, fruit size and shine.",
+    "Fulvic acid 90% formulation supporting crop yield, nutrient use, pH balance and beneficial microbes.",
+    "Herbicide booster that improves weed-control performance and helps carry herbicide to weed roots.",
+    "Size and growth formulation supporting root flexibility, potassium uptake, fruit size, sweetness and early fruit set.",
+    "Universal dispersant that dissolves fertilizers, prevents nozzle and filter blockage and gives a uniform tank mixture.",
+    "Seaweed biostimulant supporting growth, crop development, fruiting and staged foliar or drip application.",
+    "Onion storage powder helping preserve onions, reduce sprouting and rotting, and maintain quality for longer storage.",
+  ],
+};
+
+const withCatalogDescriptions = (slug: string, info: CatalogInfo[]) =>
+  info.map((item, index) => ({ ...item, description: catalogDescriptions[slug]?.[index] }));
+
 export type Product = {
   slug: string;
   name: string;
@@ -184,7 +277,7 @@ export const categories = [
     catalog: "/assets/catalogs/bio-fertilizers.docx",
     range: ["MAX AZOS (Azospirillum)", "MAXRHIZO (Rhizobium)", "MAXAZO (Azotobacter)", "ULTRA POTASH (KMB)", "ULTRA PHOS (PSB)", "MAXMAZIC (NPK Consortia)", "MAXZINKA (ZSB)", "MAXSULFA (SSB)", "SHUGARSHINE (Acetobacter)", "MAXVAM (Mycorrhiza)", "TRICON (Trichoderma)", "MAX N-P-K (NPK Liquid Consortia)", "PSUMOTO", "MAXPACINO", "RUCO POTASH", "CORAL MYCORRHIZA"],
     rangeImages: productImages.bioFertilizers,
-    catalogInfo: catalogInfo.bioFertilizers,
+    catalogInfo: withCatalogDescriptions("bioFertilizers", catalogInfo.bioFertilizers),
     highlights: ["Nitrogen, phosphate, potash, zinc and sulphur mobilization", "Root-zone microbial support for stronger crop growth", "Biological alternatives for improved nutrient availability"],
   },
   {
@@ -195,7 +288,7 @@ export const categories = [
     catalog: "/assets/catalogs/micro-nutrients.docx",
     range: ["VERA GOLD COMBI (Powder)", "VERA GOLD DRIP (Powder)", "VERAZIN (Zinc 12%)", "VERABOR (Boron 20%)", "VERAFER (Ferrous 12%)", "VERA GOLD COMBI (Liquid)", "VERACAL", "TONICAL (Liquid Calcium 11%)", "TYSON-B10 (Boron Ethanol Amine 10%)", "TOKOZIN 70", "TYSIL (Orthosilicic Acid)", "VERA GOLD MAGNESIUM SULPHATE", "VERA GOLD SOIL", "VERA GOLD FEROUS SULPHATE", "VERA GOLD ZINC SULPHATE"],
     rangeImages: productImages.microNutrients,
-    catalogInfo: catalogInfo.microNutrients,
+    catalogInfo: withCatalogDescriptions("microNutrients", catalogInfo.microNutrients),
     highlights: ["Support for healthy roots, leaves and plant structure", "Micronutrient correction for stronger, more productive crops", "Products supplied in powder, liquid and suspension formats"],
   },
   {
@@ -206,7 +299,7 @@ export const categories = [
     catalog: "/assets/catalogs/water-soluble-fertilizers.docx",
     range: ["TYSON 00:42:47 + TE", "TYSON 00:48:47 + TE", "TYSULF (Sulphur 90% Powder)", "TYSON N-21", "TYSON 00:60:20 + TE", "TYSON 14:48:00 + TE", "TYSON 00:09:46 + TE", "TYSON 05:55:17 + TE", "TYSON 00:40:37 + TE", "TYSON 10:54:10 + TE", "N:P:K 10:09:16:3:13 + TE", "ANWAKEN (N:P:K 8:8:8 Liquid)"],
     rangeImages: productImages.waterSoluble,
-    catalogInfo: catalogInfo.waterSoluble,
+    catalogInfo: withCatalogDescriptions("waterSoluble", catalogInfo.waterSoluble),
     highlights: ["Faster and stronger root growth", "Improved flowering, fruiting and crop quality", "Suitable for fertigation and selected foliar applications"],
   },
   {
@@ -217,7 +310,7 @@ export const categories = [
     catalog: "/assets/catalogs/plant-growth-regulators.docx",
     range: ["LIRA (Gibberellic Acid 0.001% L)"],
     rangeImages: productImages.plantGrowthRegulators,
-    catalogInfo: catalogInfo.plantGrowthRegulators,
+    catalogInfo: withCatalogDescriptions("plantGrowthRegulators", catalogInfo.plantGrowthRegulators),
     highlights: ["Boosts plant growth and crop development", "Supports photosynthesis and overall plant health", "Helps maintain steady growth over time"],
   },
   {
@@ -228,7 +321,7 @@ export const categories = [
     catalog: "/assets/catalogs/organic-fertilizers.docx",
     range: ["GRIPPER GR", "SOIL POWER"],
     rangeImages: productImages.organicFertilizers,
-    catalogInfo: catalogInfo.organicFertilizers,
+    catalogInfo: withCatalogDescriptions("organicFertilizers", catalogInfo.organicFertilizers),
     highlights: ["Supports organic carbon and nitrogen balance", "Improves physical, biological and chemical soil properties", "Encourages white-root growth and crop productivity"],
   },
   {
@@ -239,7 +332,7 @@ export const categories = [
     catalog: "/assets/catalogs/bio-stimulants.docx",
     range: ["UNI K UPTEK", "UNIMAX FISH OIL", "FASTER", "UNI ROOT KING", "UNI-SIL", "UNI-ZYME", "STAR GOLD", "GRIPPER", "B-VITA", "AMINO GOLD", "AM-SIL", "UNI DAMAN", "BIO-9", "SUPER SIZE DRIP", "ROOT CONNECTOR", "BACTRA", "DR.PH", "GRIPPER DF", "ONEPLUS", "MARKUS", "DELMA GOLD", "VERA", "FULVIGROW", "LITO", "POWER PLUS", "JEFHA MAX PRO", "ZULEMA KELP SL", "ONICATOR"],
     rangeImages: productImages.bioStimulants,
-    catalogInfo: catalogInfo.bioStimulants,
+    catalogInfo: withCatalogDescriptions("bioStimulants", catalogInfo.bioStimulants),
     highlights: ["Supports nutrient absorption, flowering and fruit development", "Helps improve crop quality, colour, sweetness and shelf life", "Specialty solutions for stress, soil, water and pest-management support"],
   },
 ];
