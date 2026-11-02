@@ -124,7 +124,7 @@ export function Footer() {
         </div>
       </div>
       <div className="relative z-10 border-t border-primary-foreground/10">
-        <div className="container-x py-6 text-xs text-primary-foreground/60">
+        <div className="container-x py-6 text-center text-xs text-primary-foreground/60">
           © {new Date().getFullYear()} {company.name} All Rights Reserved. Developed by{" "}
           <a href="https://webakoof.com/" target="_blank" rel="noreferrer" className="font-bold text-primary-foreground hover:text-gold">Webakoof</a>
         </div>
