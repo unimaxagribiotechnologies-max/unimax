@@ -11,9 +11,6 @@ export default function Product({ slug }: { slug: string }) {
     return <section className="container-x section-y"><h1 className="text-h2 text-primary">Product not found</h1><Link to="/products" className="mt-6 inline-flex text-accent">Back to products</Link></section>;
   }
 
-  const featuredCatalogIndex = p.catalogInfo?.findIndex((item) => item.description || item.dosage || item.packing) ?? -1;
-  const featuredCatalog = featuredCatalogIndex >= 0 ? p.catalogInfo?.[featuredCatalogIndex] : undefined;
-
   return (
     <section className="container-x pt-8 pb-16 md:pt-12 md:pb-20">
       <Link to="/products" className="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-accent"><ArrowLeft className="size-4" /> All products</Link>
@@ -27,22 +24,28 @@ export default function Product({ slug }: { slug: string }) {
           <p className="eyebrow">{p.category}</p>
           <h1 className="text-h2 mt-3 text-primary">{p.name}</h1>
           <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{p.summary}</p>
-          {featuredCatalog && (
+          {p.range && (
             <div className="mt-8 rounded-2xl border bg-card p-5 shadow-soft">
-              <p className="eyebrow">Catalogue details</p>
-              <p className="mt-2 font-bold text-primary">{p.range?.[featuredCatalogIndex] ?? "Featured catalogue product"}</p>
-              {featuredCatalog.description && <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{featuredCatalog.description}</p>}
-              {(featuredCatalog.dosage || featuredCatalog.packing) && (
-                <div className="mt-4 grid gap-3 border-t pt-4 text-sm sm:grid-cols-2">
-                  {featuredCatalog.dosage && <p><span className="font-bold text-primary">Dosage:</span> {featuredCatalog.dosage}</p>}
-                  {featuredCatalog.packing && <p><span className="font-bold text-primary">Available packing:</span> {featuredCatalog.packing}</p>}
-                </div>
-              )}
+              <p className="eyebrow">Catalogue product information</p>
+              <div className="mt-4 max-h-[560px] space-y-4 overflow-y-auto pr-2">
+                {p.range.map((item, index) => {
+                  const info = p.catalogInfo?.[index];
+                  return (
+                    <article key={item} className="border-b border-border pb-4 last:border-0 last:pb-0">
+                      <p className="font-bold text-primary">{item}</p>
+                      {info?.description && <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{info.description}</p>}
+                      {(info?.dosage || info?.packing) && (
+                        <div className="mt-3 grid gap-2 text-xs leading-relaxed text-muted-foreground sm:grid-cols-2">
+                          {info.dosage && <p><span className="font-bold text-primary">Dosage:</span> {info.dosage}</p>}
+                          {info.packing && <p><span className="font-bold text-primary">Available packing:</span> {info.packing}</p>}
+                        </div>
+                      )}
+                    </article>
+                  );
+                })}
+              </div>
             </div>
           )}
-          <dl className="mt-8 divide-y rounded-2xl border bg-card">
-            <div className="flex justify-between gap-4 p-4 text-sm"><dt className="font-semibold text-primary">Products in catalog</dt><dd className="text-right text-muted-foreground">{p.range?.length ?? "See catalog"}</dd></div>
-          </dl>
           {p.catalog && (
             <a href={p.catalog} download className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-2xl border bg-card px-5 py-3 text-sm font-bold text-primary transition-colors hover:border-accent hover:text-accent">
               <Download className="size-4" /> Download official product catalogue
