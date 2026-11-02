@@ -10,6 +10,7 @@ export const heroBackground = "/assets/54c2bb1f-37f0-4b01-af30-3a0ee8e95d13.png"
 export const companyImages = {
   logo: "/assets/logo-transparent.png",
   about: "/assets/about-us.jpeg",
+  corporateOffice: "/assets/corporate-office.jpg",
   values: "/assets/company-values.jpeg",
   profile: "/assets/company-profile.jpeg",
   brand: "/assets/unimax-brand.jpeg",

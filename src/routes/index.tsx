@@ -3,7 +3,7 @@ import { ArrowRight, BadgeCheck, FlaskConical, Handshake, HeartHandshake, Leaf, 
 import { Button } from "@/components/ui/button";
 import { CtaBanner, SectionHead } from "@/components/site/Layout";
 import { useManagedContent } from "@/lib/content-store";
-import { categories, company, heroBackground, images, resourceNav, services } from "@/lib/site";
+import { categories, company, companyImages, heroBackground, images, resourceNav, services } from "@/lib/site";
 const strengths = [
   { icon: Microscope, title: "Science-Led Approach", text: "Biotechnology-inspired thinking applied to everyday farming." },
   { icon: Sprout, title: "Farmer Focused", text: "Solutions shaped around real field conditions." },
@@ -52,7 +52,7 @@ export default function Home() {
 
       <section className="container-x section-y grid items-center gap-14 lg:grid-cols-2">
         <div className="relative">
-          <img src={images.lab} alt="Seedling held in a lab" loading="lazy" width={1280} height={960} className="aspect-[4/3] w-full rounded-3xl object-cover shadow-lift" />
+          <img src={companyImages.corporateOffice} alt="Unimax corporate office" loading="lazy" width={1280} height={960} className="aspect-[4/3] w-full rounded-3xl object-cover shadow-lift" />
           <div className="absolute -bottom-6 -right-4 hidden rounded-2xl bg-card p-5 shadow-lift md:block">
             <FlaskConical className="size-7 text-accent" />
             <p className="mt-2 font-display font-bold text-primary">Agri + Biotech</p>
