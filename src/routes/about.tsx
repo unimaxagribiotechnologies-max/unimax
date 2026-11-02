@@ -72,7 +72,7 @@ export default function About() {
     <>
       <PageHero eyebrow="About Us" title="An agri-biotech company built for Indian farms." img={breadcrumbImages.about} />
 
-      <section className="container-x section-y grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
+      <section className="container-x section-y grid items-center gap-14 lg:grid-cols-[0.95fr_1.05fr]">
         <div>
           <p className="eyebrow">About Unimax</p>
           <h1 className="text-h2 mt-3 max-w-3xl text-primary">Nurturing growth, empowering farmers, sustaining the future.</h1>
@@ -91,9 +91,9 @@ export default function About() {
             ))}
           </div>
         </div>
-        <div className="relative mx-auto w-full max-w-[500px]">
+        <div className="relative mx-auto w-full max-w-[620px]">
           <div className="absolute -inset-3 -z-10 rounded-[2rem] bg-secondary/70" aria-hidden />
-          <img src={companyImages.about} alt="The foundation of Unimax's success" loading="lazy" className="w-full rounded-[1.75rem] border bg-card p-3 object-contain shadow-lift" />
+          <img src={companyImages.about} alt="The foundation of Unimax's success" loading="lazy" className="h-[380px] w-full rounded-[1.75rem] border bg-card p-3 object-cover shadow-lift sm:h-[460px] lg:h-[520px]" />
         </div>
       </section>
 
