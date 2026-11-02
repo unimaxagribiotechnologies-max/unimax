@@ -168,7 +168,7 @@ export default function ResourcePage({ slug }: { slug: ResourceSlug }) {
               src={resource.image}
               alt={resource.imageAlt}
               loading="lazy"
-              className={isCertification ? "h-[520px] w-full rounded-2xl object-cover object-center sm:h-[620px]" : isLaboratory ? "h-[480px] w-full rounded-2xl object-cover object-center" : isEvents ? "h-[420px] w-full rounded-2xl object-cover object-center" : "max-h-[560px] w-full rounded-2xl object-contain"}
+              className={isCertification ? "h-[520px] w-full rounded-2xl object-cover object-center sm:h-[620px]" : isLaboratory ? "h-[480px] w-full rounded-2xl bg-secondary/30 object-contain object-center" : isEvents ? "h-[420px] w-full rounded-2xl bg-secondary/30 object-contain object-center" : "max-h-[560px] w-full rounded-2xl object-contain"}
             />
           </div>
         </div>
@@ -195,7 +195,7 @@ export default function ResourcePage({ slug }: { slug: ResourceSlug }) {
             {resource.gallery.map((item) => (
               <figure key={item.src} className="overflow-hidden rounded-3xl border bg-card p-3 shadow-soft">
                 <a href={item.src} target="_blank" rel="noreferrer" aria-label={`Open ${item.label} image`}>
-                  <img src={item.src} alt={item.alt} loading="lazy" className={isLaboratory || isEvents ? "h-[360px] w-full rounded-2xl object-cover" : "h-[420px] w-full rounded-2xl object-contain"} />
+                  <img src={item.src} alt={item.alt} loading="lazy" className={isLaboratory || isEvents ? "h-[360px] w-full rounded-2xl bg-secondary/30 object-contain" : "h-[420px] w-full rounded-2xl object-contain"} />
                 </a>
                 <figcaption className="px-2 pb-2 pt-4 text-sm font-bold text-primary">{item.label}</figcaption>
               </figure>
