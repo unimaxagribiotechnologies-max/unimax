@@ -23,7 +23,7 @@ export default function Gallery() {
       {open && (
         <div role="dialog" aria-modal className="fixed inset-0 z-[60] grid place-items-center bg-foreground/90 p-6" onClick={() => setOpen(null)}>
           <button className="absolute right-6 top-6 text-background" aria-label="Close"><X className="size-8" /></button>
-          <img src={open} alt="" className="max-h-[85vh] rounded-2xl" />
+          <img src={open} alt="" className="max-h-[85vh] max-w-full rounded-2xl object-contain" />
         </div>
       )}
     </>

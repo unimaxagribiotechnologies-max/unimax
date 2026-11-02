@@ -6,11 +6,11 @@ import { company, companyImages, nav, resourceNav } from "@/lib/site";
 
 function Brand({ light = false }: { light?: boolean }) {
   return (
-    <Link to="/" className="flex items-center gap-2.5" aria-label="Unimax home">
-      <img src={companyImages.logo} alt="Unimax Agri Bio-Technologies logo" className={light ? "size-14 object-contain" : "size-16 object-contain"} />
+    <Link to="/" className="flex min-w-0 items-center gap-2.5" aria-label="Unimax home">
+      <img src={companyImages.logo} alt="Unimax Agri Bio-Technologies logo" className={light ? "size-12 shrink-0 object-contain sm:size-14" : "size-12 shrink-0 object-contain sm:size-16"} />
       <span className="leading-tight">
-        <span className={`block font-display text-lg font-extrabold ${light ? "text-primary-foreground" : "text-primary"}`}>UNIMAX</span>
-        <span className={`block text-[10px] font-semibold uppercase tracking-[0.2em] ${light ? "text-primary-foreground/70" : "text-muted-foreground"}`}>Agri Bio-Technologies</span>
+        <span className={`block font-display text-base font-extrabold sm:text-lg ${light ? "text-primary-foreground" : "text-primary"}`}>UNIMAX</span>
+        <span className={`block text-[9px] font-semibold uppercase tracking-[0.16em] sm:text-[10px] sm:tracking-[0.2em] ${light ? "text-primary-foreground/70" : "text-muted-foreground"}`}>Agri Bio-Technologies</span>
       </span>
     </Link>
   );
@@ -37,7 +37,7 @@ export function Header() {
         </div>
       </div>
       <div className={`border-b transition-all ${scrolled ? "border-border bg-background/95 shadow-soft backdrop-blur" : "border-transparent bg-background"}`}>
-        <div className="container-x flex h-20 items-center justify-between gap-6">
+        <div className="container-x flex h-16 items-center justify-between gap-3 sm:h-20 sm:gap-6">
           <Brand />
           <nav className="hidden items-center gap-1 xl:flex" aria-label="Main">
             {nav.map((n) => (
