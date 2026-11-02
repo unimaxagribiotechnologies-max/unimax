@@ -5,7 +5,7 @@ import soil from "@/assets/soil.jpg";
 
 export const images = { hero, lab, farmer, soil };
 
-export const heroBackground = "/assets/54c2bb1f-37f0-4b01-af30-3a0ee8e95d13.png";
+export const heroBackground = "/assets/hero-background.jpeg";
 
 export const companyImages = {
   logo: "/assets/logo-transparent.png",
@@ -17,13 +17,13 @@ export const companyImages = {
 };
 
 export const breadcrumbImages = {
-  about: "/assets/breadcrubs/about.png",
-  blog: "/assets/breadcrubs/blog.png",
-  contact: "/assets/breadcrubs/contact%20us.png",
-  gallery: "/assets/breadcrubs/gallery.png",
-  products: "/assets/breadcrubs/products.png",
-  solutions: "/assets/breadcrubs/solutions.png",
-  testimonials: "/assets/breadcrubs/testimonials.png",
+  about: "/assets/breadcrubs/about.jpeg",
+  blog: "/assets/breadcrubs/blog.jpeg",
+  contact: "/assets/breadcrubs/contact%20us.jpeg",
+  gallery: "/assets/breadcrubs/gallery.jpeg",
+  products: "/assets/breadcrubs/products.jpeg",
+  solutions: "/assets/breadcrubs/solutions.jpeg",
+  testimonials: "/assets/breadcrubs/testimonials.jpeg",
 };
 
 export const company = {
@@ -66,24 +66,24 @@ const productImageSeries = (slug: string, extensions: ("png" | "jpeg")[]) =>
 
 const productImages = {
   bioFertilizers: productImageSeries("bio-fertilizers", [
-    "png", "png", "png", "png", "png", "png", "png", "png",
-    "png", "png", "png", "png", "png", "png", "jpeg", "jpeg",
+    "jpeg", "jpeg", "jpeg", "jpeg", "jpeg", "jpeg", "jpeg", "jpeg",
+    "jpeg", "jpeg", "jpeg", "jpeg", "jpeg", "jpeg", "jpeg", "jpeg",
   ]),
   microNutrients: productImageSeries("micro-nutrients", [
-    "jpeg", "png", "png", "png", "png", "png", "png", "png",
-    "png", "png", "png", "jpeg", "jpeg", "jpeg", "jpeg",
+    "jpeg", "jpeg", "jpeg", "jpeg", "jpeg", "jpeg", "jpeg", "jpeg",
+    "jpeg", "jpeg", "jpeg", "jpeg", "jpeg", "jpeg", "jpeg",
   ]).concat("/assets/products/bio-fertilizers-15.jpeg"),
   waterSoluble: productImageSeries("water-soluble-fertilizers", [
-    "png", "png", "png", "png", "png", "jpeg", "png", "png",
-    "png", "png", "png", "png",
+    "jpeg", "jpeg", "jpeg", "jpeg", "jpeg", "jpeg", "jpeg", "jpeg",
+    "jpeg", "jpeg", "jpeg", "jpeg",
   ]),
-  plantGrowthRegulators: productImageSeries("plant-growth-regulators", ["png"]),
-  organicFertilizers: productImageSeries("organic-fertilizers", ["jpeg", "png"]),
+  plantGrowthRegulators: productImageSeries("plant-growth-regulators", ["jpeg"]),
+  organicFertilizers: productImageSeries("organic-fertilizers", ["jpeg", "jpeg"]),
   bioStimulants: productImageSeries("bio-stimulants", [
-    "png", "jpeg", "png", "jpeg", "jpeg", "png", "png", "png",
-    "png", "png", "jpeg", "jpeg", "png", "jpeg", "png", "png",
-    "png", "png", "png", "png", "png", "png", "jpeg", "png",
-    "png", "png", "png", "jpeg",
+    "jpeg", "jpeg", "jpeg", "jpeg", "jpeg", "jpeg", "jpeg", "jpeg",
+    "jpeg", "jpeg", "jpeg", "jpeg", "jpeg", "jpeg", "jpeg", "jpeg",
+    "jpeg", "jpeg", "jpeg", "jpeg", "jpeg", "jpeg", "jpeg", "jpeg",
+    "jpeg", "jpeg", "jpeg", "jpeg",
   ]),
 };
 
