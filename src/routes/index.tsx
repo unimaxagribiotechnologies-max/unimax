@@ -94,7 +94,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-deep relative section-y overflow-hidden text-primary-foreground">
+      <section className="bg-deep relative overflow-hidden py-[clamp(2.5rem,5vw,4.5rem)] text-primary-foreground">
         <div className="bg-dots absolute inset-0" aria-hidden />
         <div className="container-x relative">
           <p className="eyebrow !text-gold">Solutions</p>

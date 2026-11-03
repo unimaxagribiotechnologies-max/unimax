@@ -48,7 +48,7 @@ export default function Contact() {
           ))}
           <iframe title="Map of Ahilyanagar" className="h-64 w-full rounded-2xl border" loading="lazy" src="https://www.google.com/maps?q=Ahilyanagar,Maharashtra&output=embed" />
         </div>
-        <form onSubmit={handleSubmit(onSubmit)} className="card-animate rounded-3xl border bg-card p-8 shadow-soft md:p-10" noValidate>
+        <form onSubmit={handleSubmit(onSubmit)} className="card-animate rounded-3xl border bg-card p-5 shadow-soft sm:p-8 md:p-10" noValidate>
           <h2 className="text-2xl font-bold text-primary">Send an enquiry</h2>
           {sent && <p className="mt-4 rounded-xl bg-secondary p-4 text-sm text-primary">Thank you! Your enquiry has been saved and opened in WhatsApp — press send there to deliver it.</p>}
           <div className="mt-6 grid gap-5 sm:grid-cols-2">

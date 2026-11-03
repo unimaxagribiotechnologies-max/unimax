@@ -11,7 +11,7 @@ export default function Blog() {
       <section className="container-x section-y grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {content.posts.map((p) => (
           <Link key={p.slug} to={`/blog/${p.slug}`} className="card-animate card-animate-hover group overflow-hidden rounded-2xl border bg-card hover:shadow-lift">
-            <img src={p.img} alt="" loading="lazy" className="aspect-[16/10] w-full object-cover" />
+            <img src={p.img} alt={`${p.title} - Unimax agriculture insight`} loading="lazy" className="aspect-[16/10] w-full object-cover" />
             <div className="p-6">
               <p className="text-xs font-semibold uppercase tracking-widest text-accent">{p.date}</p>
               <h2 className="mt-2 text-xl font-bold text-primary group-hover:underline">{p.title}</h2>

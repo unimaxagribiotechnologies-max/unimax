@@ -121,7 +121,9 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
     line-height: 1.65;
+    overflow-x: hidden;
   }
+  img, video, canvas { max-width: 100%; }
   h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; line-height: 1.12; }
   html { scroll-behavior: smooth; overflow-x: hidden; }
 }

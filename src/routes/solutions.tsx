@@ -14,9 +14,9 @@ export default function Solutions() {
           {services.map((s, i) => {
             const I = icons[i] ?? Sprout;
             return (
-              <div key={s.title} className="card-animate card-animate-hover flex gap-6 rounded-2xl border bg-card p-8">
+              <div key={s.title} className="card-animate card-animate-hover flex min-w-0 gap-4 rounded-2xl border bg-card p-6 sm:gap-6 sm:p-8">
                 <span className="grid size-14 shrink-0 place-items-center rounded-2xl bg-secondary"><I className="size-7 text-accent" /></span>
-                <div>
+                <div className="min-w-0">
                   <h3 className="text-xl font-bold text-primary">{s.title}</h3>
                   <p className="mt-2 text-muted-foreground">{s.desc}</p>
                   <Link to="/contact" className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-accent">Learn more <ArrowRight className="size-4" /></Link>

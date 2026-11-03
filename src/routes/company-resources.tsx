@@ -153,9 +153,6 @@ export default function ResourcePage({ slug }: { slug: ResourceSlug }) {
   const resource = resources[slug];
   const [activeVideo, setActiveVideo] = useState<number | null>(null);
   const isVideo = slug === "video";
-  const isCertification = slug === "certification";
-  const isLaboratory = slug === "laboratory";
-  const isEvents = slug === "news-events";
 
   return (
     <>
@@ -163,12 +160,12 @@ export default function ResourcePage({ slug }: { slug: ResourceSlug }) {
       <section className="container-x section-y grid items-center gap-12 lg:grid-cols-[minmax(300px,0.75fr)_minmax(0,1.25fr)] lg:gap-20">
         <div className="relative mx-auto w-full max-w-[500px]">
           <div className="absolute -inset-3 -z-10 rounded-[2rem] bg-secondary/70" aria-hidden />
-          <div className="overflow-hidden rounded-[1.75rem] border border-border/80 bg-card p-3 shadow-lift">
+          <div className="aspect-[4/3] overflow-hidden rounded-[1.75rem] border border-border/80 bg-card p-3 shadow-lift">
             <img
               src={resource.image}
               alt={resource.imageAlt}
               loading="lazy"
-              className={isCertification ? "h-[420px] w-full rounded-2xl object-cover object-center sm:h-[620px]" : isLaboratory ? "h-[360px] w-full rounded-2xl bg-secondary/30 object-contain object-center sm:h-[480px]" : isEvents ? "h-[320px] w-full rounded-2xl bg-secondary/30 object-contain object-center sm:h-[420px]" : "max-h-[560px] w-full rounded-2xl object-contain"}
+              className="size-full rounded-2xl bg-secondary/30 object-contain object-center"
             />
           </div>
         </div>
@@ -194,8 +191,8 @@ export default function ResourcePage({ slug }: { slug: ResourceSlug }) {
           <div className="grid gap-6 md:grid-cols-2">
             {resource.gallery.map((item) => (
               <figure key={item.src} className="overflow-hidden rounded-3xl border bg-card p-3 shadow-soft">
-                <a href={item.src} target="_blank" rel="noreferrer" aria-label={`Open ${item.label} image`}>
-                  <img src={item.src} alt={item.alt} loading="lazy" className={isLaboratory || isEvents ? "h-[260px] w-full rounded-2xl bg-secondary/30 object-contain sm:h-[360px]" : "h-[360px] w-full rounded-2xl object-contain sm:h-[420px]"} />
+                <a href={item.src} target="_blank" rel="noreferrer" aria-label={`Open ${item.label} image`} className="block aspect-[4/3]">
+                  <img src={item.src} alt={item.alt} loading="lazy" className="size-full rounded-2xl bg-secondary/30 object-contain" />
                 </a>
                 <figcaption className="px-2 pb-2 pt-4 text-sm font-bold text-primary">{item.label}</figcaption>
               </figure>

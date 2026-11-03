@@ -2,6 +2,7 @@ import { useEffect } from "react";
 
 import { Footer, FloatingContact, Header } from "@/components/site/Layout";
 import { normalizePath, useLocation } from "@/lib/router";
+import { applySeo } from "@/lib/seo";
 import About from "@/routes/about";
 import Admin from "@/routes/admin";
 import Blog from "@/routes/blog.index";
@@ -14,24 +15,6 @@ import Products from "@/routes/products.index";
 import Solutions from "@/routes/solutions";
 import Testimonials from "@/routes/testimonials";
 import ResourcePage, { resourceSlugs, type ResourceSlug } from "@/routes/company-resources";
-
-const titles: Record<string, string> = {
-  "/": "Agricultural Biotechnology Solutions",
-  "/about": "About Us",
-  "/products": "Products",
-  "/solutions": "Solutions & Services",
-  "/gallery": "Gallery",
-  "/blog": "Blog",
-  "/testimonials": "Testimonials",
-  "/contact": "Contact Us",
-  "/awards": "Awards",
-  "/certification": "Certification",
-  "/csr": "CSR",
-  "/laboratory": "Laboratory",
-  "/video": "Video",
-  "/news-events": "News / Events",
-  "/admin": "Admin Dashboard",
-};
 
 function NotFound() {
   return (
@@ -58,12 +41,7 @@ function Page() {
   const cleanPath = normalizePath(path);
 
   useEffect(() => {
-    const base = cleanPath.startsWith("/products/")
-      ? "Product"
-      : cleanPath.startsWith("/blog/")
-        ? "Article"
-        : (titles[cleanPath] ?? "Unimax Agri Bio-Technologies");
-    document.title = `${base} | Unimax Agri Bio-Technologies`;
+    applySeo(cleanPath);
   }, [cleanPath]);
 
   if (cleanPath === "/") return <Home />;

@@ -21,13 +21,25 @@ export function Header() {
   const [moreOpen, setMoreOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = useLocation();
+  const isActive = (to: string) => pathname === to || (to !== "/" && pathname.startsWith(to));
+
   useEffect(() => {
     const f = () => setScrolled(window.scrollY > 20);
     f(); window.addEventListener("scroll", f); return () => window.removeEventListener("scroll", f);
   }, []);
+
+  useEffect(() => {
+    if (!moreOpen) return;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMoreOpen(false);
+    };
+    document.addEventListener("keydown", closeOnEscape);
+    return () => document.removeEventListener("keydown", closeOnEscape);
+  }, [moreOpen]);
+
   return (
     <header className="sticky top-0 z-50">
-      <div className="hidden bg-primary-deep text-primary-foreground/85 md:block">
+      <div className="hidden bg-primary-deep text-primary-foreground/85 lg:block">
         <div className="container-x flex h-10 items-center justify-between text-xs">
           <div className="flex gap-6">
             <a href={company.phoneHref} className="flex items-center gap-1.5 hover:text-gold"><Phone className="size-3.5" />{company.phone}</a>
@@ -37,50 +49,56 @@ export function Header() {
         </div>
       </div>
       <div className={`border-b transition-all ${scrolled ? "border-border bg-background/95 shadow-soft backdrop-blur" : "border-transparent bg-background"}`}>
-        <div className="container-x flex h-16 items-center justify-between gap-3 sm:h-20 sm:gap-6">
-          <Brand />
-          <nav className="hidden items-center gap-1 xl:flex" aria-label="Main">
+        <div className="container-x flex min-w-0 h-16 items-center gap-3 sm:h-20 sm:gap-6">
+          <div className="shrink-0"><Brand /></div>
+          <nav className="hidden min-w-0 flex-1 items-center justify-end gap-1 xl:flex" aria-label="Main">
             {nav.map((n) => (
               <Link key={n.to} to={n.to}
-                className={`relative rounded-full px-3.5 py-2 text-sm font-medium text-foreground/80 transition-colors hover:text-primary ${pathname === n.to || (n.to !== "/" && pathname.startsWith(n.to)) ? "bg-secondary text-primary" : ""}`}>
+                aria-current={isActive(n.to) ? "page" : undefined}
+                className={`relative whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-secondary hover:text-primary ${isActive(n.to) ? "bg-secondary text-primary" : ""}`}>
                 {n.label}
               </Link>
             ))}
-            <div className="relative">
+            <div className="relative" onMouseEnter={() => setMoreOpen(true)} onMouseLeave={() => setMoreOpen(false)}>
               <button
                 type="button"
                 onClick={() => setMoreOpen((value) => !value)}
-                className={`inline-flex items-center gap-1 rounded-full px-3.5 py-2 text-sm font-medium text-foreground/80 transition-colors hover:text-primary ${resourceNav.some((n) => pathname === n.to) ? "bg-secondary text-primary" : ""}`}
-                onMouseEnter={() => setMoreOpen(true)}
+                onFocus={() => setMoreOpen(true)}
+                className={`inline-flex items-center gap-1 whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-secondary hover:text-primary ${resourceNav.some((n) => pathname === n.to) ? "bg-secondary text-primary" : ""}`}
                 aria-haspopup="true"
                 aria-expanded={moreOpen}
+                aria-controls="more-navigation"
               >
                 More <ChevronDown aria-hidden className="size-3" />
               </button>
-              <div className={`absolute right-0 top-full z-50 mt-2 grid w-52 gap-1 rounded-2xl border bg-card p-2 shadow-lift transition-all ${moreOpen ? "translate-y-0 opacity-100" : "pointer-events-none invisible translate-y-1 opacity-0"}`} onMouseLeave={() => setMoreOpen(false)}>
-                {resourceNav.map((n) => (
-                  <Link key={n.to} to={n.to} onClick={() => setMoreOpen(false)} className="rounded-xl px-3 py-2.5 text-sm font-medium text-foreground/80 hover:bg-secondary hover:text-primary">{n.label}</Link>
-                ))}
+              <div id="more-navigation" role="menu" className={`absolute right-0 top-full z-50 pt-2 transition-all ${moreOpen ? "translate-y-0 opacity-100" : "pointer-events-none invisible translate-y-1 opacity-0"}`}>
+                <div className="grid w-52 gap-1 rounded-2xl border bg-card p-2 shadow-lift">
+                  {resourceNav.map((n) => (
+                    <Link key={n.to} to={n.to} role="menuitem" onClick={() => setMoreOpen(false)} className="rounded-xl px-3 py-2.5 text-sm font-medium text-foreground/80 hover:bg-secondary hover:text-primary">{n.label}</Link>
+                  ))}
+                </div>
               </div>
             </div>
           </nav>
-          <div className="flex items-center gap-2">
+          <div className="ml-auto flex shrink-0 items-center gap-2">
             <Button asChild variant="brand" className="hidden rounded-full px-5 sm:inline-flex"><Link to="/contact">Get in Touch</Link></Button>
-            <button className="grid size-10 place-items-center rounded-full border xl:hidden" onClick={() => setOpen(!open)} aria-label="Toggle menu" aria-expanded={open}>
+            <button className="grid size-10 place-items-center rounded-full border xl:hidden" onClick={() => setOpen(!open)} aria-label="Toggle menu" aria-expanded={open} aria-controls="mobile-navigation">
               {open ? <X className="size-5" /> : <Menu className="size-5" />}
             </button>
           </div>
         </div>
         {open && (
-          <nav className="container-x grid gap-1 pb-6 xl:hidden" aria-label="Mobile">
+          <nav id="mobile-navigation" className="container-x grid max-h-[calc(100svh-4rem)] gap-1 overflow-y-auto border-t border-border/60 pb-6 pt-3 xl:hidden" aria-label="Mobile">
             {nav.map((n) => (
               <Link key={n.to} to={n.to} onClick={() => setOpen(false)}
-                className={`rounded-lg px-4 py-3 font-medium ${pathname === n.to || (n.to !== "/" && pathname.startsWith(n.to)) ? "bg-secondary text-primary" : ""}`}>{n.label}</Link>
+                aria-current={isActive(n.to) ? "page" : undefined}
+                className={`rounded-xl px-4 py-3 font-medium transition-colors hover:bg-secondary ${isActive(n.to) ? "bg-secondary text-primary" : ""}`}>{n.label}</Link>
             ))}
             <p className="px-4 pt-4 text-xs font-bold uppercase tracking-[0.2em] text-accent">More from Unimax</p>
             {resourceNav.map((n) => (
               <Link key={n.to} to={n.to} onClick={() => setOpen(false)}
-                className={`rounded-lg px-4 py-3 font-medium ${pathname === n.to ? "bg-secondary text-primary" : ""}`}>{n.label}</Link>
+                aria-current={pathname === n.to ? "page" : undefined}
+                className={`rounded-xl px-4 py-3 font-medium transition-colors hover:bg-secondary ${pathname === n.to ? "bg-secondary text-primary" : ""}`}>{n.label}</Link>
             ))}
           </nav>
         )}
@@ -135,8 +153,8 @@ export function Footer() {
 
 export function FloatingContact() {
   return (
-    <div className="fixed bottom-5 right-5 z-50 flex flex-col gap-3">
-      <a href={company.whatsapp} target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp" className="grid size-14 place-items-center rounded-full bg-[#25D366] text-white shadow-lift ring-4 ring-white/20 transition-transform hover:scale-110"><WhatsappIcon /></a>
+    <div className="fixed bottom-4 right-4 z-50 flex flex-col gap-3 sm:bottom-5 sm:right-5">
+      <a href={company.whatsapp} target="_blank" rel="noreferrer" aria-label="Chat on WhatsApp" className="grid size-12 place-items-center rounded-full bg-[#25D366] text-white shadow-lift ring-4 ring-white/20 transition-transform hover:scale-110 sm:size-14"><WhatsappIcon /></a>
     </div>
   );
 }
@@ -150,7 +168,16 @@ function WhatsappIcon() {
 }
 
 export function PageHero({ eyebrow, title, text, img }: { eyebrow: string; title: string; text?: string; img: string }) {
-  return <section className="h-[250px] overflow-hidden sm:h-[300px] lg:h-[360px]"><img src={img} alt={`${title} banner`} className="block size-full object-cover object-left" /></section>;
+  return (
+    <section aria-labelledby="page-hero-title" className="h-[250px] overflow-hidden sm:h-[300px] lg:h-[360px]">
+      <img src={img} alt="" className="block size-full object-cover object-left" />
+      <div className="sr-only">
+        <p>{eyebrow}</p>
+        <h1 id="page-hero-title">{title}</h1>
+        {text && <p>{text}</p>}
+      </div>
+    </section>
+  );
 }
 
 export function SectionHead({ eyebrow, title, text, center = false }: { eyebrow: string; title: string; text?: string; center?: boolean }) {
@@ -170,7 +197,7 @@ export function Placeholder({ children }: { children: ReactNode }) {
 export function CtaBanner() {
   return (
     <section className="container-x pb-24">
-      <div className="bg-deep relative overflow-hidden rounded-3xl px-8 py-14 text-primary-foreground shadow-lift md:px-16">
+      <div className="bg-deep relative overflow-hidden rounded-3xl px-5 py-10 text-primary-foreground shadow-lift sm:px-8 sm:py-14 md:px-16">
         <div className="bg-dots absolute inset-0" aria-hidden />
         <div className="relative flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
           <div>

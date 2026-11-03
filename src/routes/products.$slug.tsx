@@ -16,13 +16,13 @@ export default function Product({ slug }: { slug: string }) {
   return (
     <section className="container-x pt-8 pb-16 md:pt-12 md:pb-20">
       <Link to="/products" className="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-accent"><ArrowLeft className="size-4" /> All products</Link>
-      <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
-        <div>
-          <div className="overflow-hidden rounded-3xl bg-secondary/20 shadow-lift">
-            <img src={p.img} alt={p.name} className="min-h-[300px] w-full object-contain bg-secondary/20 p-3 sm:min-h-[380px] lg:min-h-[500px]" />
+      <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-12">
+        <div className="min-w-0">
+          <div className="aspect-[4/3] overflow-hidden rounded-3xl bg-secondary/20 shadow-lift">
+            <img src={p.img} alt={p.name} className="size-full object-contain bg-secondary/20 p-3" />
           </div>
         </div>
-        <div>
+        <div className="min-w-0">
           <p className="eyebrow">{p.category}</p>
           <h1 className="text-h2 mt-3 text-primary">{p.name}</h1>
           <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{p.summary}</p>

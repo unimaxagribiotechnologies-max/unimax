@@ -75,7 +75,7 @@ export default function About() {
       <section className="container-x section-y grid items-center gap-14 lg:grid-cols-[0.95fr_1.05fr]">
         <div>
           <p className="eyebrow">About Unimax</p>
-          <h1 className="text-h2 mt-3 max-w-3xl text-primary">Nurturing growth, empowering farmers, sustaining the future.</h1>
+          <h2 className="text-h2 mt-3 max-w-3xl text-primary">Nurturing growth, empowering farmers, sustaining the future.</h2>
           <p className="mt-6 text-lg leading-relaxed text-muted-foreground">We are an established and rapidly growing manufacturer of proprietary formulated agricultural inputs, dedicated to sustainable farming.</p>
           <p className="mt-5 text-muted-foreground">Since our inception in 2016, we have been committed to providing innovative, effective and eco-friendly solutions that enhance farm productivity while preserving soil health. What started with a strong presence in Maharashtra, Gujarat and Madhya Pradesh has now expanded into a Pan-India network covering major agricultural markets of Central, Southern and Northern India, with a clear vision to expand globally.</p>
           <div className="mt-8 grid max-w-xl grid-cols-3 gap-3 border-t pt-6">
@@ -93,11 +93,11 @@ export default function About() {
         </div>
         <div className="relative mx-auto w-full max-w-[620px]">
           <div className="absolute -inset-3 -z-10 rounded-[2rem] bg-secondary/70" aria-hidden />
-          <img src={companyImages.about} alt="The foundation of Unimax's success" loading="lazy" className="h-[320px] w-full rounded-[1.75rem] border bg-card p-3 object-cover shadow-lift sm:h-[460px] lg:h-[520px]" />
+          <img src={companyImages.about} alt="The foundation of Unimax's success" loading="lazy" className="aspect-[4/3] w-full rounded-[1.75rem] border bg-card p-3 object-cover shadow-lift" />
         </div>
       </section>
 
-      <section className="bg-secondary section-y">
+      <section className="bg-secondary section-y !pb-[clamp(2.5rem,5vw,4rem)]">
         <div className="container-x">
           <SectionHead eyebrow="Who we are" title="A partner in the farmer's journey towards prosperity." text="We are not just an agri-input manufacturing company. Every product is designed to address a real field problem and deliver visible results." />
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
@@ -112,7 +112,7 @@ export default function About() {
         </div>
       </section>
 
-      <section className="container-x section-y">
+      <section className="container-x section-y !pt-[clamp(2.5rem,5vw,4rem)]">
         <div className="grid items-stretch gap-8 lg:grid-cols-[0.8fr_1.2fr]">
           <article className="relative overflow-hidden rounded-3xl bg-deep p-8 text-primary-foreground shadow-lift md:p-10">
             <div className="bg-dots absolute inset-0 opacity-60" aria-hidden />
@@ -142,8 +142,8 @@ export default function About() {
       </section>
 
       <section className="container-x section-y grid items-center gap-14 lg:grid-cols-[0.85fr_1.15fr]">
-        <div className="mx-auto w-full max-w-[500px] overflow-hidden rounded-3xl border bg-card p-3 shadow-lift">
-          <img src={companyImages.profile} alt="Unimax company profile and manufacturing facility" loading="lazy" className="max-h-[620px] w-full rounded-2xl object-contain" />
+        <div className="mx-auto aspect-[4/3] w-full max-w-[500px] overflow-hidden rounded-3xl border bg-card p-3 shadow-lift">
+          <img src={companyImages.profile} alt="Unimax company profile and manufacturing facility" loading="lazy" className="size-full rounded-2xl object-contain" />
         </div>
         <div>
           <SectionHead eyebrow="Manufacturing & Infrastructure" title="Built for quality, coordination and timely availability." />
@@ -170,8 +170,8 @@ export default function About() {
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-primary-foreground/80">All our distinguished products are self-formulated in our own well-equipped R&amp;D Centre and rigorously field-tested by our own Agronomy Department under diverse agro-climatic conditions before reaching the market.</p>
             <p className="mt-5 max-w-2xl text-primary-foreground/70">To ensure scientific validation and efficacy, some of our products are regularly tested by various State Agricultural Universities and Research Centres. Our biggest validation comes from the field—millions of satisfied farmers who have adopted our products and are promoting them through word-of-mouth for sustainable farming.</p>
           </div>
-          <div className="rounded-3xl border border-primary-foreground/15 bg-primary-foreground/10 p-4 backdrop-blur">
-            <img src={companyImages.brand} alt="Unimax research and agricultural brand graphic" loading="lazy" className="max-h-[520px] w-full rounded-2xl object-contain" />
+          <div className="aspect-[4/3] rounded-3xl border border-primary-foreground/15 bg-primary-foreground/10 p-4 backdrop-blur">
+            <img src={companyImages.brand} alt="Unimax research and agricultural brand graphic" loading="lazy" className="size-full rounded-2xl object-contain" />
           </div>
         </div>
       </section>
