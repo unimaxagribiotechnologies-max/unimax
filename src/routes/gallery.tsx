@@ -6,7 +6,7 @@ export default function Gallery() {
   const [open, setOpen] = useState<string | null>(null);
   return (
     <>
-      <PageHero eyebrow="Gallery" title="Moments from the field." text="A visual glimpse into Unimax Agri Bio-Technologies and our work in agriculture." img={breadcrumbImages.gallery} />
+      <PageHero eyebrow="Gallery" title="Moments from the field." text="A visual glimpse into Unimax Agri Bio-Technologies (I) PVT LTD and our work in agriculture." img={breadcrumbImages.gallery} />
       <section className="container-x section-y grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {galleryImages.map((g, i) => (
           <button

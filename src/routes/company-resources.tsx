@@ -39,7 +39,7 @@ const resources: Record<ResourceSlug, {
     eyebrow: "Awards",
     title: "Award of Appreciation – Startup Conclave & Awards 2024",
     intro: "Recognized for Outstanding Innovation in Agriculture.",
-    detail: "Unimax Agri Bio-Technologies (I) Pvt. Ltd. was honored with the Certificate of Appreciation and Appreciation Award at the Startup Conclave & Awards 2024, organized by Vaikunth Mehta National Institute of Cooperative Management (VAMNICOM), Pune, in collaboration with CARE Foundation, on 2nd February 2024.\n\nThis recognition celebrates our commitment to agricultural innovation, technological advancement, and our continuous efforts towards empowering farmers and contributing to the growth of the agricultural sector.",
+    detail: "Unimax Agri Bio-Technologies (I) PVT LTD was honored with the Certificate of Appreciation and Appreciation Award at the Startup Conclave & Awards 2024, organized by Vaikunth Mehta National Institute of Cooperative Management (VAMNICOM), Pune, in collaboration with CARE Foundation, on 2nd February 2024.\n\nThis recognition celebrates our commitment to agricultural innovation, technological advancement, and our continuous efforts towards empowering farmers and contributing to the growth of the agricultural sector.",
     image: "/assets/unimax_appreciation_certificate.png",
     imageAlt: "Unimax Certificate of Appreciation from Startup Conclave & Awards 2024",
     gallery: [
@@ -55,7 +55,7 @@ const resources: Record<ResourceSlug, {
   certification: {
     eyebrow: "Certification",
     title: "Committed to Quality. Driven by Innovation. Dedicated to Farmers.",
-    intro: "At Unimax Agri Bio-Technologies (India) Pvt. Ltd., quality is our commitment and innovation is our strength. Our ISO 9001:2015 Quality Management System reflects our dedication to maintaining quality standards in agricultural products and contributing to sustainable agricultural growth.",
+    intro: "At Unimax Agri Bio-Technologies (I) PVT LTD, quality is our commitment and innovation is our strength. Our ISO 9001:2015 Quality Management System reflects our dedication to maintaining quality standards in agricultural products and contributing to sustainable agricultural growth.",
     detail: "Certificate of Registration\nISO 9001:2015 Quality Management System\n\nScope: Manufacturing & marketing of micronutrients, organic manure, organic fertilizers, bio fertilizers, seeds, pesticides and plant growth regulators.\n\nCertificate issued by Quality Research Organization (QRO). Certificate date: 13th April 2026. Certificate expiry: 12th April 2029. Certificate number: 3050260413149Q.",
     image: "/assets/certificate.jpeg",
     imageAlt: "Unimax ISO 9001:2015 certificate of registration",
@@ -114,7 +114,7 @@ const resources: Record<ResourceSlug, {
     imageAlt: "Unimax agricultural brand artwork",
     sectionTitle: "Video library",
     cards: [
-      { icon: PlayCircle, title: "Company introduction", text: "A short overview of Unimax Agri Bio-Technologies and our agricultural focus." },
+      { icon: PlayCircle, title: "Company introduction", text: "A short overview of Unimax Agri Bio-Technologies (I) PVT LTD and our agricultural focus." },
       { icon: PlayCircle, title: "Product education", text: "Simple, practical explainers for product purpose, timing and application." },
       { icon: PlayCircle, title: "Field conversations", text: "Stories and conversations from the farmers, dealers and partners we serve." },
     ],
@@ -125,7 +125,7 @@ const resources: Record<ResourceSlug, {
     intro: "Unimax participates in agricultural exhibitions and outreach programmes where farmers, dealers and partners can discover practical crop solutions and share field experiences.",
     detail: "UNIMAX AGRI BIO-TECHNOLOGIES (I) PVT LTD stall at Agriculture Exhibition - Displaying our complete range of Bio-fertilizers, Micronutrients & Fruit Quality Enhancers with live crop results.",
     image: "/assets/events/event-01.jpeg",
-    imageAlt: "Unimax Agri Bio-Technologies team at an agricultural exhibition",
+    imageAlt: "Unimax Agri Bio-Technologies (I) PVT LTD team at an agricultural exhibition",
     gallery: [
       { src: "/assets/events/event-02.jpeg", alt: "Unimax agricultural exhibition stall with products and team members", label: "Product showcase" },
       { src: "/assets/events/event-03.jpeg", alt: "Visitors exploring the Unimax agricultural exhibition stall", label: "Visitors and farmer interactions" },
@@ -240,7 +240,7 @@ function ResourceHero({ resource }: { resource: (typeof resources)[ResourceSlug]
       <img src={images.hero} alt="Green agricultural field at sunrise" className="absolute inset-0 -z-10 size-full object-cover" />
       <div className="absolute inset-0 -z-10 bg-gradient-to-r from-primary-deep/95 via-primary-deep/75 to-primary-deep/30" aria-hidden />
       <div className="container-x py-16 text-primary-foreground sm:py-20">
-        <p className="eyebrow !text-gold">Unimax Agri Bio-Technologies</p>
+        <p className="eyebrow !text-gold">Unimax Agri Bio-Technologies (I) PVT LTD</p>
         <h1 className="mt-4 max-w-3xl font-display text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">{resource.title}</h1>
         <p className="mt-5 max-w-2xl text-base text-primary-foreground/75 sm:text-lg">{resource.intro}</p>
       </div>

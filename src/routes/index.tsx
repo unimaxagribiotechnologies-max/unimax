@@ -33,7 +33,7 @@ export default function Home() {
           <div className="max-w-3xl">
             <p className="eyebrow flex items-center gap-3 text-primary"><span className="h-px w-8 bg-gold" />Agricultural Biotechnology · Ahilyanagar</p>
             <h1 className="text-display mt-5 max-w-3xl">Science that grows <span className="text-gold">stronger harvests.</span></h1>
-            <p className="mt-6 max-w-xl text-lg text-primary/80">Unimax Agri Bio-Technologies brings modern agri-biotech solutions to farmers, dealers and agricultural businesses.</p>
+            <p className="mt-6 max-w-xl text-lg text-primary/80">Unimax Agri Bio-Technologies (I) PVT LTD brings modern agri-biotech solutions to farmers, dealers and agricultural businesses.</p>
             <div className="mt-9 flex flex-wrap gap-3">
               <Button asChild variant="brand" size="xl"><Link to="/products">Explore Products <ArrowRight /></Link></Button>
               <Button asChild variant="outline" size="xl" className="border-primary/40 bg-background/30 text-primary hover:bg-background/60"><Link to="/contact">Contact Us <ArrowRight /></Link></Button>

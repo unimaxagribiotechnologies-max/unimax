@@ -1,7 +1,7 @@
 import { company, companyImages, heroBackground, posts, products } from "@/lib/site";
 
 const siteDescription =
-  "Unimax Agri Bio-Technologies manufactures bio-fertilizers, bio-stimulants, micronutrients, water-soluble fertilizers and organic agricultural inputs for Indian farms.";
+  "Unimax Agri Bio-Technologies (I) PVT LTD manufactures bio-fertilizers, bio-stimulants, micronutrients, water-soluble fertilizers and organic agricultural inputs for Indian farms.";
 
 type PageSeo = {
   title: string;
@@ -20,10 +20,10 @@ const routeSeo: Record<string, PageSeo> = {
     keywords: "agricultural biotechnology, bio-fertilizers, micronutrients, bio-stimulants, Maharashtra",
   },
   "/about": {
-    title: "About Unimax Agri Bio-Technologies",
-    description: "Learn about Unimax Agri Bio-Technologies, our manufacturing facility, R&D capabilities and farmer-focused approach from Maharashtra, India.",
+    title: "About Unimax Agri Bio-Technologies (I) PVT LTD",
+    description: "Learn about Unimax Agri Bio-Technologies (I) PVT LTD, our manufacturing facility, R&D capabilities and farmer-focused approach from Maharashtra, India.",
     image: companyImages.about,
-    keywords: "Unimax Agri Bio-Technologies, agri input manufacturer Maharashtra, agricultural R&D",
+    keywords: "Unimax Agri Bio-Technologies (I) PVT LTD, agri input manufacturer Maharashtra, agricultural R&D",
   },
   "/products": {
     title: "Bio-Fertilizers, Micronutrients & Agri Inputs",
@@ -39,12 +39,12 @@ const routeSeo: Record<string, PageSeo> = {
   },
   "/gallery": {
     title: "Agricultural Gallery",
-    description: "View field, laboratory, product and agricultural outreach moments from Unimax Agri Bio-Technologies.",
+    description: "View field, laboratory, product and agricultural outreach moments from Unimax Agri Bio-Technologies (I) PVT LTD.",
     image: "/assets/breadcrubs/gallery.jpeg",
   },
   "/blog": {
     title: "Agriculture & Farming Insights",
-    description: "Read agriculture, soil health and agri-biotechnology insights from Unimax Agri Bio-Technologies.",
+    description: "Read agriculture, soil health and agri-biotechnology insights from Unimax Agri Bio-Technologies (I) PVT LTD.",
     image: "/assets/breadcrubs/blog.jpeg",
     keywords: "agriculture blog, soil health, modern farming, agri-biotechnology",
   },
@@ -54,18 +54,18 @@ const routeSeo: Record<string, PageSeo> = {
     image: "/assets/breadcrubs/testimonials.jpeg",
   },
   "/contact": {
-    title: "Contact Unimax Agri Bio-Technologies",
-    description: "Contact Unimax Agri Bio-Technologies in Ahilyanagar, Maharashtra for product, farmer, dealer and distributor enquiries.",
+    title: "Contact Unimax Agri Bio-Technologies (I) PVT LTD",
+    description: "Contact Unimax Agri Bio-Technologies (I) PVT LTD in Ahilyanagar, Maharashtra for product, farmer, dealer and distributor enquiries.",
     image: "/assets/breadcrubs/contact%20us.jpeg",
     keywords: "contact agricultural company Maharashtra, Unimax enquiry, agri product enquiry",
   },
   "/awards": {
     title: "Awards & Recognition",
-    description: "Learn about Unimax Agri Bio-Technologies' recognition for innovation and contribution to agriculture.",
+    description: "Learn about Unimax Agri Bio-Technologies (I) PVT LTD's recognition for innovation and contribution to agriculture.",
   },
   "/certification": {
     title: "Quality Certifications",
-    description: "Review Unimax Agri Bio-Technologies' quality management and agricultural registrations.",
+    description: "Review Unimax Agri Bio-Technologies (I) PVT LTD's quality management and agricultural registrations.",
   },
   "/csr": {
     title: "Corporate Social Responsibility",
@@ -77,7 +77,7 @@ const routeSeo: Record<string, PageSeo> = {
   },
   "/video": {
     title: "Unimax Agricultural Videos",
-    description: "Watch company, product and agricultural videos from Unimax Agri Bio-Technologies.",
+    description: "Watch company, product and agricultural videos from Unimax Agri Bio-Technologies (I) PVT LTD.",
   },
   "/news-events": {
     title: "Agricultural News & Events",
@@ -150,7 +150,7 @@ export function applySeo(path: string) {
   const origin = window.location.origin;
   const url = `${origin}${path === "/" ? "/" : path}`;
   const page = getPageSeo(path);
-  const title = `${page.title} | Unimax Agri Bio-Technologies`;
+  const title = `${page.title} | Unimax Agri Bio-Technologies (I) PVT LTD`;
   const image = absoluteUrl(page.image ?? heroBackground, origin);
 
   document.title = title;
@@ -163,9 +163,9 @@ export function applySeo(path: string) {
   upsertMeta("property", "og:description", page.description);
   upsertMeta("property", "og:type", page.type ?? "website");
   upsertMeta("property", "og:url", url);
-  upsertMeta("property", "og:site_name", "Unimax Agri Bio-Technologies");
+  upsertMeta("property", "og:site_name", "Unimax Agri Bio-Technologies (I) PVT LTD");
   upsertMeta("property", "og:image", image);
-  upsertMeta("property", "og:image:alt", `${page.title} - Unimax Agri Bio-Technologies`);
+  upsertMeta("property", "og:image:alt", `${page.title} - Unimax Agri Bio-Technologies (I) PVT LTD`);
   upsertMeta("name", "twitter:card", "summary_large_image");
   upsertMeta("name", "twitter:title", title);
   upsertMeta("name", "twitter:description", page.description);

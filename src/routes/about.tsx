@@ -54,7 +54,7 @@ const certifications = [
     detail: "Certified company",
     image: companyImages.brand,
     imageAlt: "Unimax agricultural brand certificate reference",
-    text: "Unimax Agri Bio-Technologies (I) Pvt. Ltd. is identified as an ISO 9001:2015 certified company in the supplied company profile.",
+    text: "Unimax Agri Bio-Technologies (I) PVT LTD is identified as an ISO 9001:2015 certified company in the supplied company profile.",
   },
   {
     icon: ShieldCheck,
@@ -127,7 +127,7 @@ export default function About() {
             </div>
           </article>
           <div>
-            <SectionHead eyebrow="Our people" title="Specialists working together for better agriculture." text="The people at Unimax Agri Bio-Technologies (I) Pvt. Ltd. come from diverse streams of the industry, bringing wide experience in their respective fields." />
+                <SectionHead eyebrow="Our people" title="Specialists working together for better agriculture." text="The people at Unimax Agri Bio-Technologies (I) PVT LTD come from diverse streams of the industry, bringing wide experience in their respective fields." />
             <div className="grid gap-4 sm:grid-cols-2">
               {departments.map(({ icon: Icon, title, text }) => (
                 <article key={title} className="card-animate card-animate-hover rounded-2xl border bg-card p-5 shadow-soft">

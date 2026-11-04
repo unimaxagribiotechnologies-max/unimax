@@ -1,5 +1,5 @@
 import { useEffect, useState, type ReactNode } from "react";
-import { ChevronDown, Mail, MapPin, Menu, Phone, X } from "lucide-react";
+import { ChevronDown, Facebook, Instagram, Mail, MapPin, Menu, Phone, X, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "@/lib/router";
 import { company, companyImages, nav, resourceNav } from "@/lib/site";
@@ -7,10 +7,10 @@ import { company, companyImages, nav, resourceNav } from "@/lib/site";
 function Brand({ light = false }: { light?: boolean }) {
   return (
     <Link to="/" className="flex min-w-0 items-center gap-2.5" aria-label="Unimax home">
-      <img src={companyImages.logo} alt="Unimax Agri Bio-Technologies logo" className={light ? "size-12 shrink-0 object-contain sm:size-14" : "size-12 shrink-0 object-contain sm:size-16"} />
+      <img src={companyImages.logo} alt="Unimax Agri Bio-Technologies (I) PVT LTD logo" className={light ? "size-16 shrink-0 object-contain sm:size-20" : "size-14 shrink-0 object-contain sm:size-20"} />
       <span className="leading-tight">
         <span className={`block font-display text-base font-extrabold sm:text-lg ${light ? "text-primary-foreground" : "text-primary"}`}>UNIMAX</span>
-        <span className={`block text-[9px] font-semibold uppercase tracking-[0.16em] sm:text-[10px] sm:tracking-[0.2em] ${light ? "text-primary-foreground/70" : "text-muted-foreground"}`}>Agri Bio-Technologies</span>
+        <span className={`block text-[9px] font-semibold uppercase tracking-[0.16em] sm:text-[10px] sm:tracking-[0.2em] ${light ? "text-primary-foreground/70" : "text-muted-foreground"}`}>Agri Bio-Technologies (I) PVT LTD</span>
       </span>
     </Link>
   );
@@ -112,12 +112,23 @@ export function Footer() {
     <footer className="relative overflow-hidden bg-primary-deep text-primary-foreground">
       <div className="bg-dots absolute inset-0" aria-hidden />
       <div className="pointer-events-none absolute inset-x-0 bottom-12 z-0 overflow-hidden px-4 text-center" aria-hidden>
-        <span className="block max-w-full whitespace-normal break-words font-display text-[clamp(1.35rem,4.5vw,4rem)] font-extrabold leading-tight tracking-[-0.04em] text-primary-foreground/[0.045]">UNIMAX AGRI BIO-TECHNOLOGIES (I) PVT. LTD</span>
+        <span className="block max-w-full whitespace-normal break-words font-display text-[clamp(1.35rem,4.5vw,4rem)] font-extrabold leading-tight tracking-[-0.04em] text-primary-foreground/[0.045]">UNIMAX AGRI BIO-TECHNOLOGIES (I) PVT LTD</span>
       </div>
       <div className="container-x relative z-10 grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-4">
         <div className="space-y-4">
           <Brand light />
           <p className="text-sm text-primary-foreground/70">Agricultural biotechnology solutions for modern Indian farming, from Ahilyanagar, Maharashtra.</p>
+          <div className="flex items-center gap-3" aria-label="Social media links">
+            <a href="https://www.instagram.com/invites/contact/?utm_content=1122yjd&cplk=ndkorwv6wyc8" target="_blank" rel="noreferrer" aria-label="Instagram" className="grid size-10 place-items-center rounded-full border border-primary-foreground/20 text-primary-foreground transition-colors hover:border-gold hover:bg-gold hover:text-gold-foreground">
+              <Instagram aria-hidden className="size-5" />
+            </a>
+            <a href="https://youtube.com/@unimaxagribio-technologies8647?si=jS9rJ-LeE9UQ_jlL" target="_blank" rel="noreferrer" aria-label="YouTube" className="grid size-10 place-items-center rounded-full border border-primary-foreground/20 text-primary-foreground transition-colors hover:border-gold hover:bg-gold hover:text-gold-foreground">
+              <Youtube aria-hidden className="size-5" />
+            </a>
+            <a href="https://www.facebook.com/share/1HMrkGhzUZ/" target="_blank" rel="noreferrer" aria-label="Facebook" className="grid size-10 place-items-center rounded-full border border-primary-foreground/20 text-primary-foreground transition-colors hover:border-gold hover:bg-gold hover:text-gold-foreground">
+              <Facebook aria-hidden className="size-5" />
+            </a>
+          </div>
         </div>
         <div>
           <h3 className="mb-4 text-sm font-bold uppercase tracking-widest text-gold">Explore</h3>

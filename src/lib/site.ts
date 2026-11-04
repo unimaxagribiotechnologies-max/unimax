@@ -27,7 +27,7 @@ export const breadcrumbImages = {
 };
 
 export const company = {
-  name: "UNIMAX AGRI BIO-TECHNOLOGIES (I) PVT. LTD",
+  name: "UNIMAX AGRI BIO-TECHNOLOGIES (I) PVT LTD",
   short: "Unimax Agri Bio-Tech",
   contact: "Bhausaheb Ladhane",
   phone: "+91 9561196030",
