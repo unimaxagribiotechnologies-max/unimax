@@ -78,7 +78,7 @@ export default function About() {
           <h2 className="text-h2 mt-3 max-w-3xl text-primary">Nurturing growth, empowering farmers, sustaining the future.</h2>
           <p className="mt-6 text-lg leading-relaxed text-muted-foreground">We are an established and rapidly growing manufacturer of proprietary formulated agricultural inputs, dedicated to sustainable farming.</p>
           <p className="mt-5 text-muted-foreground">Since our inception in 2016, we have been committed to providing innovative, effective and eco-friendly solutions that enhance farm productivity while preserving soil health. What started with a strong presence in Maharashtra, Gujarat and Madhya Pradesh has now expanded into a Pan-India network covering major agricultural markets of Central, Southern and Northern India, with a clear vision to expand globally.</p>
-          <div className="mt-8 grid max-w-xl grid-cols-3 gap-3 border-t pt-6">
+          <div className="mt-8 grid max-w-xl grid-cols-1 gap-4 border-t pt-6 sm:grid-cols-3 sm:gap-3">
             {[
               ["2016", "Established"],
               ["Pan-India", "Market network"],

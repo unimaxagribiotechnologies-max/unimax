@@ -6,11 +6,11 @@ import { company, companyImages, nav, resourceNav } from "@/lib/site";
 
 function Brand({ light = false }: { light?: boolean }) {
   return (
-    <Link to="/" className="flex min-w-0 items-center gap-2.5" aria-label="Unimax home">
+    <Link to="/" className="flex w-full min-w-0 max-w-full items-center gap-2.5" aria-label="Unimax home">
       <img src={companyImages.logo} alt="Unimax Agri Bio-Technologies (I) PVT LTD logo" className={light ? "size-16 shrink-0 object-contain sm:size-20" : "size-14 shrink-0 object-contain sm:size-20"} />
-      <span className="leading-tight">
+      <span className="min-w-0 leading-tight">
         <span className={`block font-display text-base font-extrabold sm:text-lg ${light ? "text-primary-foreground" : "text-primary"}`}>UNIMAX</span>
-        <span className={`block text-[9px] font-semibold uppercase tracking-[0.16em] sm:text-[10px] sm:tracking-[0.2em] ${light ? "text-primary-foreground/70" : "text-muted-foreground"}`}>Agri Bio-Technologies (I) PVT LTD</span>
+        <span className={`block break-words text-[9px] font-semibold uppercase leading-snug tracking-[0.12em] sm:text-[10px] sm:tracking-[0.16em] ${light ? "text-primary-foreground/70" : "text-muted-foreground"}`}>Agri Bio-Technologies (I) PVT LTD</span>
       </span>
     </Link>
   );
@@ -49,8 +49,8 @@ export function Header() {
         </div>
       </div>
       <div className={`border-b transition-all ${scrolled ? "border-border bg-background/95 shadow-soft backdrop-blur" : "border-transparent bg-background"}`}>
-        <div className="container-x flex min-w-0 h-16 items-center gap-3 sm:h-20 sm:gap-6">
-          <div className="shrink-0"><Brand /></div>
+        <div className="container-x flex min-w-0 h-16 items-center gap-2 sm:h-20 sm:gap-6">
+          <div className="min-w-0 flex-1 xl:flex-none"><Brand /></div>
           <nav className="hidden min-w-0 flex-1 items-center justify-end gap-1 xl:flex" aria-label="Main">
             {nav.map((n) => (
               <Link key={n.to} to={n.to}
@@ -114,8 +114,8 @@ export function Footer() {
       <div className="pointer-events-none absolute inset-x-0 bottom-12 z-0 overflow-hidden px-4 text-center" aria-hidden>
         <span className="block max-w-full whitespace-normal break-words font-display text-[clamp(1.35rem,4.5vw,4rem)] font-extrabold leading-tight tracking-[-0.04em] text-primary-foreground/[0.045]">UNIMAX AGRI BIO-TECHNOLOGIES (I) PVT LTD</span>
       </div>
-      <div className="container-x relative z-10 grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-4">
-        <div className="space-y-4">
+      <div className="container-x relative z-10 grid gap-10 py-12 sm:gap-12 sm:py-16 md:grid-cols-2 lg:grid-cols-4">
+        <div className="min-w-0 space-y-4">
           <Brand light />
           <p className="text-sm text-primary-foreground/70">Agricultural biotechnology solutions for modern Indian farming, from Ahilyanagar, Maharashtra.</p>
           <div className="flex items-center gap-3" aria-label="Social media links">
@@ -130,19 +130,19 @@ export function Footer() {
             </a>
           </div>
         </div>
-        <div>
+        <div className="min-w-0">
           <h3 className="mb-4 text-sm font-bold uppercase tracking-widest text-gold">Explore</h3>
           <ul className="grid gap-2 text-sm text-primary-foreground/75">
             {nav.slice(0, 5).map((n) => <li key={n.to}><Link to={n.to} className="hover:text-gold">{n.label}</Link></li>)}
           </ul>
         </div>
-        <div>
+        <div className="min-w-0">
           <h3 className="mb-4 text-sm font-bold uppercase tracking-widest text-gold">Resources</h3>
           <ul className="grid gap-2 text-sm text-primary-foreground/75">
             {[...nav.slice(5), ...resourceNav].map((n) => <li key={n.to}><Link to={n.to} className="hover:text-gold">{n.label}</Link></li>)}
           </ul>
         </div>
-        <div>
+        <div className="min-w-0">
           <h3 className="mb-4 text-sm font-bold uppercase tracking-widest text-gold">Contact</h3>
           <ul className="grid gap-3 text-sm text-primary-foreground/75">
             <li>{company.contact}</li>
