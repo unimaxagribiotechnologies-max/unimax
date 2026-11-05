@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   Award,
   BadgeCheck,
@@ -109,7 +108,7 @@ const resources: Record<ResourceSlug, {
   video: {
     eyebrow: "Video",
     title: "See the ideas behind better harvests.",
-    intro: "A video library for company stories, product education and field conversations will be added here as recordings become available.",
+    intro: "Explore Unimax field visits, agricultural exhibitions and product stories through our growing video library.",
     image: companyImages.brand,
     imageAlt: "Unimax agricultural brand artwork",
     sectionTitle: "Video library",
@@ -149,9 +148,33 @@ const resources: Record<ResourceSlug, {
   },
 };
 
+const videoFiles = [
+  "WhatsApp Video 2026-11-04 at 3.25.40 PM.mp4",
+  "WhatsApp Video 2026-11-04 at 3.27.33 PM.mp4",
+  "WhatsApp Video 2026-11-04 at 3.27.53 PM.mp4",
+  "WhatsApp Video 2026-11-04 at 3.28.56 PM.mp4",
+  "WhatsApp Video 2026-11-04 at 3.30.04 PM.mp4",
+  "WhatsApp Video 2026-11-04 at 3.31.11 PM.mp4",
+  "WhatsApp Video 2026-11-04 at 3.31.26 PM.mp4",
+  "WhatsApp Video 2026-11-04 at 3.31.27 PM (1).mp4",
+  "WhatsApp Video 2026-11-04 at 3.31.27 PM.mp4",
+  "WhatsApp Video 2026-11-04 at 3.32.02 PM.mp4",
+  "WhatsApp Video 2026-11-04 at 3.32.51 PM.mp4",
+  "WhatsApp Video 2026-11-04 at 3.33.46 PM.mp4",
+  "WhatsApp Video 2026-11-04 at 3.42.03 PM.mp4",
+  "WhatsApp Video 2026-11-04 at 3.42.04 PM (1).mp4",
+  "WhatsApp Video 2026-11-04 at 3.42.04 PM.mp4",
+  "WhatsApp Video 2026-11-04 at 3.42.05 PM (1).mp4",
+  "WhatsApp Video 2026-11-04 at 3.42.05 PM.mp4",
+] as const;
+
+const videoAssets = videoFiles.map((file, index) => ({
+  src: `/assets/videos/${encodeURIComponent(file)}`,
+  label: `Unimax field video ${String(index + 1).padStart(2, "0")}`,
+}));
+
 export default function ResourcePage({ slug }: { slug: ResourceSlug }) {
   const resource = resources[slug];
-  const [activeVideo, setActiveVideo] = useState<number | null>(null);
   const isVideo = slug === "video";
 
   return (
@@ -200,37 +223,49 @@ export default function ResourcePage({ slug }: { slug: ResourceSlug }) {
           </div>
         </section>
       )}
-      <section className="bg-secondary section-y">
-        <div className="container-x">
-          <SectionHead eyebrow={resource.eyebrow} title={resource.sectionTitle} />
-          <div className="grid gap-6 md:grid-cols-3">
-            {resource.cards.map(({ icon: Icon, title, text }, index) => (
-              <article key={title} className="card-animate card-animate-hover rounded-2xl border bg-card p-7 shadow-soft">
-                <Icon className="size-9 text-accent" />
-                <h2 className="mt-5 text-xl font-bold text-primary">{title}</h2>
-                <p className="mt-3 text-sm text-muted-foreground">{text}</p>
-                {isVideo && (
-                  <button type="button" onClick={() => setActiveVideo(index)} className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-accent hover:text-primary">
-                    <PlayCircle className="size-4" /> Video coming soon
-                  </button>
-                )}
-              </article>
-            ))}
+      {isVideo ? (
+        <VideoLibrary />
+      ) : (
+        <section className="bg-secondary section-y">
+          <div className="container-x">
+            <SectionHead eyebrow={resource.eyebrow} title={resource.sectionTitle} />
+            <div className="grid gap-6 md:grid-cols-3">
+              {resource.cards.map(({ icon: Icon, title, text }) => (
+                <article key={title} className="card-animate card-animate-hover rounded-2xl border bg-card p-7 shadow-soft">
+                  <Icon className="size-9 text-accent" />
+                  <h2 className="mt-5 text-xl font-bold text-primary">{title}</h2>
+                  <p className="mt-3 text-sm text-muted-foreground">{text}</p>
+                </article>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
-      <CtaBanner />
-      {activeVideo !== null && (
-        <div role="dialog" aria-modal="true" aria-label="Video placeholder" className="fixed inset-0 z-[60] grid place-items-center bg-foreground/80 p-6" onClick={() => setActiveVideo(null)}>
-          <div className="max-w-md rounded-3xl bg-card p-8 text-center shadow-lift" onClick={(event) => event.stopPropagation()}>
-            <PlayCircle className="mx-auto size-14 text-accent" />
-            <h2 className="mt-5 text-2xl font-bold text-primary">Video coming soon</h2>
-            <p className="mt-3 text-muted-foreground">The {resource.cards[activeVideo].title.toLowerCase()} will be published when the final recording is available.</p>
-            <button type="button" onClick={() => setActiveVideo(null)} className="mt-6 rounded-full bg-primary px-5 py-2.5 text-sm font-bold text-primary-foreground">Close</button>
-          </div>
-        </div>
+        </section>
       )}
+      <CtaBanner />
     </>
+  );
+}
+
+function VideoLibrary() {
+  return (
+    <section className="bg-secondary section-y">
+      <div className="container-x">
+        <SectionHead eyebrow="Video library" title="Unimax in the field" />
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {videoAssets.map(({ src, label }) => (
+            <article key={src} className="card-animate card-animate-hover overflow-hidden rounded-3xl border bg-card p-3 shadow-soft">
+              <div className="overflow-hidden rounded-2xl bg-foreground">
+                <video controls preload="metadata" playsInline className="aspect-[9/16] w-full object-contain" aria-label={label}>
+                  <source src={src} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <p className="px-2 pb-2 pt-4 text-sm font-bold text-primary">{label}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
 
