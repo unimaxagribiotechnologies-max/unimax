@@ -151,7 +151,8 @@ export function applySeo(path: string) {
   const url = `${origin}${path === "/" ? "/" : path}`;
   const page = getPageSeo(path);
   const title = `${page.title} | Unimax Agri Bio-Technologies (I) PVT LTD`;
-  const image = absoluteUrl(page.image ?? heroBackground, origin);
+  const pageImage = absoluteUrl(page.image ?? heroBackground, origin);
+  const socialImage = absoluteUrl(companyImages.logo, origin);
 
   document.title = title;
   upsertMeta("name", "description", page.description);
@@ -164,12 +165,13 @@ export function applySeo(path: string) {
   upsertMeta("property", "og:type", page.type ?? "website");
   upsertMeta("property", "og:url", url);
   upsertMeta("property", "og:site_name", "Unimax Agri Bio-Technologies (I) PVT LTD");
-  upsertMeta("property", "og:image", image);
-  upsertMeta("property", "og:image:alt", `${page.title} - Unimax Agri Bio-Technologies (I) PVT LTD`);
+  upsertMeta("property", "og:image", socialImage);
+  upsertMeta("property", "og:image:alt", "Unimax Agri Bio-Technologies logo");
   upsertMeta("name", "twitter:card", "summary_large_image");
   upsertMeta("name", "twitter:title", title);
   upsertMeta("name", "twitter:description", page.description);
-  upsertMeta("name", "twitter:image", image);
+  upsertMeta("name", "twitter:image", socialImage);
+  upsertMeta("name", "twitter:image:alt", "Unimax Agri Bio-Technologies logo");
   setCanonical(url);
 
   const graph: Record<string, unknown>[] = [
@@ -211,11 +213,11 @@ export function applySeo(path: string) {
   }
 
   if (path.startsWith("/products/") && !page.noindex) {
-    graph.push({ "@type": "Product", name: page.title.split(" | ")[0], description: page.description, image, brand: { "@type": "Brand", name: company.short }, category: "Agricultural inputs" });
+    graph.push({ "@type": "Product", name: page.title.split(" | ")[0], description: page.description, image: pageImage, brand: { "@type": "Brand", name: company.short }, category: "Agricultural inputs" });
   }
 
   if (path.startsWith("/blog/") && !page.noindex) {
-    graph.push({ "@type": "Article", headline: page.title, description: page.description, image, author: { "@id": `${origin}/#organization` }, publisher: { "@id": `${origin}/#organization` }, mainEntityOfPage: url });
+    graph.push({ "@type": "Article", headline: page.title, description: page.description, image: pageImage, author: { "@id": `${origin}/#organization` }, publisher: { "@id": `${origin}/#organization` }, mainEntityOfPage: url });
   }
 
   setStructuredData({ "@context": "https://schema.org", "@graph": graph });
