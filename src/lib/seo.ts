@@ -1,5 +1,7 @@
 import { company, companyImages, heroBackground, posts, products } from "@/lib/site";
 
+const SITE_ORIGIN = "https://www.unimaxagri.com";
+
 const siteDescription =
   "Unimax Agri Bio-Technologies (I) PVT LTD manufactures bio-fertilizers, bio-stimulants, micronutrients, water-soluble fertilizers and organic agricultural inputs for Indian farms.";
 
@@ -147,7 +149,7 @@ function getPageSeo(path: string): PageSeo {
 export function applySeo(path: string) {
   if (typeof window === "undefined") return;
 
-  const origin = window.location.origin;
+  const origin = SITE_ORIGIN;
   const url = `${origin}${path === "/" ? "/" : path}`;
   const page = getPageSeo(path);
   const title = `${page.title} | Unimax Agri Bio-Technologies (I) PVT LTD`;
@@ -173,6 +175,14 @@ export function applySeo(path: string) {
   upsertMeta("name", "twitter:image", socialImage);
   upsertMeta("name", "twitter:image:alt", "Unimax Agri Bio-Technologies logo");
   setCanonical(url);
+
+  const analyticsWindow = window as Window & { dataLayer?: Array<Record<string, unknown>> };
+  analyticsWindow.dataLayer?.push({
+    event: "virtual_page_view",
+    page_title: title,
+    page_location: url,
+    page_path: path,
+  });
 
   const graph: Record<string, unknown>[] = [
     {
