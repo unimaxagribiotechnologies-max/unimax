@@ -19,7 +19,7 @@ const routeSeo: Record<string, PageSeo> = {
     title: "Agri-Biotech Solutions for Indian Farms",
     description: siteDescription,
     image: heroBackground,
-    keywords: "agricultural biotechnology, bio-fertilizers, micronutrients, bio-stimulants, Maharashtra",
+    keywords: "agricultural biotechnology, bio-fertilizers, micronutrients, bio-stimulants, agricultural inputs India, Maharashtra",
   },
   "/about": {
     title: "About Unimax Agri Bio-Technologies (I) PVT LTD",
@@ -43,6 +43,7 @@ const routeSeo: Record<string, PageSeo> = {
     title: "Agricultural Gallery",
     description: "View field, laboratory, product and agricultural outreach moments from Unimax Agri Bio-Technologies (I) PVT LTD.",
     image: "/assets/breadcrubs/gallery.jpeg",
+    keywords: "agriculture gallery, agri product photos, farm technology, Unimax agriculture",
   },
   "/blog": {
     title: "Agriculture & Farming Insights",
@@ -54,6 +55,7 @@ const routeSeo: Record<string, PageSeo> = {
     title: "Farmer & Partner Testimonials",
     description: "Read verified feedback and field experiences from farmers, dealers and agricultural partners working with Unimax.",
     image: "/assets/breadcrubs/testimonials.jpeg",
+    keywords: "farmer testimonials, agricultural product reviews, agri dealer feedback, Unimax reviews",
   },
   "/contact": {
     title: "Contact Unimax Agri Bio-Technologies (I) PVT LTD",
@@ -64,26 +66,32 @@ const routeSeo: Record<string, PageSeo> = {
   "/awards": {
     title: "Awards & Recognition",
     description: "Learn about Unimax Agri Bio-Technologies (I) PVT LTD's recognition for innovation and contribution to agriculture.",
+    keywords: "agriculture awards, agri innovation awards, Unimax recognition, agricultural technology",
   },
   "/certification": {
     title: "Quality Certifications",
     description: "Review Unimax Agri Bio-Technologies (I) PVT LTD's quality management and agricultural registrations.",
+    keywords: "ISO agricultural company, fertilizer quality certification, agri product registration, Unimax certification",
   },
   "/csr": {
     title: "Corporate Social Responsibility",
     description: "Explore Unimax initiatives and values supporting responsible, sustainable agricultural growth.",
+    keywords: "agriculture CSR, sustainable farming initiatives, responsible agriculture, Unimax CSR",
   },
   "/laboratory": {
     title: "Agricultural R&D Laboratory",
     description: "See how Unimax develops and validates agricultural formulations through research, testing and field-focused quality systems.",
+    keywords: "agricultural research laboratory, fertilizer formulation, agri R&D, crop input testing",
   },
   "/video": {
     title: "Unimax Agricultural Videos",
     description: "Watch company, product and agricultural videos from Unimax Agri Bio-Technologies (I) PVT LTD.",
+    keywords: "agriculture videos, fertilizer product videos, farming technology, Unimax videos",
   },
   "/news-events": {
     title: "Agricultural News & Events",
     description: "See Unimax agricultural exhibitions, farmer outreach and company event updates.",
+    keywords: "agriculture exhibitions, farmer outreach events, agri trade events, Unimax news",
   },
 };
 
@@ -161,7 +169,7 @@ export function applySeo(path: string) {
   upsertMeta("name", "robots", page.noindex ? "noindex, nofollow" : "index, follow");
   upsertMeta("name", "author", company.name);
   upsertMeta("name", "theme-color", "#164d36");
-  if (page.keywords) upsertMeta("name", "keywords", page.keywords);
+  upsertMeta("name", "keywords", page.keywords ?? "");
   upsertMeta("property", "og:title", title);
   upsertMeta("property", "og:description", page.description);
   upsertMeta("property", "og:type", page.type ?? "website");

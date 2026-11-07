@@ -33,12 +33,39 @@ const pages = [
   ["/blog/season-planning-tips", "Planning Your Crop Season", "Practical seasonal planning tips for farmers from Unimax Agri Bio-Technologies."],
 ];
 
+const keywordMap = {
+  "/": "agricultural biotechnology, bio-fertilizers, micronutrients, bio-stimulants, agricultural inputs India, Maharashtra",
+  "/about": "Unimax Agri Bio-Technologies, agri input manufacturer Maharashtra, agricultural R&D, fertilizer company India",
+  "/products": "bio-fertilizers, micronutrient fertilizers, water-soluble fertilizers, organic fertilizers, crop solutions",
+  "/solutions": "crop nutrition guidance, farmer support, agricultural solutions, agri input dealer, crop care",
+  "/gallery": "agriculture gallery, agri product photos, farm technology, Unimax agriculture",
+  "/blog": "agriculture blog, soil health, modern farming, agri-biotechnology",
+  "/testimonials": "farmer testimonials, agricultural product reviews, agri dealer feedback, Unimax reviews",
+  "/contact": "contact agricultural company Maharashtra, Unimax enquiry, agri product enquiry, fertilizer supplier contact",
+  "/awards": "agriculture awards, agri innovation awards, Unimax recognition, agricultural technology",
+  "/certification": "ISO agricultural company, fertilizer quality certification, agri product registration, Unimax certification",
+  "/csr": "agriculture CSR, sustainable farming initiatives, responsible agriculture, Unimax CSR",
+  "/laboratory": "agricultural research laboratory, fertilizer formulation, agri R&D, crop input testing",
+  "/video": "agriculture videos, fertilizer product videos, farming technology, Unimax videos",
+  "/news-events": "agriculture exhibitions, farmer outreach events, agri trade events, Unimax news",
+  "/products/bio-fertilizers": "bio-fertilizers, microbial fertilizers, biological crop inputs, nitrogen fixing biofertilizer",
+  "/products/micro-nutrients": "micronutrient fertilizers, zinc fertilizer, boron fertilizer, chelated micronutrients",
+  "/products/water-soluble-fertilizers": "water soluble fertilizers, NPK fertilizer, fertigation fertilizer, foliar fertilizer",
+  "/products/plant-growth-regulators": "plant growth regulators, gibberellic acid fertilizer, crop growth products",
+  "/products/organic-fertilizers": "organic fertilizers, soil conditioner, humic acid fertilizer, organic carbon soil health",
+  "/products/bio-stimulants": "bio-stimulants, amino acid fertilizer, seaweed extract, humic acid, crop stress support",
+  "/blog/understanding-soil-health": "soil health, soil fertility, sustainable farming, agricultural soil management",
+  "/blog/role-of-biotechnology-in-farming": "agri-biotechnology, biotechnology in farming, modern agriculture, crop science",
+  "/blog/season-planning-tips": "crop season planning, farming tips, crop management, agricultural planning",
+};
+
 function escapeHtml(value) {
   return value.replaceAll("&", "&amp;").replaceAll('"', "&quot;").replaceAll("<", "&lt;").replaceAll(">", "&gt;");
 }
 
 function pageHtml(route, title, description) {
   const url = `${siteOrigin}${route === "/" ? "/" : route}`;
+  const keywords = keywordMap[route] ?? "Unimax agriculture, agricultural products, farming solutions";
   const breadcrumb = route === "/"
     ? null
     : {
@@ -52,6 +79,7 @@ function pageHtml(route, title, description) {
   let html = template
     .replace(/<title>[^<]*<\/title>/, `<title>${escapeHtml(title)}</title>`)
     .replace(/<meta name="description" content="[^"]*" \/>/, `<meta name="description" content="${escapeHtml(description)}" />`)
+    .replace(/<meta name="keywords" content="[^"]*" \/>/, `<meta name="keywords" content="${escapeHtml(keywords)}" />`)
     .replace(/<link rel="canonical" href="[^"]*" \/>/, `<link rel="canonical" href="${url}" />`)
     .replace(/<meta property="og:title" content="[^"]*" \/>/, `<meta property="og:title" content="${escapeHtml(title)}" />`)
     .replace(/<meta property="og:description" content="[^"]*" \/>/, `<meta property="og:description" content="${escapeHtml(description)}" />`)

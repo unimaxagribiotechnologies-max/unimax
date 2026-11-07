@@ -152,6 +152,7 @@ const pages = [];
     "Added the GTM container GTM-PR7GN274 using the official head script and noscript fallback.",
     "Added SPA virtual_page_view dataLayer events so route navigation can be measured by the GTM container.",
     "Added route-level prerendered HTML metadata for 23 public URLs so crawlers receive unique titles, descriptions, canonicals and social metadata before JavaScript runs.",
+    "Added page-specific keyword targeting for brand, product, location, farming, soil health and agri-biotechnology search intent.",
     "Added XML sitemap at /sitemap.xml and linked it from /robots.txt.",
     "Added canonical production URLs using https://www.unimaxagri.com/.",
     "Added Googlebot preview controls, Open Graph title/description/image/url and Twitter card metadata.",
@@ -199,6 +200,36 @@ const pages = [];
   text(s, "Audit note", margin, 190, 11, colors.green, "F2");
   paragraph(s, "A 95+ technical score is now targeted by implementation coverage. Search Console ownership is ready for confirmation by the site owner. Actual Lighthouse SEO scoring should be recorded after the final Vercel deployment and GA4 container publication, because those measurements depend on live network and third-party conditions.", margin, 170, 87, 9, 13, colors.muted);
   text(s, "End of report", margin, 72, 9, colors.muted, "F2");
+  pages.push(s.join("\n"));
+}
+
+{
+  const s = [];
+  pageHeader(s, 5, "Keywords & sitemap");
+  title(s, "Keyword strategy and sitemap coverage", 710);
+  text(s, "Keyword groups are mapped to page intent; sitemap coverage keeps the public URL set discoverable.", margin, 676, 10, colors.muted);
+  text(s, "Target keyword clusters", margin, 638, 13, colors.green, "F2");
+  bulletList(s, [
+    "Brand and local: Unimax Agri Bio-Technologies, agricultural inputs Maharashtra, agri input manufacturer Karjat, Ahmednagar agriculture company.",
+    "Commercial product: bio-fertilizers, micronutrient fertilizers, water-soluble fertilizers, organic fertilizers, bio-stimulants, plant growth regulators.",
+    "Crop support: crop nutrition guidance, farmer support, fertigation fertilizer, foliar fertilizer, soil conditioner, crop stress support.",
+    "Research and trust: agricultural biotechnology, agricultural R&D, fertilizer formulation, ISO agricultural company, product registration.",
+    "Information: soil health, sustainable farming, modern agriculture, crop season planning, agri-biotechnology in farming.",
+  ], margin, 610, 82);
+  text(s, "Sitemap inventory", margin, 385, 13, colors.green, "F2");
+  bulletList(s, [
+    "Core pages: home, about, products, solutions, gallery, blog, testimonials and contact.",
+    "Company pages: awards, certification, CSR, laboratory, video and news-events.",
+    "Product pages: bio-fertilizers, micro-nutrients, water-soluble fertilizers, plant growth regulators, organic fertilizers and bio-stimulants.",
+    "Article pages: understanding soil health, biotechnology in farming and crop season planning.",
+    "Total: 23 public URLs at https://www.unimaxagri.com/sitemap.xml; /admin is excluded.",
+  ], margin, 357, 82);
+  text(s, "SEO assets included", margin, 190, 13, colors.green, "F2");
+  bulletList(s, [
+    "public/sitemap.xml, public/robots.txt, Google Search Console verification HTML file",
+    "Route keywords in src/lib/seo.ts and prerendered keyword metadata in the production build",
+    "Canonical, Open Graph, Twitter, JSON-LD and GTM/GA4-ready metadata",
+  ], margin, 162, 82);
   pages.push(s.join("\n"));
 }
 

@@ -1,7 +1,7 @@
 %PDF-1.4
 %‚„œ”
 1 0 obj
-<< /Type /Pages /Kids [10 0 R 11 0 R 12 0 R 13 0 R] /Count 4 >>
+<< /Type /Pages /Kids [11 0 R 12 0 R 13 0 R 14 0 R 15 0 R] /Count 5 >>
 endobj
 2 0 obj
 << /Type /Catalog /Pages 1 0 R >>
@@ -91,7 +91,7 @@ stream
 endstream
 endobj
 8 0 obj
-<< /Length 3127 >>
+<< /Length 3403 >>
 stream
 0.09 0.30 0.21 rg 0 728 612 64 re f
 1 1 1 rg BT /F2 12 Tf 48 757 Td (UNIMAX AGRI BIO-TECHNOLOGIES) Tj ET
@@ -111,16 +111,19 @@ stream
 0.12 0.16 0.14 rg BT /F1 10 Tf 62 574 Td (Added route-level prerendered HTML metadata for 23 public URLs so crawlers receive) Tj ET
 0.12 0.16 0.14 rg BT /F1 10 Tf 62 560 Td (unique titles, descriptions, canonicals and social metadata before JavaScript runs.) Tj ET
 0.78 0.56 0.16 rg BT /F2 10 Tf 48 542 Td (-) Tj ET
-0.12 0.16 0.14 rg BT /F1 10 Tf 62 542 Td (Added XML sitemap at /sitemap.xml and linked it from /robots.txt.) Tj ET
-0.78 0.56 0.16 rg BT /F2 10 Tf 48 524 Td (-) Tj ET
-0.12 0.16 0.14 rg BT /F1 10 Tf 62 524 Td (Added canonical production URLs using https://www.unimaxagri.com/.) Tj ET
-0.78 0.56 0.16 rg BT /F2 10 Tf 48 506 Td (-) Tj ET
-0.12 0.16 0.14 rg BT /F1 10 Tf 62 506 Td (Added Googlebot preview controls, Open Graph title/description/image/url and) Tj ET
-0.12 0.16 0.14 rg BT /F1 10 Tf 62 492 Td (Twitter card metadata.) Tj ET
+0.12 0.16 0.14 rg BT /F1 10 Tf 62 542 Td (Added page-specific keyword targeting for brand, product, location, farming, soil) Tj ET
+0.12 0.16 0.14 rg BT /F1 10 Tf 62 528 Td (health and agri-biotechnology search intent.) Tj ET
+0.78 0.56 0.16 rg BT /F2 10 Tf 48 510 Td (-) Tj ET
+0.12 0.16 0.14 rg BT /F1 10 Tf 62 510 Td (Added XML sitemap at /sitemap.xml and linked it from /robots.txt.) Tj ET
+0.78 0.56 0.16 rg BT /F2 10 Tf 48 492 Td (-) Tj ET
+0.12 0.16 0.14 rg BT /F1 10 Tf 62 492 Td (Added canonical production URLs using https://www.unimaxagri.com/.) Tj ET
 0.78 0.56 0.16 rg BT /F2 10 Tf 48 474 Td (-) Tj ET
-0.12 0.16 0.14 rg BT /F1 10 Tf 62 474 Td (Added Organization, WebSite and BreadcrumbList JSON-LD structured data.) Tj ET
-0.78 0.56 0.16 rg BT /F2 10 Tf 48 456 Td (-) Tj ET
-0.12 0.16 0.14 rg BT /F1 10 Tf 62 456 Td (Preserved /admin exclusion in robots.txt and kept admin out of the public sitemap.) Tj ET
+0.12 0.16 0.14 rg BT /F1 10 Tf 62 474 Td (Added Googlebot preview controls, Open Graph title/description/image/url and) Tj ET
+0.12 0.16 0.14 rg BT /F1 10 Tf 62 460 Td (Twitter card metadata.) Tj ET
+0.78 0.56 0.16 rg BT /F2 10 Tf 48 442 Td (-) Tj ET
+0.12 0.16 0.14 rg BT /F1 10 Tf 62 442 Td (Added Organization, WebSite and BreadcrumbList JSON-LD structured data.) Tj ET
+0.78 0.56 0.16 rg BT /F2 10 Tf 48 424 Td (-) Tj ET
+0.12 0.16 0.14 rg BT /F1 10 Tf 62 424 Td (Preserved /admin exclusion in robots.txt and kept admin out of the public sitemap.) Tj ET
 0.09 0.30 0.21 rg BT /F2 13 Tf 48 270 Td (Key files) Tj ET
 0.78 0.56 0.16 rg BT /F2 10 Tf 48 245 Td (-) Tj ET
 0.12 0.16 0.14 rg BT /F1 10 Tf 62 245 Td (index.html - GTM, canonical, social metadata and baseline JSON-LD) Tj ET
@@ -177,35 +180,93 @@ stream
 endstream
 endobj
 10 0 obj
-<< /Type /Page /Parent 1 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 6 0 R >>
+<< /Length 4021 >>
+stream
+0.09 0.30 0.21 rg 0 728 612 64 re f
+1 1 1 rg BT /F2 12 Tf 48 757 Td (UNIMAX AGRI BIO-TECHNOLOGIES) Tj ET
+0.82 0.91 0.84 rg BT /F2 8 Tf 472.2 757 Td (KEYWORDS & SITEMAP) Tj ET
+0.36 0.42 0.39 rg BT /F2 8 Tf 48 28 Td (SEO REPORT  |  5) Tj ET
+0.82 0.85 0.82 RG 0.6 w 48 40 m 564 40 l S
+0.09 0.30 0.21 rg BT /F2 22 Tf 48 710 Td (Keyword strategy and sitemap coverage) Tj ET
+0.78 0.56 0.16 RG 3 w 48 698 m 112 698 l S
+0.36 0.42 0.39 rg BT /F1 10 Tf 48 676 Td (Keyword groups are mapped to page intent; sitemap coverage keeps the public URL set discoverable.) Tj ET
+0.09 0.30 0.21 rg BT /F2 13 Tf 48 638 Td (Target keyword clusters) Tj ET
+0.78 0.56 0.16 rg BT /F2 10 Tf 48 610 Td (-) Tj ET
+0.12 0.16 0.14 rg BT /F1 10 Tf 62 610 Td (Brand and local: Unimax Agri Bio-Technologies, agricultural inputs Maharashtra,) Tj ET
+0.12 0.16 0.14 rg BT /F1 10 Tf 62 596 Td (agri input manufacturer Karjat, Ahmednagar agriculture company.) Tj ET
+0.78 0.56 0.16 rg BT /F2 10 Tf 48 578 Td (-) Tj ET
+0.12 0.16 0.14 rg BT /F1 10 Tf 62 578 Td (Commercial product: bio-fertilizers, micronutrient fertilizers, water-soluble) Tj ET
+0.12 0.16 0.14 rg BT /F1 10 Tf 62 564 Td (fertilizers, organic fertilizers, bio-stimulants, plant growth regulators.) Tj ET
+0.78 0.56 0.16 rg BT /F2 10 Tf 48 546 Td (-) Tj ET
+0.12 0.16 0.14 rg BT /F1 10 Tf 62 546 Td (Crop support: crop nutrition guidance, farmer support, fertigation fertilizer,) Tj ET
+0.12 0.16 0.14 rg BT /F1 10 Tf 62 532 Td (foliar fertilizer, soil conditioner, crop stress support.) Tj ET
+0.78 0.56 0.16 rg BT /F2 10 Tf 48 514 Td (-) Tj ET
+0.12 0.16 0.14 rg BT /F1 10 Tf 62 514 Td (Research and trust: agricultural biotechnology, agricultural R&D, fertilizer) Tj ET
+0.12 0.16 0.14 rg BT /F1 10 Tf 62 500 Td (formulation, ISO agricultural company, product registration.) Tj ET
+0.78 0.56 0.16 rg BT /F2 10 Tf 48 482 Td (-) Tj ET
+0.12 0.16 0.14 rg BT /F1 10 Tf 62 482 Td (Information: soil health, sustainable farming, modern agriculture, crop season) Tj ET
+0.12 0.16 0.14 rg BT /F1 10 Tf 62 468 Td (planning, agri-biotechnology in farming.) Tj ET
+0.09 0.30 0.21 rg BT /F2 13 Tf 48 385 Td (Sitemap inventory) Tj ET
+0.78 0.56 0.16 rg BT /F2 10 Tf 48 357 Td (-) Tj ET
+0.12 0.16 0.14 rg BT /F1 10 Tf 62 357 Td (Core pages: home, about, products, solutions, gallery, blog, testimonials and) Tj ET
+0.12 0.16 0.14 rg BT /F1 10 Tf 62 343 Td (contact.) Tj ET
+0.78 0.56 0.16 rg BT /F2 10 Tf 48 325 Td (-) Tj ET
+0.12 0.16 0.14 rg BT /F1 10 Tf 62 325 Td (Company pages: awards, certification, CSR, laboratory, video and news-events.) Tj ET
+0.78 0.56 0.16 rg BT /F2 10 Tf 48 307 Td (-) Tj ET
+0.12 0.16 0.14 rg BT /F1 10 Tf 62 307 Td (Product pages: bio-fertilizers, micro-nutrients, water-soluble fertilizers, plant) Tj ET
+0.12 0.16 0.14 rg BT /F1 10 Tf 62 293 Td (growth regulators, organic fertilizers and bio-stimulants.) Tj ET
+0.78 0.56 0.16 rg BT /F2 10 Tf 48 275 Td (-) Tj ET
+0.12 0.16 0.14 rg BT /F1 10 Tf 62 275 Td (Article pages: understanding soil health, biotechnology in farming and crop season) Tj ET
+0.12 0.16 0.14 rg BT /F1 10 Tf 62 261 Td (planning.) Tj ET
+0.78 0.56 0.16 rg BT /F2 10 Tf 48 243 Td (-) Tj ET
+0.12 0.16 0.14 rg BT /F1 10 Tf 62 243 Td (Total: 23 public URLs at https://www.unimaxagri.com/sitemap.xml; /admin is) Tj ET
+0.12 0.16 0.14 rg BT /F1 10 Tf 62 229 Td (excluded.) Tj ET
+0.09 0.30 0.21 rg BT /F2 13 Tf 48 190 Td (SEO assets included) Tj ET
+0.78 0.56 0.16 rg BT /F2 10 Tf 48 162 Td (-) Tj ET
+0.12 0.16 0.14 rg BT /F1 10 Tf 62 162 Td (public/sitemap.xml, public/robots.txt, Google Search Console verification HTML) Tj ET
+0.12 0.16 0.14 rg BT /F1 10 Tf 62 148 Td (file) Tj ET
+0.78 0.56 0.16 rg BT /F2 10 Tf 48 130 Td (-) Tj ET
+0.12 0.16 0.14 rg BT /F1 10 Tf 62 130 Td (Route keywords in src/lib/seo.ts and prerendered keyword metadata in the) Tj ET
+0.12 0.16 0.14 rg BT /F1 10 Tf 62 116 Td (production build) Tj ET
+0.78 0.56 0.16 rg BT /F2 10 Tf 48 98 Td (-) Tj ET
+0.12 0.16 0.14 rg BT /F1 10 Tf 62 98 Td (Canonical, Open Graph, Twitter, JSON-LD and GTM/GA4-ready metadata) Tj ET
+endstream
 endobj
 11 0 obj
-<< /Type /Page /Parent 1 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 7 0 R >>
+<< /Type /Page /Parent 1 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 6 0 R >>
 endobj
 12 0 obj
-<< /Type /Page /Parent 1 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 8 0 R >>
+<< /Type /Page /Parent 1 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 7 0 R >>
 endobj
 13 0 obj
+<< /Type /Page /Parent 1 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 8 0 R >>
+endobj
+14 0 obj
 << /Type /Page /Parent 1 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 9 0 R >>
 endobj
+15 0 obj
+<< /Type /Page /Parent 1 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 10 0 R >>
+endobj
 xref
-0 14
+0 16
 0000000000 65535 f 
 0000000015 00000 n 
-0000000094 00000 n 
-0000000143 00000 n 
-0000000213 00000 n 
-0000000288 00000 n 
-0000000427 00000 n 
-0000001781 00000 n 
-0000004920 00000 n 
-0000008099 00000 n 
-0000011717 00000 n 
-0000011854 00000 n 
-0000011991 00000 n 
-0000012128 00000 n 
+0000000101 00000 n 
+0000000150 00000 n 
+0000000220 00000 n 
+0000000295 00000 n 
+0000000434 00000 n 
+0000001788 00000 n 
+0000004927 00000 n 
+0000008382 00000 n 
+0000012000 00000 n 
+0000016074 00000 n 
+0000016211 00000 n 
+0000016348 00000 n 
+0000016485 00000 n 
+0000016622 00000 n 
 trailer
-<< /Size 14 /Root 2 0 R /Info 5 0 R >>
+<< /Size 16 /Root 2 0 R /Info 5 0 R >>
 startxref
-12265
+16760
 %%EOF
