@@ -35,6 +35,8 @@ export const company = {
   whatsapp: "https://wa.me/919561196030",
   email: "unimaxagribiotechnologies@gmail.com",
   location: "Ahilyanagar, Maharashtra, India",
+  mapEmbedUrl: "https://www.google.com/maps?q=UNIMAX+AGRI+BIO-TECHNOLOGIES+(I)+PVT.+LTD,+Ahilyanagar,+Maharashtra,+India&output=embed",
+  mapUrl: "https://www.google.com/maps/search/?api=1&query=UNIMAX%20AGRI%20BIO-TECHNOLOGIES%20(I)%20PVT.%20LTD%2C%20Ahilyanagar%2C%20Maharashtra%2C%20India",
 };
 
 export const nav = [

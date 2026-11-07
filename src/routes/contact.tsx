@@ -46,7 +46,13 @@ export default function Contact() {
                 {h ? <a href={h} className="break-all font-semibold text-primary hover:underline">{v}</a> : <p className="font-semibold text-primary">{v}</p>}</div>
             </div>
           ))}
-          <iframe title="Map of Ahilyanagar" className="h-64 w-full rounded-2xl border" loading="lazy" src="https://www.google.com/maps?q=Ahilyanagar,Maharashtra&output=embed" />
+          <div className="overflow-hidden rounded-2xl border bg-card">
+            <iframe title="Map of Unimax Agri Bio-Technologies" className="h-64 w-full border-0" loading="lazy" src={company.mapEmbedUrl} />
+            <a href={company.mapUrl} target="_blank" rel="noreferrer" className="flex items-center justify-between gap-3 px-4 py-3 text-sm font-semibold text-primary transition-colors hover:bg-secondary hover:text-accent">
+              <span>Open Unimax location in Google Maps</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
         </div>
         <form onSubmit={handleSubmit(onSubmit)} className="card-animate rounded-3xl border bg-card p-5 shadow-soft sm:p-8 md:p-10" noValidate>
           <h2 className="text-2xl font-bold text-primary">Send an enquiry</h2>
