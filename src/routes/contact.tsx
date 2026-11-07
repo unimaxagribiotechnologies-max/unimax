@@ -38,7 +38,7 @@ export default function Contact() {
             { i: User, l: "Contact Person", v: company.contact },
             { i: Phone, l: "Phone", v: company.phone, h: company.phoneHref },
             { i: Mail, l: "Email", v: company.email, h: `mailto:${company.email}` },
-            { i: MapPin, l: "Location", v: company.location },
+            { i: MapPin, l: "Location", v: company.address },
           ].map(({ i: I, l, v, h }) => (
             <div key={l} className="card-animate card-animate-hover flex gap-4 rounded-2xl border bg-card p-5">
               <span className="grid size-12 shrink-0 place-items-center rounded-xl bg-secondary"><I className="size-5 text-accent" /></span>

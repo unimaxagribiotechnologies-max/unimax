@@ -117,7 +117,7 @@ export function Footer() {
       <div className="container-x relative z-10 grid gap-10 py-12 sm:gap-12 sm:py-16 md:grid-cols-2 lg:grid-cols-4">
         <div className="min-w-0 space-y-4">
           <Brand light />
-          <p className="text-sm text-primary-foreground/70">Agricultural biotechnology solutions for modern Indian farming, from Ahilyanagar, Maharashtra.</p>
+          <p className="text-sm text-primary-foreground/70">Agricultural biotechnology solutions for modern Indian farming, from Diksal, Karjat, Ahmednagar.</p>
           <div className="flex items-center gap-3" aria-label="Social media links">
             <a href="https://www.instagram.com/invites/contact/?utm_content=1122yjd&cplk=ndkorwv6wyc8" target="_blank" rel="noreferrer" aria-label="Instagram" className="grid size-10 place-items-center rounded-full border border-primary-foreground/20 text-primary-foreground transition-colors hover:border-gold hover:bg-gold hover:text-gold-foreground">
               <Instagram aria-hidden className="size-5" />
@@ -148,7 +148,7 @@ export function Footer() {
             <li>{company.contact}</li>
             <li><a href={company.phoneHref} className="hover:text-gold">{company.phone}</a></li>
             <li><a href={`mailto:${company.email}`} className="break-all hover:text-gold">{company.email}</a></li>
-            <li>{company.location}</li>
+            <li>{company.address}</li>
           </ul>
         </div>
       </div>

@@ -34,9 +34,10 @@ export const company = {
   phoneHref: "tel:+919561196030",
   whatsapp: "https://wa.me/919561196030",
   email: "unimaxagribiotechnologies@gmail.com",
-  location: "Ahilyanagar, Maharashtra, India",
-  mapEmbedUrl: "https://www.google.com/maps?q=UNIMAX+AGRI+BIO-TECHNOLOGIES+(I)+PVT.+LTD,+Ahilyanagar,+Maharashtra,+India&output=embed",
-  mapUrl: "https://www.google.com/maps/search/?api=1&query=UNIMAX%20AGRI%20BIO-TECHNOLOGIES%20(I)%20PVT.%20LTD%2C%20Ahilyanagar%2C%20Maharashtra%2C%20India",
+  location: "Diksal, Karjat, Dist. Ahmednagar, Maharashtra, India",
+  address: "Behind Bhairavnath Mandir, Gat No. 58/2, Diksal, Karjat, Dist. Ahmednagar, Maharashtra, India",
+  mapEmbedUrl: "https://www.google.com/maps?q=UNIMAX+AGRI+BIO-TECHNOLOGIES+(I)+PVT.+LTD,+Behind+Bhairavnath+Mandir,+Gat+No.+58%2F2,+Diksal,+Karjat,+Ahmednagar,+Maharashtra,+India&output=embed",
+  mapUrl: "https://www.google.com/maps/search/?api=1&query=UNIMAX%20AGRI%20BIO-TECHNOLOGIES%20(I)%20PVT.%20LTD%2C%20Behind%20Bhairavnath%20Mandir%2C%20Gat%20No.%2058%2F2%2C%20Diksal%2C%20Karjat%2C%20Ahmednagar%2C%20Maharashtra%2C%20India",
 };
 
 export const nav = [

@@ -55,7 +55,7 @@ const routeSeo: Record<string, PageSeo> = {
   },
   "/contact": {
     title: "Contact Unimax Agri Bio-Technologies (I) PVT LTD",
-    description: "Contact Unimax Agri Bio-Technologies (I) PVT LTD in Ahilyanagar, Maharashtra for product, farmer, dealer and distributor enquiries.",
+    description: "Contact Unimax Agri Bio-Technologies (I) PVT LTD at Diksal, Karjat, Ahmednagar, Maharashtra for product, farmer, dealer and distributor enquiries.",
     image: "/assets/breadcrubs/contact%20us.jpeg",
     keywords: "contact agricultural company Maharashtra, Unimax enquiry, agri product enquiry",
   },
@@ -185,7 +185,8 @@ export function applySeo(path: string) {
       telephone: company.phone,
       address: {
         "@type": "PostalAddress",
-        addressLocality: "Ahilyanagar",
+        streetAddress: company.address,
+        addressLocality: "Karjat",
         addressRegion: "Maharashtra",
         addressCountry: "IN",
       },
