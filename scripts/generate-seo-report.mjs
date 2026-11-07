@@ -105,7 +105,7 @@ const pages = [];
   text(s, "Implementation scorecard - not a Lighthouse guarantee", margin + 190, 380, 10, colors.muted);
   paragraph(s, "The website has been upgraded for crawlability, indexability, route-level metadata, structured data, analytics readiness and social sharing. The production deployment was verified after the release.", margin, 280, 86, 11, 17, colors.ink);
   text(s, "Prepared for the Unimax web team", margin, 82, 10, colors.muted, "F2");
-  text(s, "Repository release: ce9c3db", margin, 64, 9, colors.muted);
+  text(s, "Repository release: fb7334a", margin, 64, 9, colors.muted);
   pages.push(s.join("\n"));
 }
 
@@ -180,6 +180,7 @@ const pages = [];
     "[PASS] /about and /products return HTTP 200 with route-specific titles, descriptions and canonicals.",
     "[PASS] GTM-PR7GN274 is present in the production HTML.",
     "[PASS] JSON-LD structured data is present in the production HTML.",
+    "[PASS] Google Search Console HTML verification file returns HTTP 200 at /google35af0fcb17411993.html.",
     "[PASS] bun run build completes and generates SEO-ready route HTML.",
   ];
   let y = 635;
@@ -190,12 +191,13 @@ const pages = [];
   text(s, "Recommended final SEO actions", margin, y - 12, 13, colors.green, "F2");
   bulletList(s, [
     "In Google Tag Manager, confirm a Google tag / GA4 Configuration tag uses the real G-XXXXXXXXXX Measurement ID, then publish the container.",
-    "Submit https://www.unimaxagri.com/sitemap.xml in Google Search Console and Bing Webmaster Tools.",
+    "In Google Search Console, click Verify for https://www.unimaxagri.com/; the HTML verification file is already deployed and must remain published.",
+    "Submit https://www.unimaxagri.com/sitemap.xml in Google Search Console and Bing Webmaster Tools, then request indexing for the homepage and priority routes.",
     "Run Lighthouse/PageSpeed Insights on mobile and desktop after the CDN cache settles; the public API returned HTTP 429 during this audit.",
     "Monitor Search Console coverage, Core Web Vitals, indexed pages and GA4 acquisition reports for 2-4 weeks.",
   ], margin, y - 38, 82);
   text(s, "Audit note", margin, 190, 11, colors.green, "F2");
-  paragraph(s, "A 95+ technical score is now targeted by implementation coverage. Actual Lighthouse SEO scoring should be recorded after the final Vercel deployment and GA4 container publication, because those measurements depend on live network and third-party conditions.", margin, 170, 87, 9, 13, colors.muted);
+  paragraph(s, "A 95+ technical score is now targeted by implementation coverage. Search Console ownership is ready for confirmation by the site owner. Actual Lighthouse SEO scoring should be recorded after the final Vercel deployment and GA4 container publication, because those measurements depend on live network and third-party conditions.", margin, 170, 87, 9, 13, colors.muted);
   text(s, "End of report", margin, 72, 9, colors.muted, "F2");
   pages.push(s.join("\n"));
 }

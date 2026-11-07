@@ -34,7 +34,7 @@ stream
 0.12 0.16 0.14 rg BT /F1 11 Tf 48 263 Td (structured data, analytics readiness and social sharing. The production deployment was) Tj ET
 0.12 0.16 0.14 rg BT /F1 11 Tf 48 246 Td (verified after the release.) Tj ET
 0.36 0.42 0.39 rg BT /F2 10 Tf 48 82 Td (Prepared for the Unimax web team) Tj ET
-0.36 0.42 0.39 rg BT /F1 9 Tf 48 64 Td (Repository release: ce9c3db) Tj ET
+0.36 0.42 0.39 rg BT /F1 9 Tf 48 64 Td (Repository release: fb7334a) Tj ET
 endstream
 endobj
 7 0 obj
@@ -135,7 +135,7 @@ stream
 endstream
 endobj
 9 0 obj
-<< /Length 2989 >>
+<< /Length 3566 >>
 stream
 0.09 0.30 0.21 rg 0 728 612 64 re f
 1 1 1 rg BT /F2 12 Tf 48 757 Td (UNIMAX AGRI BIO-TECHNOLOGIES) Tj ET
@@ -150,25 +150,29 @@ stream
 0.12 0.16 0.14 rg BT /F1 9.5 Tf 48 591 Td ([PASS] /about and /products return HTTP 200 with route-specific titles, descriptions and canonicals.) Tj ET
 0.12 0.16 0.14 rg BT /F1 9.5 Tf 48 569 Td ([PASS] GTM-PR7GN274 is present in the production HTML.) Tj ET
 0.12 0.16 0.14 rg BT /F1 9.5 Tf 48 547 Td ([PASS] JSON-LD structured data is present in the production HTML.) Tj ET
-0.12 0.16 0.14 rg BT /F1 9.5 Tf 48 525 Td ([PASS] bun run build completes and generates SEO-ready route HTML.) Tj ET
-0.09 0.30 0.21 rg BT /F2 13 Tf 48 491 Td (Recommended final SEO actions) Tj ET
-0.78 0.56 0.16 rg BT /F2 10 Tf 48 465 Td (-) Tj ET
-0.12 0.16 0.14 rg BT /F1 10 Tf 62 465 Td (In Google Tag Manager, confirm a Google tag / GA4 Configuration tag uses the real) Tj ET
-0.12 0.16 0.14 rg BT /F1 10 Tf 62 451 Td (G-XXXXXXXXXX Measurement ID, then publish the container.) Tj ET
-0.78 0.56 0.16 rg BT /F2 10 Tf 48 433 Td (-) Tj ET
-0.12 0.16 0.14 rg BT /F1 10 Tf 62 433 Td (Submit https://www.unimaxagri.com/sitemap.xml in Google Search Console and Bing) Tj ET
-0.12 0.16 0.14 rg BT /F1 10 Tf 62 419 Td (Webmaster Tools.) Tj ET
-0.78 0.56 0.16 rg BT /F2 10 Tf 48 401 Td (-) Tj ET
-0.12 0.16 0.14 rg BT /F1 10 Tf 62 401 Td (Run Lighthouse/PageSpeed Insights on mobile and desktop after the CDN cache) Tj ET
-0.12 0.16 0.14 rg BT /F1 10 Tf 62 387 Td (settles; the public API returned HTTP 429 during this audit.) Tj ET
-0.78 0.56 0.16 rg BT /F2 10 Tf 48 369 Td (-) Tj ET
-0.12 0.16 0.14 rg BT /F1 10 Tf 62 369 Td (Monitor Search Console coverage, Core Web Vitals, indexed pages and GA4) Tj ET
-0.12 0.16 0.14 rg BT /F1 10 Tf 62 355 Td (acquisition reports for 2-4 weeks.) Tj ET
+0.12 0.16 0.14 rg BT /F1 9.5 Tf 48 525 Td ([PASS] Google Search Console HTML verification file returns HTTP 200 at /google35af0fcb17411993.html.) Tj ET
+0.12 0.16 0.14 rg BT /F1 9.5 Tf 48 503 Td ([PASS] bun run build completes and generates SEO-ready route HTML.) Tj ET
+0.09 0.30 0.21 rg BT /F2 13 Tf 48 469 Td (Recommended final SEO actions) Tj ET
+0.78 0.56 0.16 rg BT /F2 10 Tf 48 443 Td (-) Tj ET
+0.12 0.16 0.14 rg BT /F1 10 Tf 62 443 Td (In Google Tag Manager, confirm a Google tag / GA4 Configuration tag uses the real) Tj ET
+0.12 0.16 0.14 rg BT /F1 10 Tf 62 429 Td (G-XXXXXXXXXX Measurement ID, then publish the container.) Tj ET
+0.78 0.56 0.16 rg BT /F2 10 Tf 48 411 Td (-) Tj ET
+0.12 0.16 0.14 rg BT /F1 10 Tf 62 411 Td (In Google Search Console, click Verify for https://www.unimaxagri.com/; the HTML) Tj ET
+0.12 0.16 0.14 rg BT /F1 10 Tf 62 397 Td (verification file is already deployed and must remain published.) Tj ET
+0.78 0.56 0.16 rg BT /F2 10 Tf 48 379 Td (-) Tj ET
+0.12 0.16 0.14 rg BT /F1 10 Tf 62 379 Td (Submit https://www.unimaxagri.com/sitemap.xml in Google Search Console and Bing) Tj ET
+0.12 0.16 0.14 rg BT /F1 10 Tf 62 365 Td (Webmaster Tools, then request indexing for the homepage and priority routes.) Tj ET
+0.78 0.56 0.16 rg BT /F2 10 Tf 48 347 Td (-) Tj ET
+0.12 0.16 0.14 rg BT /F1 10 Tf 62 347 Td (Run Lighthouse/PageSpeed Insights on mobile and desktop after the CDN cache) Tj ET
+0.12 0.16 0.14 rg BT /F1 10 Tf 62 333 Td (settles; the public API returned HTTP 429 during this audit.) Tj ET
+0.78 0.56 0.16 rg BT /F2 10 Tf 48 315 Td (-) Tj ET
+0.12 0.16 0.14 rg BT /F1 10 Tf 62 315 Td (Monitor Search Console coverage, Core Web Vitals, indexed pages and GA4) Tj ET
+0.12 0.16 0.14 rg BT /F1 10 Tf 62 301 Td (acquisition reports for 2-4 weeks.) Tj ET
 0.09 0.30 0.21 rg BT /F2 11 Tf 48 190 Td (Audit note) Tj ET
-0.36 0.42 0.39 rg BT /F1 9 Tf 48 170 Td (A 95+ technical score is now targeted by implementation coverage. Actual Lighthouse SEO) Tj ET
-0.36 0.42 0.39 rg BT /F1 9 Tf 48 157 Td (scoring should be recorded after the final Vercel deployment and GA4 container) Tj ET
-0.36 0.42 0.39 rg BT /F1 9 Tf 48 144 Td (publication, because those measurements depend on live network and third-party) Tj ET
-0.36 0.42 0.39 rg BT /F1 9 Tf 48 131 Td (conditions.) Tj ET
+0.36 0.42 0.39 rg BT /F1 9 Tf 48 170 Td (A 95+ technical score is now targeted by implementation coverage. Search Console) Tj ET
+0.36 0.42 0.39 rg BT /F1 9 Tf 48 157 Td (ownership is ready for confirmation by the site owner. Actual Lighthouse SEO scoring) Tj ET
+0.36 0.42 0.39 rg BT /F1 9 Tf 48 144 Td (should be recorded after the final Vercel deployment and GA4 container publication,) Tj ET
+0.36 0.42 0.39 rg BT /F1 9 Tf 48 131 Td (because those measurements depend on live network and third-party conditions.) Tj ET
 0.36 0.42 0.39 rg BT /F2 9 Tf 48 72 Td (End of report) Tj ET
 endstream
 endobj
@@ -196,12 +200,12 @@ xref
 0000001781 00000 n 
 0000004920 00000 n 
 0000008099 00000 n 
-0000011140 00000 n 
-0000011277 00000 n 
-0000011414 00000 n 
-0000011551 00000 n 
+0000011717 00000 n 
+0000011854 00000 n 
+0000011991 00000 n 
+0000012128 00000 n 
 trailer
 << /Size 14 /Root 2 0 R /Info 5 0 R >>
 startxref
-11688
+12265
 %%EOF
