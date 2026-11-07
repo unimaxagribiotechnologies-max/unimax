@@ -18,15 +18,44 @@ const schema = z.object({
 type Form = z.infer<typeof schema>;
 
 const field = "w-full rounded-xl border bg-card px-4 py-3 outline-none transition focus:border-accent focus:ring-2 focus:ring-ring/30";
+const WEB3FORMS_ACCESS_KEY = "633bdd4a-6399-426d-ad6b-3d386de3915e";
 
 export default function Contact() {
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
   const { register, handleSubmit, formState: { errors } } = useForm<Form>({ resolver: zodResolver(schema), defaultValues: { type: "General Enquiry" } });
-  const onSubmit = (d: Form) => {
-    saveEnquiry(d);
-    const text = `${d.type}\nName: ${d.name}\nMobile: ${d.mobile}\nEmail: ${d.email}\nSubject: ${d.subject}\n\n${d.message}`;
-    window.open(`${company.whatsapp}?text=${encodeURIComponent(text)}`, "_blank");
-    setSent(true);
+  const onSubmit = async (d: Form) => {
+    setSubmitting(true);
+    setSubmitError(false);
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: `${d.type}: ${d.subject}`,
+          from_name: "Unimax website enquiry",
+          name: d.name,
+          email: d.email,
+          phone: d.mobile,
+          enquiry_type: d.type,
+          message: d.message,
+        }),
+      });
+      const result = await response.json() as { success?: boolean };
+      if (!response.ok || !result.success) throw new Error("Email submission failed");
+
+      saveEnquiry(d);
+      const text = `${d.type}\nName: ${d.name}\nMobile: ${d.mobile}\nEmail: ${d.email}\nSubject: ${d.subject}\n\n${d.message}`;
+      window.open(`${company.whatsapp}?text=${encodeURIComponent(text)}`, "_blank");
+      setSent(true);
+    } catch {
+      setSubmitError(true);
+    } finally {
+      setSubmitting(false);
+    }
   };
   const err = (k: keyof Form) => errors[k] && <p className="mt-1 text-xs text-destructive">{errors[k]?.message}</p>;
   return (
@@ -57,6 +86,7 @@ export default function Contact() {
         <form onSubmit={handleSubmit(onSubmit)} className="card-animate rounded-3xl border bg-card p-5 shadow-soft sm:p-8 md:p-10" noValidate>
           <h2 className="text-2xl font-bold text-primary">Send an enquiry</h2>
           {sent && <p className="mt-4 rounded-xl bg-secondary p-4 text-sm text-primary">Thank you! Your enquiry has been saved and opened in WhatsApp — press send there to deliver it.</p>}
+          {submitError && <p className="mt-4 rounded-xl bg-destructive/10 p-4 text-sm text-destructive">We couldn’t send your enquiry by email. Please try again or contact us directly.</p>}
           <div className="mt-6 grid gap-5 sm:grid-cols-2">
             <label className="text-sm font-medium">Full Name<input className={`${field} mt-1.5`} {...register("name")} />{err("name")}</label>
             <label className="text-sm font-medium">Mobile Number<input className={`${field} mt-1.5`} inputMode="tel" {...register("mobile")} />{err("mobile")}</label>
@@ -66,7 +96,7 @@ export default function Contact() {
             <label className="text-sm font-medium sm:col-span-2">Subject<input className={`${field} mt-1.5`} {...register("subject")} />{err("subject")}</label>
             <label className="text-sm font-medium sm:col-span-2">Message<textarea rows={5} className={`${field} mt-1.5`} {...register("message")} />{err("message")}</label>
           </div>
-          <Button type="submit" variant="brand" size="xl" className="mt-6">Send Enquiry</Button>
+          <Button type="submit" variant="brand" size="xl" className="mt-6" disabled={submitting}>{submitting ? "Sending..." : "Send Enquiry"}</Button>
         </form>
       </section>
     </>
