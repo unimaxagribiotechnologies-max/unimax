@@ -39,6 +39,7 @@ export default function Contact() {
           from_name: "Unimax website enquiry",
           name: d.name,
           email: d.email,
+          replyto: d.email,
           phone: d.mobile,
           enquiry_type: d.type,
           message: d.message,
@@ -48,8 +49,6 @@ export default function Contact() {
       if (!response.ok || !result.success) throw new Error("Email submission failed");
 
       saveEnquiry(d);
-      const text = `${d.type}\nName: ${d.name}\nMobile: ${d.mobile}\nEmail: ${d.email}\nSubject: ${d.subject}\n\n${d.message}`;
-      window.open(`${company.whatsapp}?text=${encodeURIComponent(text)}`, "_blank");
       setSent(true);
     } catch {
       setSubmitError(true);
@@ -85,7 +84,7 @@ export default function Contact() {
         </div>
         <form onSubmit={handleSubmit(onSubmit)} className="card-animate rounded-3xl border bg-card p-5 shadow-soft sm:p-8 md:p-10" noValidate>
           <h2 className="text-2xl font-bold text-primary">Send an enquiry</h2>
-          {sent && <p className="mt-4 rounded-xl bg-secondary p-4 text-sm text-primary">Thank you! Your enquiry has been saved and opened in WhatsApp — press send there to deliver it.</p>}
+          {sent && <p className="mt-4 rounded-xl bg-secondary p-4 text-sm text-primary">Thank you! Your enquiry has been sent by email. We will get back to you soon.</p>}
           {submitError && <p className="mt-4 rounded-xl bg-destructive/10 p-4 text-sm text-destructive">We couldn’t send your enquiry by email. Please try again or contact us directly.</p>}
           <div className="mt-6 grid gap-5 sm:grid-cols-2">
             <label className="text-sm font-medium">Full Name<input className={`${field} mt-1.5`} {...register("name")} />{err("name")}</label>
